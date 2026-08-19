@@ -23,17 +23,17 @@ const categories = [
     size: 'medium',
   },
   {
-    name: 'Hair Care',
-    description: 'Premium treatments',
-    image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&h=600&fit=crop&q=90',
-    count: 86,
-    size: 'small',
-  },
-  {
     name: 'Body Care',
     description: 'Nourishing essentials',
     image: 'https://images.unsplash.com/photo-1570194065650-d99fb4ee3313?w=600&h=600&fit=crop&q=90',
     count: 64,
+    size: 'small',
+  },
+  {
+    name: 'Hair Care',
+    description: 'Premium treatments',
+    image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&h=600&fit=crop&q=90',
+    count: 86,
     size: 'small',
   },
 ];
