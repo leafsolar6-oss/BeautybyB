@@ -221,16 +221,24 @@ export default function Home() {
       {/* Quick Categories */}
       <QuickCategories />
 
-      {/* Scent Club Banner */}
-      <section className="py-8 md:py-12">
+      {/* ===== PROMOTIONAL BANNER ===== */}
+      <section className="py-8 md:py-12 bg-gradient-to-r from-[#c8a84e] to-[#e8c94e]">
         <div className="max-w-[1400px] mx-auto px-4">
-          <a href="#" className="block">
-            <img
-              src="https://perfumebox.com/cdn/shop/files/Untitled-10_copy_90f5216f-8058-487b-9f52-921d5d992c51.gif?v=1732893109"
-              alt="Bundle & Save"
-              className="w-full"
-            />
-          </a>
+          <div className="text-center">
+            <p className="text-[#1a1a1a] text-xs font-bold tracking-[0.3em] uppercase mb-2">✦ Special Offer ✦</p>
+            <h3 className="text-[#1a1a1a] text-3xl md:text-5xl font-heading font-bold mb-3">
+              BUNDLE &amp; SAVE
+            </h3>
+            <p className="text-[#1a1a1a]/70 text-sm md:text-base mb-5">
+              Get up to 30% off when you buy 2 or more fragrances
+            </p>
+            <Link
+              href="/shop"
+              className="inline-block px-8 py-3 bg-[#1a1a1a] text-[#c8a84e] text-xs font-bold tracking-widest uppercase hover:bg-[#2a2a2a] transition-all"
+            >
+              Shop Now →
+            </Link>
+          </div>
         </div>
       </section>
 
