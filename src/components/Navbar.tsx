@@ -122,12 +122,12 @@ export default function Navbar() {
 
         {/* Slide-in Panel */}
         <div
-          className={`fixed right-0 top-0 bottom-0 w-full max-w-[380px] bg-white shadow-2xl flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+          className={`fixed right-0 top-0 bottom-0 w-full max-w-[380px] flex flex-col transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
             isOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-[#f0f0f0] bg-white">
+          <div className="flex items-center justify-between px-6 py-5 border-b border-[#f0f0f0] bg-white/90 backdrop-blur-md">
             <span className="font-heading text-2xl font-bold">
               Beauty<span className="text-[#c8a84e]">byB</span>
             </span>
@@ -143,10 +143,10 @@ export default function Navbar() {
           </div>
 
           {/* Scrollable Links */}
-          <div className="flex-1 overflow-y-auto py-6 bg-white">
+          <div className="flex-1 overflow-y-auto py-6">
             {/* Shop Section */}
             <div className="px-6">
-              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#999] mb-3">Shop</p>
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/80 mb-3">Shop</p>
               <div className="space-y-1">
                 {mainLinks.map((link) => (
                   <Link
@@ -155,27 +155,23 @@ export default function Navbar() {
                     onClick={() => setIsOpen(false)}
                     className={`group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-300 ${
                       isActive(link.href)
-                        ? 'bg-[#1a1a1a] text-white'
-                        : 'text-[#333] hover:bg-gray-50'
+                        ? 'bg-white/20 text-white backdrop-blur-sm'
+                        : 'text-white hover:bg-white/10'
                     }`}
                   >
                     <div className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-300 ${
                       isActive(link.href)
-                        ? 'bg-[#c8a84e]/20 text-[#c8a84e]'
-                        : 'bg-gray-100 text-[#666] group-hover:bg-[#c8a84e]/10 group-hover:text-[#c8a84e]'
+                        ? 'bg-[#c8a84e]/30 text-[#c8a84e]'
+                        : 'bg-white/10 text-white/70 group-hover:bg-[#c8a84e]/20 group-hover:text-[#c8a84e]'
                     }`}>
                       <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
                         <path d={link.icon} />
                       </svg>
                     </div>
-                    <span className={`flex-1 font-semibold tracking-wider text-sm ${
-                      isActive(link.href) ? 'text-white' : ''
-                    }`}>
+                    <span className="flex-1 font-semibold tracking-wider text-sm">
                       {link.label}
                     </span>
-                    <svg className={`w-4 h-4 transition-all duration-300 ${
-                      isActive(link.href) ? 'text-[#c8a84e] translate-x-0' : 'text-[#ccc] -translate-x-1 group-hover:translate-x-0 group-hover:text-[#c8a84e]'
-                    }`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-white/40 -translate-x-1 group-hover:translate-x-0 group-hover:text-[#c8a84e] transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
@@ -185,7 +181,7 @@ export default function Navbar() {
           </div>
 
           {/* Footer - Horizontal Layout with Social & Links */}
-          <div className="border-t border-[#f0f0f0] px-6 py-4 bg-white">
+          <div className="border-t border-white/10 px-6 py-4 bg-white/90 backdrop-blur-md">
             <div className="flex items-center justify-between gap-2">
               {/* Instagram */}
               <a
