@@ -4,23 +4,23 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-dark text-white">
+    <footer className="bg-[#1a1a1a] text-white">
       {/* Main footer */}
-      <div className="max-w-[1400px] mx-auto px-8 py-16">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-16">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
             <h3 className="font-serif text-2xl mb-4">
-              Beauty<span className="text-gold">byB</span>
+              Beauty<span className="text-[#b8956a]">byB</span>
             </h3>
-            <p className="text-white/70 text-sm leading-relaxed mb-6">
+            <p className="text-white/60 text-sm leading-relaxed mb-6">
               Nigeria's premier destination for authentic luxury perfumes, skincare, and wellness products.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/beauty_byb.ng" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
+              <a href="https://www.instagram.com/beauty_byb.ng" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white text-xs font-bold tracking-widest uppercase transition-colors">
                 Instagram
               </a>
-              <a href="https://wa.me/2348012345678" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">
+              <a href="https://wa.me/2348012345678" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-white text-xs font-bold tracking-widest uppercase transition-colors">
                 WhatsApp
               </a>
             </div>
@@ -28,7 +28,7 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider mb-4">Shop</h4>
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-5 text-white">SHOP</h4>
             <ul className="space-y-3">
               {[
                 { label: 'Perfumes', href: '/shop?cat=perfume' },
@@ -37,7 +37,7 @@ export default function Footer() {
                 { label: 'Beauty & Glow', href: '/shop?cat=beauty-glow' },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-sm text-white/60 hover:text-white transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -47,7 +47,7 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider mb-4">Company</h4>
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-5 text-white">COMPANY</h4>
             <ul className="space-y-3">
               {[
                 { label: 'About Us', href: '/about' },
@@ -56,7 +56,7 @@ export default function Footer() {
                 { label: 'Terms of Service', href: '#' },
               ].map((item) => (
                 <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-white/70 hover:text-white transition-colors">
+                  <Link href={item.href} className="text-sm text-white/60 hover:text-white transition-colors">
                     {item.label}
                   </Link>
                 </li>
@@ -66,19 +66,19 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider mb-4">Stay Updated</h4>
-            <p className="text-sm text-white/70 mb-4">
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-5 text-white">NEWSLETTER</h4>
+            <p className="text-sm text-white/60 mb-4">
               Subscribe for exclusive offers and new arrivals
             </p>
             <form onSubmit={(e) => e.preventDefault()} className="flex">
               <input
                 type="email"
                 placeholder="Your email"
-                className="flex-1 px-4 py-2 text-dark rounded-l focus:outline-none"
+                className="flex-1 px-4 py-3 bg-transparent border border-white/20 text-white text-sm placeholder:text-white/40 focus:outline-none focus:border-[#b8956a]"
               />
               <button
                 type="submit"
-                className="px-6 py-2 bg-gold text-dark font-semibold rounded-r hover:bg-gold/90 transition-all"
+                className="px-5 py-3 bg-[#b8956a] text-dark text-xs font-bold tracking-widest uppercase hover:bg-[#a6845a] transition-colors"
               >
                 Join
               </button>
@@ -89,9 +89,12 @@ export default function Footer() {
 
       {/* Bottom bar */}
       <div className="border-t border-white/10">
-        <div className="max-w-[1400px] mx-auto px-8 py-6 text-center">
-          <p className="text-sm text-white/60">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-10 py-6 flex flex-col md:flex-row items-center justify-between gap-4">
+          <p className="text-xs text-white/40">
             © 2026 BeautybyB. All rights reserved.
+          </p>
+          <p className="text-xs text-white/40">
+            Proudly serving Nigeria
           </p>
         </div>
       </div>

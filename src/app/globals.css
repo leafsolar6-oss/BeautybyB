@@ -1,29 +1,26 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
 
 @theme {
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
 
-  /* Adopt-inspired clean palette */
+  /* PerfumeBox-inspired clean palette */
   --color-white: #ffffff;
-  --color-offwhite: #fafafa;
-  --color-light: #f5f5f5;
-  --color-border: #e8e8e8;
-  --color-muted: #999999;
-  --color-text: #333333;
-  --color-dark: #1a1a1a;
+  --color-offwhite: #f8f8f8;
+  --color-light: #f0f0f0;
+  --color-border: #e0e0e0;
+  --color-muted: #666666;
+  --color-text: #222222;
+  --color-dark: #000000;
   --color-black: #000000;
+  --color-red: #c0392b;
 
-  /* Warm accent for BeautybyB */
-  --color-gold: #c5a46c;
-  --color-gold-light: #f0e6d3;
-  --color-gold-dark: #a68a54;
-  --color-sage: #7d9b8a;
-  --color-sage-light: #e8f0eb;
-  --color-rose: #d4a0a0;
-  --color-rose-light: #f8eded;
+  /* Warm gold accent */
+  --color-gold: #b8956a;
+  --color-gold-light: #d4c4a3;
+  --color-gold-dark: #8a6d3b;
 }
 
 * {
@@ -44,7 +41,7 @@ body {
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 /* Clean scrollbar */
@@ -65,7 +62,7 @@ body {
   background: #999;
 }
 
-/* Adopt-style product card */
+/* Product card */
 .product-card {
   background: white;
   transition: all 0.3s ease;
@@ -93,12 +90,12 @@ body {
 /* Badge styles */
 .badge {
   display: inline-block;
-  padding: 6px 12px;
-  font-size: 12px;
-  font-weight: 600;
+  padding: 4px 10px;
+  font-size: 10px;
+  font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 4px;
+  border-radius: 0;
 }
 
 .badge-new {
@@ -107,7 +104,7 @@ body {
 }
 
 .badge-sale {
-  background: var(--color-rose);
+  background: var(--color-red);
   color: white;
 }
 
@@ -116,38 +113,33 @@ body {
   color: white;
 }
 
-.badge-vegan {
-  background: var(--color-sage);
-  color: white;
-}
-
-/* Clean button */
+/* Clean button - PerfumeBox style */
 .btn-add {
   width: 100%;
-  padding: 14px;
+  padding: 12px;
   background: var(--color-dark);
   color: white;
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   border: none;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .btn-add:hover {
-  background: var(--color-black);
+  background: var(--color-text);
 }
 
 .btn-outline {
-  padding: 14px 28px;
-  border: 1.5px solid var(--color-dark);
+  padding: 12px 24px;
+  border: 1px solid var(--color-dark);
   color: var(--color-dark);
-  font-size: 14px;
-  font-weight: 600;
+  font-size: 12px;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   background: transparent;
   cursor: pointer;
   transition: all 0.2s ease;
@@ -156,12 +148,6 @@ body {
 .btn-outline:hover {
   background: var(--color-dark);
   color: white;
-}
-
-/* Banner section */
-.banner-section {
-  position: relative;
-  overflow: hidden;
 }
 
 /* Category tile */
@@ -179,60 +165,6 @@ body {
   transform: scale(1.05);
 }
 
-/* Animations */
-@keyframes fade-in {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in {
-  animation: fade-in 0.6s ease-out forwards;
-}
-
-/* Star rating */
-.stars {
-  color: var(--color-gold);
-}
-
-/* Volume selector */
-.volume-option {
-  padding: 6px 12px;
-  border: 1px solid var(--color-border);
-  font-size: 13px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.volume-option:hover,
-.volume-option.active {
-  border-color: var(--color-dark);
-  background: var(--color-dark);
-  color: white;
-}
-
-/* Carousel progress animation */
-@keyframes progress {
-  from { width: 0%; }
-  to { width: 100%; }
-}
-
-/* Nav link hover effect */
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 2px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 1.5px;
-  background: var(--color-dark);
-  transition: width 0.3s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.nav-link:hover::after {
-  width: 20px;
-}
-
 /* Hide scrollbar for horizontal scroll */
 .scrollbar-hide {
   -ms-overflow-style: none;
@@ -240,4 +172,35 @@ body {
 }
 .scrollbar-hide::-webkit-scrollbar {
   display: none;
+}
+
+/* Nav link hover */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-dark);
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* Line clamp utility */
+.line-clamp-1 {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
