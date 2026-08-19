@@ -1,50 +1,11 @@
 import Link from 'next/link';
+import HeroCarousel from '@/components/HeroCarousel';
 
 export default function HomePage() {
   return (
     <div>
-      {/* ===== HERO BANNER — PERFUME FOCUSED ===== */}
-      <section className="relative bg-offwhite">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
-            {/* Text side */}
-            <div className="flex flex-col justify-center px-8 md:px-16 py-16">
-              <span className="text-[11px] font-semibold tracking-widest uppercase text-gold mb-4">Authentic Luxury Fragrances</span>
-              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dark leading-[1.1] font-normal">
-                Find your
-                <br />
-                <span className="italic">signature scent</span>
-              </h1>
-              <p className="text-sm text-muted mt-5 max-w-md leading-relaxed">
-                Discover authentic perfumes, premium skincare, and quality supplements — all in one place. Nigeria's trusted beauty destination.
-              </p>
-              <div className="flex gap-3 mt-8">
-                <Link
-                  href="/shop"
-                  className="btn-add max-w-[200px] text-center"
-                >
-                  Shop Perfumes
-                </Link>
-                <Link
-                  href="/shop?cat=skincare"
-                  className="btn-outline"
-                >
-                  Shop Skincare
-                </Link>
-              </div>
-            </div>
-
-            {/* Image side */}
-            <div className="relative overflow-hidden bg-light min-h-[300px] lg:min-h-0">
-              <img
-                src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=900&fit=crop"
-                alt="Luxury perfume collection"
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* ===== HERO CAROUSEL ===== */}
+      <HeroCarousel />
 
       {/* ===== MAIN CATEGORIES ===== */}
       <section className="py-12 px-4 md:px-8 border-b border-border">

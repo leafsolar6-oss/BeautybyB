@@ -203,3 +203,26 @@ body {
   background: var(--color-dark);
   color: white;
 }
+
+/* Carousel progress animation */
+@keyframes progress {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+
+/* Nav link hover effect */
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 0;
+  height: 1.5px;
+  background: var(--color-dark);
+  transition: width 0.3s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.nav-link:hover::after {
+  width: 20px;
+}
