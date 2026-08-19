@@ -31,8 +31,8 @@ export default function TestimonialsSection() {
 
   return (
     <section className="py-24 md:py-32 bg-cream">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        {/* Header */}
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
+          {/* Header */}
         <div className="text-center mb-16">
           <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Testimonials</span>
           <h2 className="font-display text-4xl md:text-6xl font-light text-green-950 mt-4">

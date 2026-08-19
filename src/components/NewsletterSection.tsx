@@ -9,7 +9,7 @@ export default function NewsletterSection() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-gold rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
       </div>
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 md:px-12 text-center">
+        <div className="relative z-10 max-w-4xl mx-auto px-8 md:px-16 lg:px-24 text-center">
         <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Join Our Community</span>
         <h2 className="font-display text-4xl md:text-6xl font-light text-white mt-4 mb-6">
           Subscribe to Our <em className="italic font-normal">Newsletter</em>

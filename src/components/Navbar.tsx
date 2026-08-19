@@ -24,7 +24,7 @@ export default function Navbar() {
             : 'bg-transparent py-6'
         }`}
       >
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           <div className="grid grid-cols-3 items-center">
             {/* Left: Hamburger */}
             <div>
@@ -105,9 +105,11 @@ export default function Navbar() {
 
             {/* Navigation Links */}
             <nav className="flex-1 overflow-y-auto px-6 py-8">
+              {/* Home — Section Heading */}
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-gold mb-3 px-3">Home</p>
+
               <div className="space-y-1">
                 {[
-                  { label: 'Home', href: '/' },
                   { label: 'Designer Perfumes', href: '/shop?category=designer' },
                   { label: 'Imported Skincare', href: '/shop?category=skincare' },
                   { label: 'Skincare Supplements', href: '/shop?category=supplements' },

@@ -10,8 +10,8 @@ const images = [
 export default function InstagramFeed() {
   return (
     <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        {/* Header */}
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
+          {/* Header */}
         <div className="text-center mb-12">
           <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Follow Us</span>
           <h2 className="font-display text-4xl md:text-5xl font-light text-green-950 mt-4 mb-4">

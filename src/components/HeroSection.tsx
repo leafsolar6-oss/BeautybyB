@@ -21,8 +21,8 @@ export default function HeroSection() {
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full">
-          <div className="max-w-3xl">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 w-full">
+          <div className="max-w-3xl md:ml-8">
             {/* Tagline */}
             <div className="animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <span className="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-medium mb-6">

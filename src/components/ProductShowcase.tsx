@@ -46,8 +46,8 @@ export default function ProductShowcase() {
 
   return (
     <section className="py-24 md:py-32 bg-green-950 text-white">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        {/* Header */}
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
+          {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
           <div>
             <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Our Collection</span>

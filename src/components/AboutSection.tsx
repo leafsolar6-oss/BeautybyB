@@ -1,8 +1,8 @@
 export default function AboutSection() {
   return (
     <section className="py-24 md:py-32 bg-white">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
+          <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
           {/* Image Collage */}
           <div className="relative">
             <div className="grid grid-cols-2 gap-4">
