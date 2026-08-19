@@ -34,9 +34,9 @@ export default function HomePage() {
           <h2 className="font-serif text-lg md:text-2xl text-dark text-center mb-4 md:mb-8 px-2">Shop by Category</h2>
           <div className="grid grid-cols-1 gap-2.5 md:grid-cols-3 md:gap-4">
             {[
-              { title: 'Perfumes', desc: '994 luxury fragrances', count: '994', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=300&fit=crop&q=80', link: '/shop?cat=perfume', accent: 'from-amber-900/60' },
-              { title: 'Skincare', desc: '64 imported products', count: '64', image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=300&fit=crop&q=80', link: '/shop?cat=skincare', accent: 'from-teal-900/60' },
-              { title: 'Beauty & Glow', desc: '63 radiance essentials', count: '63', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=300&fit=crop&q=80', link: '/shop?cat=beauty-glow', accent: 'from-rose-900/60' },
+              { title: 'Perfumes', desc: 'Luxury fragrances', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=300&fit=crop&q=80', link: '/shop?cat=perfume', accent: 'from-amber-900/60' },
+              { title: 'Skincare', desc: 'Imported products', image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=300&fit=crop&q=80', link: '/shop?cat=skincare', accent: 'from-teal-900/60' },
+              { title: 'Beauty & Glow', desc: 'Radiance essentials', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=300&fit=crop&q=80', link: '/shop?cat=beauty-glow', accent: 'from-rose-900/60' },
             ].map((cat) => (
               <Link key={cat.title} href={cat.link} className="relative h-[130px] md:h-[220px] block rounded-xl overflow-hidden group">
                 <img src={cat.image} alt={cat.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -47,9 +47,6 @@ export default function HomePage() {
                       <h3 className="font-serif text-base md:text-xl text-white">{cat.title}</h3>
                       <p className="text-[10px] md:text-xs text-white/70 mt-0.5 truncate">{cat.desc}</p>
                     </div>
-                    <span className="text-[10px] font-bold text-white/60 md:text-sm bg-white/10 backdrop-blur-sm px-2.5 py-1 rounded-full shrink-0">
-                      {cat.count}
-                    </span>
                   </div>
                 </div>
               </Link>

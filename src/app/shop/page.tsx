@@ -78,7 +78,6 @@ export default function ShopPage() {
              activeCategory === 'perfume' ? 'Perfumes' :
              activeCategory === 'skincare' ? 'Skincare' : 'Beauty & Glow'}
           </h1>
-          <p className="text-sm text-muted mt-1.5">{filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}</p>
         </div>
       </div>
 
