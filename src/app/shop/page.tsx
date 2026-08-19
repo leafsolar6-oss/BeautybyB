@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import Link from 'next/link';
 import { allProducts, categories, genderFilters } from '@/data/products';
 
 export default function ShopPage() {
@@ -15,7 +14,6 @@ export default function ShopPage() {
     return categoryMatch && genderMatch;
   });
 
-  // Sort
   if (sortBy === 'price-low') {
     filteredProducts = [...filteredProducts].sort((a, b) => a.priceNumeric - b.priceNumeric);
   } else if (sortBy === 'price-high') {
@@ -25,156 +23,146 @@ export default function ShopPage() {
   }
 
   return (
-    <div className="pt-32 pb-16 px-6">
-      {/* Background blobs */}
-      <div className="blob w-96 h-96 bg-rose/20 top-10 -left-20" />
-      <div className="blob w-72 h-72 bg-gold-200/20 bottom-20 right-10" />
-
-      {/* Header */}
-      <div className="max-w-7xl mx-auto text-center mb-12">
-        <span className="font-sans text-xs tracking-widest uppercase text-gold-500">The Collection</span>
-        <h1 className="font-serif text-4xl md:text-6xl font-light mt-3 text-deep">
-          Our <span className="italic text-gradient">Fragrances</span>
-        </h1>
-        <p className="mt-4 text-deep/50 max-w-xl mx-auto">
-          From our signature Essenza Collection to the world's most coveted luxury houses — explore fragrances crafted for those who demand the extraordinary.
-        </p>
+    <div>
+      {/* Page header */}
+      <div className="bg-offwhite py-10 px-4 md:px-8 border-b border-border">
+        <div className="max-w-[1400px] mx-auto text-center">
+          <h1 className="font-serif text-3xl md:text-4xl text-dark">All Fragrances</h1>
+          <p className="text-[12px] text-muted mt-2">{filteredProducts.length} products</p>
+        </div>
       </div>
 
-      {/* Filters */}
-      <div className="max-w-7xl mx-auto mb-6">
-        {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-2 mb-4">
-          {categories.map((cat) => (
-            <button
-              key={cat.id}
-              onClick={() => setActiveCategory(cat.id)}
-              className={`px-4 py-2 rounded-full text-xs tracking-wider uppercase transition-all duration-300 ${
-                activeCategory === cat.id
-                  ? 'bg-gradient-to-r from-deep to-plum text-white shadow-lg shadow-deep/20'
-                  : 'glass text-deep/70 hover:text-deep'
-              }`}
-            >
-              {cat.label}
-            </button>
-          ))}
-        </div>
-
-        {/* Gender + Sort Row */}
-        <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
-          <div className="flex items-center gap-2">
-            <span className="text-xs text-deep/50 uppercase tracking-wider mr-2">For:</span>
-            {genderFilters.map((g) => (
+      {/* Filters bar */}
+      <div className="sticky top-16 z-40 bg-white border-b border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-3 flex flex-wrap items-center justify-between gap-3">
+          {/* Category tabs */}
+          <div className="flex flex-wrap gap-1">
+            {categories.map((cat) => (
               <button
-                key={g.id}
-                onClick={() => setActiveGender(g.id)}
-                className={`px-3 py-1.5 rounded-full text-xs tracking-wider transition-all duration-300 ${
-                  activeGender === g.id
-                    ? 'bg-deep/10 text-deep font-medium'
-                    : 'text-deep/50 hover:text-deep/70'
+                key={cat.id}
+                onClick={() => setActiveCategory(cat.id)}
+                className={`px-3 py-1.5 text-[11px] font-semibold tracking-wide transition-all rounded-sm ${
+                  activeCategory === cat.id
+                    ? 'bg-dark text-white'
+                    : 'text-muted hover:text-dark hover:bg-offwhite'
                 }`}
               >
-                {g.label}
+                {cat.label}
               </button>
             ))}
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="text-xs text-deep/50 uppercase tracking-wider">Sort:</span>
+          {/* Gender + Sort */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1">
+              {genderFilters.map((g) => (
+                <button
+                  key={g.id}
+                  onClick={() => setActiveGender(g.id)}
+                  className={`px-2.5 py-1 text-[11px] font-medium transition-all rounded-sm ${
+                    activeGender === g.id
+                      ? 'text-dark border-b border-dark'
+                      : 'text-muted hover:text-dark'
+                  }`}
+                >
+                  {g.label}
+                </button>
+              ))}
+            </div>
             <select
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
-              className="px-3 py-1.5 rounded-full bg-white/40 backdrop-blur-sm border border-white/50 text-xs text-deep focus:outline-none focus:border-gold-300"
+              className="text-[11px] font-medium text-muted bg-transparent border border-border px-3 py-1.5 focus:outline-none focus:border-dark cursor-pointer"
             >
-              <option value="featured">Featured</option>
+              <option value="featured">Sort: Featured</option>
               <option value="price-low">Price: Low to High</option>
               <option value="price-high">Price: High to Low</option>
-              <option value="name">Name: A–Z</option>
+              <option value="name">Name: A to Z</option>
             </select>
           </div>
         </div>
-
-        {/* Results count */}
-        <p className="text-center text-xs text-deep/40 mt-4">
-          Showing {filteredProducts.length} fragrance{filteredProducts.length !== 1 ? 's' : ''}
-        </p>
       </div>
 
-      {/* Products Grid */}
-      <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      {/* Products grid */}
+      <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-10">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-4 gap-y-8">
           {filteredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="glass-card rounded-3xl overflow-hidden group transition-all duration-500 flex flex-col"
-            >
-              <div className="relative overflow-hidden">
+            <div key={product.id} className="product-card group">
+              <div className="relative bg-offwhite aspect-[3/4] overflow-hidden mb-3">
+                {/* Badges */}
+                <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
+                  {product.bestseller && (
+                    <span className="badge badge-best">Bestseller</span>
+                  )}
+                  {product.newArrival && (
+                    <span className="badge badge-new">New</span>
+                  )}
+                </div>
+
                 <img
                   src={product.image}
                   alt={`${product.brand} ${product.name}`}
-                  className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="product-image w-full h-full object-cover"
                 />
-                {/* Badges */}
-                <div className="absolute top-3 left-3 flex flex-col gap-1.5">
-                  {product.bestseller && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-gold-400/90 text-white text-[9px] tracking-widest uppercase">
-                      Bestseller
-                    </span>
-                  )}
-                  {product.newArrival && (
-                    <span className="px-2.5 py-0.5 rounded-full bg-rose/90 text-white text-[9px] tracking-widest uppercase">
-                      New
-                    </span>
-                  )}
-                </div>
+
+                {/* Sold out overlay */}
                 {!product.inStock && (
-                  <div className="absolute inset-0 bg-deep/40 flex items-center justify-center">
-                    <span className="px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs tracking-widest uppercase">
-                      Sold Out
-                    </span>
+                  <div className="absolute inset-0 bg-white/60 flex items-center justify-center">
+                    <span className="text-[11px] font-semibold text-muted tracking-wider uppercase">Sold Out</span>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-deep/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-              <div className="p-5 flex-1 flex flex-col">
-                <p className="text-[10px] tracking-widest uppercase text-gold-500 mb-0.5">{product.brand}</p>
-                <h3 className="font-serif text-xl text-deep">{product.name}</h3>
-                <p className="text-[11px] text-deep/40 mt-0.5">{product.concentration} — {product.size}</p>
-                <p className="text-xs text-deep/50 mt-2 italic">{product.notes}</p>
-                <div className="flex items-center justify-between mt-auto pt-4">
-                  <span className="font-serif text-lg text-deep">{product.price}</span>
+
+                {/* Quick add */}
+                <div className="quick-add absolute bottom-0 left-0 right-0 p-2">
                   <button
-                    className={`btn-luxury px-3 py-1.5 rounded-full text-[10px] tracking-wider uppercase transition-all duration-300 ${
-                      product.inStock
-                        ? 'bg-gradient-to-r from-deep/10 to-plum/10 text-deep hover:from-deep hover:to-plum hover:text-white'
-                        : 'bg-deep/5 text-deep/30 cursor-not-allowed'
-                    }`}
+                    className={`btn-add text-center ${!product.inStock ? 'opacity-50 cursor-not-allowed' : ''}`}
                     disabled={!product.inStock}
                   >
-                    {product.inStock ? 'Add to Bag' : 'Unavailable'}
+                    {product.inStock ? 'Add' : 'Unavailable'}
                   </button>
                 </div>
+              </div>
+
+              {/* Product info */}
+              <div>
+                <p className="text-[10px] text-muted uppercase tracking-wider font-medium">{product.brand}</p>
+                <h3 className="text-[13px] font-semibold text-dark mt-0.5 leading-tight">{product.name}</h3>
+                <p className="text-[11px] text-muted mt-1 line-clamp-1">{product.notes}</p>
+
+                {/* Size info */}
+                <p className="text-[10px] text-muted/60 mt-1">{product.concentration} · {product.size}</p>
+
+                {/* Price */}
+                <p className="text-[13px] font-semibold text-dark mt-2">{product.price}</p>
               </div>
             </div>
           ))}
         </div>
+
+        {/* Empty state */}
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-20">
+            <p className="text-muted text-sm">No products found in this category.</p>
+            <button
+              onClick={() => { setActiveCategory('all'); setActiveGender('all'); }}
+              className="btn-outline mt-4"
+            >
+              View All Products
+            </button>
+          </div>
+        )}
       </div>
 
-      {/* Bottom CTA */}
-      <div className="max-w-4xl mx-auto mt-20 text-center">
-        <div className="glass-card rounded-3xl p-10">
-          <h3 className="font-serif text-2xl md:text-3xl font-light text-deep">
-            Can't Decide? Let Us Guide You
-          </h3>
-          <p className="mt-3 text-deep/50 text-sm max-w-md mx-auto">
-            Book a personalized fragrance consultation with our experts and discover the scent that tells your story.
+      {/* Consultation CTA */}
+      <div className="bg-offwhite py-12 px-4 md:px-8 border-t border-border">
+        <div className="max-w-[600px] mx-auto text-center">
+          <h3 className="font-serif text-2xl text-dark">Not sure what to choose?</h3>
+          <p className="text-[12px] text-muted mt-2">
+            Book a personal fragrance consultation and let our experts guide you.
           </p>
-          <Link
-            href="/contact"
-            className="inline-flex btn-luxury px-8 py-3 rounded-full bg-gradient-to-r from-deep to-plum text-white text-xs tracking-widest uppercase mt-6"
-          >
+          <a href="/contact" className="btn-add inline-block max-w-[220px] text-center mt-5">
             Book Consultation
-          </Link>
+          </a>
         </div>
       </div>
     </div>

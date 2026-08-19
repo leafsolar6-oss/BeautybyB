@@ -1,264 +1,287 @@
 import Link from 'next/link';
 
-const featuredProducts = [
-  {
-    id: 1,
-    name: 'Patron De Nuit',
-    brand: 'Essenza Collection',
-    tagline: 'Commanding & Mysterious',
-    price: '₦132,000',
-    notes: 'Oud, Leather, Black Amber',
-    image: 'https://www.essenza.ng/cdn/shop/products/essenza_patron_de_nuit-min_1.jpg?v=1722428451&width=916',
-  },
-  {
-    id: 5,
-    name: 'Ambre Exclusif',
-    brand: 'Essenza Collection',
-    tagline: 'Warm & Opulent',
-    price: '₦132,000',
-    notes: 'Amber, Benzoin, Tonka Bean',
-    image: 'https://www.essenza.ng/cdn/shop/products/essenza_exclusif-min_1.jpg?v=1722428383&width=916',
-  },
-  {
-    id: 7,
-    name: 'Gemme Sapphire',
-    brand: 'Essenza Gemme',
-    tagline: 'Royal & Captivating',
-    price: '₦164,000',
-    notes: 'Sapphire Accord, Iris, White Musk',
-    image: 'https://www.essenza.ng/cdn/shop/products/DSC_8604-Editcopy.png?v=1663327991&width=4016',
-  },
-];
-
-const testimonials = [
-  {
-    name: 'Adaeze O.',
-    location: 'Lagos',
-    text: "Essenza's Patron De Nuit is unlike anything I've ever worn. It lingers beautifully and I receive compliments every single time. Pure luxury.",
-    rating: 5,
-  },
-  {
-    name: 'Chidinma M.',
-    location: 'Abuja',
-    text: "Gemme Sapphire makes me feel like royalty. The sillage is incredible — people notice me before I even enter the room. Absolutely divine.",
-    rating: 5,
-  },
-  {
-    name: 'Tunde A.',
-    location: 'Lagos',
-    text: "Le Meilleur has become my signature scent. The quality rivals anything from Dubai or Paris. BeautybyB understands African luxury.",
-    rating: 5,
-  },
-];
-
 export default function HomePage() {
   return (
-    <div className="overflow-hidden">
-      {/* ===== HERO ===== */}
-      <section className="relative min-h-screen flex items-center justify-center px-6 pt-24">
-        {/* Background blobs */}
-        <div className="blob w-96 h-96 bg-rose/30 top-20 -left-20" />
-        <div className="blob w-80 h-80 bg-gold-200/30 bottom-20 right-10" />
-        <div className="blob w-64 h-64 bg-plum/20 top-1/2 left-1/2 -translate-x-1/2" />
+    <div>
+      {/* ===== HERO BANNER ===== */}
+      <section className="relative bg-offwhite">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
+            {/* Text side */}
+            <div className="flex flex-col justify-center px-8 md:px-16 py-16">
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-gold mb-4">New Season</span>
+              <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dark leading-[1.1] font-normal">
+                Discover your
+                <br />
+                <span className="italic">signature scent</span>
+              </h1>
+              <p className="text-sm text-muted mt-5 max-w-md leading-relaxed">
+                From our signature Essenza Collection to Tom Ford, Xerjoff, and Amouage — luxury fragrances delivered across Nigeria.
+              </p>
+              <div className="flex gap-3 mt-8">
+                <Link
+                  href="/shop"
+                  className="btn-add max-w-[200px] text-center"
+                >
+                  Shop Now
+                </Link>
+                <Link
+                  href="/about"
+                  className="btn-outline"
+                >
+                  Our Story
+                </Link>
+              </div>
+            </div>
 
-        <div className="relative z-10 max-w-5xl mx-auto text-center">
-          {/* Decorative element */}
-          <div className="mb-8 animate-fade-in-up">
-            <span className="inline-block px-4 py-1.5 rounded-full glass text-xs tracking-widest uppercase text-deep/70">
-              ✦ Luxury Fragrances ✦
-            </span>
-          </div>
-
-          <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl font-light leading-tight mb-6 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-            Where Scent
-            <br />
-            Becomes <span className="text-gradient italic">Art</span>
-          </h1>
-
-          <p className="font-sans text-lg md:text-xl text-deep/60 max-w-2xl mx-auto mb-10 animate-fade-in-up font-light" style={{ animationDelay: '0.4s' }}>
-            Discover fragrances meticulously crafted from the world's rarest ingredients.
-            Each bottle holds a story waiting to be told.
-          </p>
-
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-fade-in-up" style={{ animationDelay: '0.6s' }}>
-            <Link
-              href="/shop"
-              className="btn-luxury px-8 py-3.5 rounded-full bg-gradient-to-r from-deep to-plum text-white text-sm tracking-widest uppercase hover:shadow-xl hover:shadow-deep/20 transition-all"
-            >
-              Explore Collection
-            </Link>
-            <Link
-              href="/about"
-              className="btn-luxury px-8 py-3.5 rounded-full glass text-sm tracking-widest uppercase text-deep/80 hover:text-deep transition-all"
-            >
-              Our Story
-            </Link>
-          </div>
-
-          {/* Floating bottle image */}
-          <div className="mt-16 animate-float">
-            <div className="glass-card rounded-3xl p-8 max-w-md mx-auto">
+            {/* Image side */}
+            <div className="relative overflow-hidden bg-light min-h-[300px] lg:min-h-0">
               <img
                 src="https://www.essenza.ng/cdn/shop/products/essenza_patron_de_nuit-min_1.jpg?v=1722428451&width=916"
-                alt="Essenza Patron De Nuit — Featured Fragrance"
-                className="w-full h-64 object-cover rounded-2xl"
+                alt="Essenza Patron De Nuit"
+                className="absolute inset-0 w-full h-full object-cover"
               />
-              <div className="mt-4 text-center">
-                <p className="font-serif text-lg text-deep/80">Patron De Nuit</p>
-                <p className="text-sm text-deep/50 mt-1">Essenza Collection — Our Signature Scent</p>
-              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== FEATURED COLLECTION ===== */}
-      <section className="relative py-24 px-6">
-        <div className="blob w-72 h-72 bg-gold-200/20 top-0 right-0" />
+      {/* ===== BRAND STRIP ===== */}
+      <div className="border-b border-border py-6">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-wrap items-center justify-center gap-6 md:gap-12">
+          {['Essenza', 'Tom Ford', 'Xerjoff', 'Amouage', 'Nishane', 'Versace', 'Armani', 'Valentino'].map((brand) => (
+            <span key={brand} className="text-[13px] font-medium text-muted/50 hover:text-dark transition-colors cursor-default tracking-wide">
+              {brand}
+            </span>
+          ))}
+        </div>
+      </div>
 
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-sans text-xs tracking-widest uppercase text-gold-500">Essenza Collection</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mt-3 text-deep">
-              Signature <span className="italic text-gradient">Fragrances</span>
-            </h2>
-            <p className="mt-4 text-deep/50 max-w-xl mx-auto">
-              Our house collection — masterpieces inspired by African excellence, crafted for those who seek the extraordinary.
-            </p>
+      {/* ===== BESTSELLERS ===== */}
+      <section className="py-14 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl text-dark">Bestsellers</h2>
+              <p className="text-[12px] text-muted mt-1">Our most loved fragrances</p>
+            </div>
+            <Link href="/shop" className="text-[12px] font-semibold text-dark underline underline-offset-2 hover:no-underline transition-all">
+              View All →
+            </Link>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {featuredProducts.map((product, index) => (
-              <div
-                key={product.id}
-                className="glass-card rounded-3xl overflow-hidden group transition-all duration-500"
-                style={{ animationDelay: `${index * 0.2}s` }}
-              >
-                <div className="relative overflow-hidden">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+            {[
+              { name: 'Patron De Nuit', brand: 'Essenza Collection', price: '₦132,000', notes: 'Oud, Leather, Black Amber', image: 'https://www.essenza.ng/cdn/shop/products/essenza_patron_de_nuit-min_1.jpg?v=1722428451&width=916', badge: 'best' },
+              { name: 'Hacivat', brand: 'Nishane', price: '₦324,000', notes: 'Pineapple, Grapefruit, Oakmoss', image: 'https://www.essenza.ng/cdn/shop/files/Screenshot2025-03-11at16.18.29.png?v=1741963636&width=1149', badge: 'best' },
+              { name: 'Ombré Leather', brand: 'Tom Ford', price: '₦258,000', notes: 'Leather, Cardamom, Jasmine', image: 'https://www.essenza.ng/cdn/shop/files/888066075138_50ML_1.jpg?v=1695373378&width=2000', badge: 'best' },
+              { name: 'Erba Pura', brand: 'Xerjoff', price: '₦248,000', notes: 'Orange, Lemon, Amber, Musk', image: 'https://www.essenza.ng/cdn/shop/files/Vibe-ERBAPURA-eaudeparfum-100ml-flacon_8054320902584_1000x_7dbc675a-ec96-4fda-bd4a-d57ad579ad0d.webp?v=1757416315&width=1000', badge: 'best' },
+            ].map((product, i) => (
+              <div key={i} className="product-card group">
+                <div className="relative bg-offwhite aspect-[3/4] overflow-hidden mb-3">
+                  {product.badge === 'best' && (
+                    <span className="badge badge-best absolute top-2 left-2 z-10">Bestseller</span>
+                  )}
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-72 object-cover transition-transform duration-700 group-hover:scale-110"
+                    className="product-image w-full h-full object-cover"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-deep/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                </div>
-                <div className="p-6">
-                  <p className="text-[10px] tracking-widest uppercase text-deep/40 mb-0.5">{product.brand}</p>
-                  <p className="text-xs tracking-widest uppercase text-gold-500 mb-1">{product.tagline}</p>
-                  <h3 className="font-serif text-2xl text-deep">{product.name}</h3>
-                  <p className="text-sm text-deep/50 mt-2">{product.notes}</p>
-                  <div className="flex items-center justify-between mt-4">
-                    <span className="font-serif text-xl text-deep">{product.price}</span>
-                    <button className="btn-luxury px-4 py-2 rounded-full bg-gradient-to-r from-deep/10 to-plum/10 text-xs tracking-wider uppercase text-deep hover:from-deep hover:to-plum hover:text-white transition-all duration-300">
-                      Add to Bag
-                    </button>
+                  <div className="quick-add absolute bottom-0 left-0 right-0 p-2">
+                    <button className="btn-add text-center">Add</button>
                   </div>
                 </div>
+                <p className="text-[10px] text-muted uppercase tracking-wider font-medium">{product.brand}</p>
+                <h3 className="text-[13px] font-semibold text-dark mt-0.5">{product.name}</h3>
+                <p className="text-[11px] text-muted mt-0.5">{product.notes}</p>
+                <p className="text-[13px] font-semibold text-dark mt-1.5">{product.price}</p>
               </div>
             ))}
           </div>
+        </div>
+      </section>
 
-          <div className="text-center mt-12">
-            <Link
-              href="/shop"
-              className="inline-flex items-center gap-2 font-sans text-sm tracking-widest uppercase text-deep/70 hover:text-gold-500 transition-colors"
-            >
-              View Full Collection
-              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
+      {/* ===== CATEGORY TILES ===== */}
+      <section className="py-6 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[
+              { title: 'Essenza Collection', desc: 'Our signature line', image: 'https://www.essenza.ng/cdn/shop/products/essenza_le_perle-min.jpg?v=1722428396&width=916', link: '/shop?cat=essenza-collection' },
+              { title: 'Designer Fragrances', desc: 'Tom Ford, Versace & more', image: 'https://www.essenza.ng/cdn/shop/files/888066075138_50ML_1.jpg?v=1695373378&width=2000', link: '/shop?cat=designer' },
+              { title: 'Niche & Exclusive', desc: 'Xerjoff, Amouage, Nishane', image: 'https://www.essenza.ng/cdn/shop/files/0c820690-8354-41fa-a305-21b798e8eb62.jpg?v=1780389930&width=550', link: '/shop?cat=niche' },
+            ].map((cat) => (
+              <Link key={cat.title} href={cat.link} className="category-tile relative h-[280px] md:h-[340px] block">
+                <img src={cat.image} alt={cat.title} className="absolute inset-0 w-full h-full object-cover" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-6 text-white">
+                  <h3 className="font-serif text-xl md:text-2xl">{cat.title}</h3>
+                  <p className="text-[12px] mt-1 opacity-80">{cat.desc}</p>
+                  <span className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">Shop Now →</span>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== NEW ARRIVALS ===== */}
+      <section className="py-14 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="font-serif text-2xl md:text-3xl text-dark">Just In</h2>
+              <p className="text-[12px] text-muted mt-1">Fresh arrivals you'll love</p>
+            </div>
+            <Link href="/shop" className="text-[12px] font-semibold text-dark underline underline-offset-2 hover:no-underline transition-all">
+              View All →
             </Link>
           </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-4 gap-y-8">
+            {[
+              { name: 'Uomo Born In Roma Intense', brand: 'Valentino', price: '₦215,000', notes: 'Ginger, Vanilla, Bourbon', image: 'https://www.essenza.ng/cdn/shop/files/0c820690-8354-41fa-a305-21b798e8eb62.jpg?v=1780389930&width=550', badge: 'new' },
+              { name: 'Sequence Man', brand: 'Amouage', price: '₦687,000', notes: 'Elemi, Orris, Leather', image: 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&h=500&fit=crop', badge: 'new' },
+              { name: 'Dylan Blush Pour Femme', brand: 'Versace', price: '₦214,000', notes: 'Pink Rose, Grapefruit, Musk', image: 'https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400&h=500&fit=crop', badge: 'new' },
+              { name: 'Oud Paradise', brand: 'Franck Olivier', price: '₦51,000', notes: 'Oud, Rose, Saffron', image: 'https://www.essenza.ng/cdn/shop/files/3516642515316_-_franck_olivier_-_franck_olivier_oud_paradise_edp_100_ml_-_100_ml_-fd.png?v=1776087321&width=750', badge: 'new' },
+              { name: 'Stronger With You Intensely', brand: 'Emporio Armani', price: '₦225,000', notes: 'Cinnamon, Toffee, Vanilla', image: 'https://www.essenza.ng/cdn/shop/products/emporio_armani_stronger_with_you_intensely_edp_100ml-min.jpg?v=1722420684&width=916', badge: 'new' },
+              { name: '1 Million Black', brand: 'Rabanne', price: '₦215,000', notes: 'Cinnamon, Leather, Patchouli', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop', badge: 'new' },
+              { name: 'Paradigme Le Parfum', brand: 'Prada', price: '₦296,000', notes: 'Iris, Amber, Leather', image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&h=500&fit=crop', badge: 'new' },
+              { name: 'Perseveranza', brand: 'Xerjoff × Lamborghini', price: '₦615,000', notes: 'Bergamot, Saffron, Oud', image: 'https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=400&h=500&fit=crop', badge: 'new' },
+            ].map((product, i) => (
+              <div key={i} className="product-card group">
+                <div className="relative bg-offwhite aspect-[3/4] overflow-hidden mb-3">
+                  {product.badge === 'new' && (
+                    <span className="badge badge-new absolute top-2 left-2 z-10">New</span>
+                  )}
+                  <img
+                    src={product.image}
+                    alt={product.name}
+                    className="product-image w-full h-full object-cover"
+                  />
+                  <div className="quick-add absolute bottom-0 left-0 right-0 p-2">
+                    <button className="btn-add text-center">Add</button>
+                  </div>
+                </div>
+                <p className="text-[10px] text-muted uppercase tracking-wider font-medium">{product.brand}</p>
+                <h3 className="text-[13px] font-semibold text-dark mt-0.5">{product.name}</h3>
+                <p className="text-[11px] text-muted mt-0.5">{product.notes}</p>
+                <p className="text-[13px] font-semibold text-dark mt-1.5">{product.price}</p>
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ===== ABOUT SNIPPET ===== */}
-      <section className="relative py-24 px-6">
-        <div className="blob w-80 h-80 bg-rose/20 bottom-0 left-10" />
-
-        <div className="max-w-6xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-            {/* Image side */}
-            <div className="relative">
-              <div className="glass-card rounded-3xl overflow-hidden">
-                <img
-                  src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=600&h=700&fit=crop"
-                  alt="Perfume crafting"
-                  className="w-full h-96 object-cover"
-                />
-              </div>
-              <div className="absolute -bottom-6 -right-6 glass-card rounded-2xl p-5 max-w-[200px]">
-                <p className="font-serif text-3xl text-gradient font-semibold">15+</p>
-                <p className="text-xs text-deep/60 mt-1">Years of Perfumery Excellence</p>
+      {/* ===== EDITORIAL BANNER ===== */}
+      <section className="py-6 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="relative h-[320px] md:h-[400px] overflow-hidden bg-offwhite">
+              <img
+                src="https://www.essenza.ng/cdn/shop/products/essenza_exclusif-min_1.jpg?v=1722428383&width=916"
+                alt="Ambre Exclusif"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <span className="text-[10px] font-semibold tracking-widest uppercase opacity-80">Essenza Collection</span>
+                <h3 className="font-serif text-2xl md:text-3xl mt-2">Ambre Exclusif</h3>
+                <p className="text-[12px] mt-1 opacity-80 max-w-[200px]">Warm amber, benzoin & tonka bean — our most coveted scent.</p>
+                <Link href="/shop" className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">
+                  Discover →
+                </Link>
               </div>
             </div>
+            <div className="relative h-[320px] md:h-[400px] overflow-hidden bg-offwhite">
+              <img
+                src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=600&h=700&fit=crop"
+                alt="Fragrance consultation"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
+              <div className="absolute bottom-0 left-0 p-8 text-white">
+                <span className="text-[10px] font-semibold tracking-widest uppercase opacity-80">Personal Service</span>
+                <h3 className="font-serif text-2xl md:text-3xl mt-2">Fragrance Consultation</h3>
+                <p className="text-[12px] mt-1 opacity-80 max-w-[200px]">Let our experts help you find your perfect scent.</p>
+                <Link href="/contact" className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">
+                  Book Now →
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
-            {/* Text side */}
+      {/* ===== ESSENZA COLLECTION ===== */}
+      <section className="py-14 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-end justify-between mb-8">
             <div>
-              <span className="font-sans text-xs tracking-widest uppercase text-gold-500">Our Philosophy</span>
-              <h2 className="font-serif text-4xl md:text-5xl font-light mt-3 text-deep leading-tight">
-                Crafted with <span className="italic text-gradient">Passion</span>,<br />Worn with Confidence
-              </h2>
-            <p className="mt-6 text-deep/60 leading-relaxed">
-              At BeautybyB, we believe fragrance is the most intimate form of self-expression.
-              Inspired by African excellence and built on the cultural heritage of the Essenza brand,
-              we bring you the finest perfumes from Nigeria and the world's most prestigious houses.
-            </p>
-            <p className="mt-4 text-deep/60 leading-relaxed">
-              From our signature Essenza Collection to curated selections from Tom Ford, Xerjoff,
-              Amouage, and Nishane — every fragrance we offer is a testament to uncompromising quality
-              and timeless elegance.
-            </p>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-2 mt-8 font-sans text-sm tracking-widest uppercase text-deep/70 hover:text-gold-500 transition-colors"
-              >
-                Discover Our Story
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
+              <h2 className="font-serif text-2xl md:text-3xl text-dark">Essenza Collection</h2>
+              <p className="text-[12px] text-muted mt-1">Our own signature line</p>
             </div>
+            <Link href="/shop" className="text-[12px] font-semibold text-dark underline underline-offset-2 hover:no-underline transition-all">
+              View All →
+            </Link>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-x-4 gap-y-8">
+            {[
+              { name: 'Patron De Nuit', price: '₦132,000', notes: 'Oud, Leather, Amber', image: 'https://www.essenza.ng/cdn/shop/products/essenza_patron_de_nuit-min_1.jpg?v=1722428451&width=916' },
+              { name: 'La Perle', price: '₦132,000', notes: 'Pearl Accord, Jasmine', image: 'https://www.essenza.ng/cdn/shop/products/essenza_le_perle-min.jpg?v=1722428396&width=916' },
+              { name: 'Ambre Exclusif', price: '₦132,000', notes: 'Amber, Benzoin, Tonka', image: 'https://www.essenza.ng/cdn/shop/products/essenza_exclusif-min_1.jpg?v=1722428383&width=916' },
+              { name: 'Le Meilleur', price: '₦132,000', notes: 'Bergamot, Vetiver', image: 'https://www.essenza.ng/cdn/shop/products/le_meilleur-min.jpg?v=1722428417&width=916' },
+              { name: 'Gemme Sapphire', price: '₦164,000', notes: 'Iris, White Musk', image: 'https://www.essenza.ng/cdn/shop/products/DSC_8604-Editcopy.png?v=1663327991&width=4016' },
+            ].map((product, i) => (
+              <div key={i} className="product-card group">
+                <div className="relative bg-offwhite aspect-[3/4] overflow-hidden mb-3">
+                  <img src={product.image} alt={product.name} className="product-image w-full h-full object-cover" />
+                  <div className="quick-add absolute bottom-0 left-0 right-0 p-2">
+                    <button className="btn-add text-center">Add</button>
+                  </div>
+                </div>
+                <h3 className="text-[13px] font-semibold text-dark">{product.name}</h3>
+                <p className="text-[11px] text-muted mt-0.5">{product.notes}</p>
+                <p className="text-[13px] font-semibold text-dark mt-1.5">{product.price}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="relative py-24 px-6">
-        <div className="blob w-64 h-64 bg-plum/15 top-20 right-20" />
-
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <span className="font-sans text-xs tracking-widest uppercase text-gold-500">Testimonials</span>
-            <h2 className="font-serif text-4xl md:text-5xl font-light mt-3 text-deep">
-              Loved by <span className="italic text-gradient">Many</span>
-            </h2>
+      {/* ===== REVIEWS ===== */}
+      <section className="py-14 px-4 md:px-8 bg-offwhite">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-2xl md:text-3xl text-dark">What our customers say</h2>
+            <div className="flex items-center justify-center gap-1 mt-2">
+              {[1,2,3,4,5].map(i => (
+                <svg key={i} className="w-4 h-4 text-gold" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                </svg>
+              ))}
+              <span className="text-[12px] text-muted ml-2">Based on 2,400+ reviews</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="glass-card rounded-3xl p-8 transition-all duration-500"
-              >
-                <div className="flex gap-1 mb-4">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <svg key={i} className="w-4 h-4 text-gold-400" fill="currentColor" viewBox="0 0 20 20">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {[
+              { name: 'Adaeze O.', city: 'Lagos', text: "Patron De Nuit is unlike anything I've worn. I receive compliments every time. Pure luxury." },
+              { name: 'Chidinma M.', city: 'Abuja', text: "The Gemme collection is stunning. Sapphire makes me feel like royalty — incredible sillage." },
+              { name: 'Tunde A.', city: 'Lagos', text: "Le Meilleur has become my signature. Quality rivals anything from Dubai or Paris." },
+            ].map((review, i) => (
+              <div key={i} className="bg-white p-6 border border-border">
+                <div className="flex gap-0.5 mb-3">
+                  {[1,2,3,4,5].map(s => (
+                    <svg key={s} className="w-3.5 h-3.5 text-gold" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
                     </svg>
                   ))}
                 </div>
-                <p className="text-deep/70 text-sm leading-relaxed italic">
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
-                <div className="mt-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-300 to-rose flex items-center justify-center">
-                    <span className="font-serif text-sm text-white">{testimonial.name[0]}</span>
-                  </div>
-                  <div>
-                    <span className="font-sans text-sm text-deep/80">{testimonial.name}</span>
-                    <p className="text-[10px] text-deep/40">{testimonial.location}</p>
-                  </div>
+                <p className="text-[13px] text-text leading-relaxed">&ldquo;{review.text}&rdquo;</p>
+                <div className="mt-4 pt-3 border-t border-border">
+                  <p className="text-[12px] font-semibold text-dark">{review.name}</p>
+                  <p className="text-[11px] text-muted">{review.city}</p>
                 </div>
               </div>
             ))}
@@ -266,32 +289,21 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== CTA BANNER ===== */}
-      <section className="relative py-24 px-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="glass-card rounded-3xl p-12 md:p-16 text-center relative overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-br from-deep/5 to-plum/5" />
-            <div className="relative z-10">
-              <h2 className="font-serif text-3xl md:text-4xl font-light text-deep">
-                Find Your <span className="italic text-gradient">Signature</span> Scent
-              </h2>
-              <p className="mt-4 text-deep/60 max-w-lg mx-auto">
-                Take our fragrance quiz or explore the collection to discover the perfume that speaks to your soul.
-              </p>
-              <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-                <Link
-                  href="/shop"
-                  className="btn-luxury px-8 py-3.5 rounded-full bg-gradient-to-r from-deep to-plum text-white text-sm tracking-widest uppercase"
-                >
-                  Shop Collection
-                </Link>
-                <Link
-                  href="/contact"
-                  className="btn-luxury px-8 py-3.5 rounded-full glass text-sm tracking-widest uppercase text-deep/80"
-                >
-                  Book Consultation
-                </Link>
-              </div>
+      {/* ===== FRAGRANCE DIAGNOSIS ===== */}
+      <section className="py-14 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="bg-offwhite p-8 md:p-14 text-center">
+            <h2 className="font-serif text-2xl md:text-3xl text-dark">Find your perfect fragrance</h2>
+            <p className="text-[13px] text-muted mt-2 max-w-md mx-auto">
+              Not sure where to start? Book a personal consultation with our fragrance experts and discover your signature scent.
+            </p>
+            <div className="flex justify-center gap-3 mt-6">
+              <Link href="/contact" className="btn-add max-w-[220px] text-center">
+                Book Consultation
+              </Link>
+              <Link href="/shop" className="btn-outline">
+                Shop All
+              </Link>
             </div>
           </div>
         </div>

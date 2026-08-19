@@ -2,84 +2,106 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="relative mt-24 overflow-hidden">
-      {/* Gradient divider */}
-      <div className="h-px bg-gradient-to-r from-transparent via-gold-300 to-transparent" />
-
-      <div className="max-w-7xl mx-auto px-6 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <h3 className="font-serif text-2xl font-semibold text-deep mb-4">
-              Beauty<span className="text-gradient">byB</span>
-            </h3>
-            <p className="text-deep/60 text-sm leading-relaxed">
-              Crafting luxurious fragrances that tell your unique story. Each scent is a masterpiece of art and emotion.
-            </p>
+    <footer className="mt-20">
+      {/* Commitment banner */}
+      <div className="bg-offwhite border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-10">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            {[
+              { icon: '✓', title: '100% Authentic', desc: 'Guaranteed genuine products' },
+              { icon: '📦', title: 'Nationwide Delivery', desc: 'Fast shipping across Nigeria' },
+              { icon: '↩', title: 'Easy Returns', desc: '30-day return policy' },
+              { icon: '💬', title: 'Expert Support', desc: 'Fragrance consultation available' },
+            ].map((item) => (
+              <div key={item.title} className="flex flex-col items-center">
+                <span className="text-xl mb-2">{item.icon}</span>
+                <p className="text-[12px] font-semibold text-dark uppercase tracking-wide">{item.title}</p>
+                <p className="text-[11px] text-muted mt-1">{item.desc}</p>
+              </div>
+            ))}
           </div>
+        </div>
+      </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="font-sans text-xs tracking-widest uppercase text-gold-500 mb-4">Explore</h4>
-            <ul className="space-y-3">
-              {['Home', 'Collection', 'Our Story', 'Contact'].map((item) => (
-                <li key={item}>
-                  <Link
-                    href={item === 'Home' ? '/' : item === 'Collection' ? '/shop' : item === 'Our Story' ? '/about' : '/contact'}
-                    className="text-sm text-deep/60 hover:text-gold-500 transition-colors"
+      {/* Main footer */}
+      <div className="bg-white border-t border-border">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+            {/* Brand */}
+            <div>
+              <h3 className="font-serif text-xl text-dark mb-4">Beauty<span className="text-gold">byB</span></h3>
+              <p className="text-[12px] text-muted leading-relaxed mb-4">
+                Nigeria's premier destination for luxury fragrances. From our signature Essenza Collection to the world's most prestigious houses.
+              </p>
+              <div className="flex gap-3">
+                {['Instagram', 'TikTok', 'Pinterest'].map((social) => (
+                  <span
+                    key={social}
+                    className="text-[11px] text-muted hover:text-dark cursor-pointer font-medium transition-colors"
                   >
-                    {item}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Info */}
-          <div>
-            <h4 className="font-sans text-xs tracking-widest uppercase text-gold-500 mb-4">Information</h4>
-            <ul className="space-y-3">
-              {['Shipping & Returns', 'FAQ', 'Privacy Policy', 'Terms of Service'].map((item) => (
-                <li key={item}>
-                  <span className="text-sm text-deep/60 cursor-pointer hover:text-gold-500 transition-colors">
-                    {item}
+                    {social}
                   </span>
-                </li>
-              ))}
-            </ul>
-          </div>
+                ))}
+              </div>
+            </div>
 
-          {/* Newsletter */}
-          <div>
-            <h4 className="font-sans text-xs tracking-widest uppercase text-gold-500 mb-4">Stay Connected</h4>
-            <p className="text-sm text-deep/60 mb-4">
-              Subscribe for exclusive launches and fragrance stories.
-            </p>
-            <div className="flex">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="flex-1 px-4 py-2.5 rounded-l-full bg-white/40 backdrop-blur-sm border border-white/50 text-sm text-deep placeholder:text-deep/40 focus:outline-none focus:border-gold-300"
-              />
-              <button className="btn-luxury px-5 py-2.5 rounded-r-full bg-gradient-to-r from-deep to-plum text-white text-xs tracking-wider uppercase">
-                Join
-              </button>
+            {/* Shop */}
+            <div>
+              <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Shop</h4>
+              <ul className="space-y-2.5">
+                {['All Fragrances', 'Essenza Collection', 'Designer', 'Niche & Exclusive', 'Perfume Oils', 'Gift Sets'].map((item) => (
+                  <li key={item}>
+                    <Link href="/shop" className="text-[12px] text-muted hover:text-dark transition-colors">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Help */}
+            <div>
+              <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Help</h4>
+              <ul className="space-y-2.5">
+                {['Contact Us', 'Shipping Info', 'Returns & Exchanges', 'FAQ', 'Track Order', 'Fragrance Consultation'].map((item) => (
+                  <li key={item}>
+                    <span className="text-[12px] text-muted hover:text-dark cursor-pointer transition-colors">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Newsletter */}
+            <div>
+              <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Newsletter</h4>
+              <p className="text-[12px] text-muted mb-3">Get 10% off your first order.</p>
+              <div className="flex">
+                <input
+                  type="email"
+                  placeholder="Enter your email"
+                  className="flex-1 px-3 py-2.5 border border-border text-[12px] focus:outline-none focus:border-dark transition-colors"
+                />
+                <button className="px-4 py-2.5 bg-dark text-white text-[11px] font-semibold uppercase tracking-wider hover:bg-black transition-colors">
+                  Join
+                </button>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        {/* Bottom */}
-        <div className="mt-16 pt-8 border-t border-white/30 flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-deep/40">
+      {/* Bottom bar */}
+      <div className="border-t border-border bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-4 flex flex-col md:flex-row items-center justify-between gap-2">
+          <p className="text-[11px] text-muted">
             © 2026 BeautybyB. All rights reserved.
           </p>
-          <div className="flex gap-6">
-            {['Instagram', 'Pinterest', 'TikTok'].map((social) => (
-              <span
-                key={social}
-                className="text-xs text-deep/50 hover:text-gold-500 cursor-pointer transition-colors tracking-wider uppercase"
-              >
-                {social}
+          <div className="flex gap-4">
+            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
+              <span key={item} className="text-[11px] text-muted hover:text-dark cursor-pointer transition-colors">
+                {item}
               </span>
             ))}
           </div>
