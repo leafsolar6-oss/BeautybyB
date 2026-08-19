@@ -1,7 +1,7 @@
 'use client';
 
-import { useState } from 'react';
-import { categories, genderFilters } from '@/data/products';
+import { useState, useMemo } from 'react';
+import { categories, genderFilters, perfumeSubcategories, topBrands } from '@/data/products';
 import { useProducts } from '@/hooks/useProducts';
 import { useCart } from '@/context/CartContext';
 
@@ -9,22 +9,53 @@ export default function ShopPage() {
   const { products, loading } = useProducts();
   const { addToCart, isInCart } = useCart();
   const [activeCategory, setActiveCategory] = useState('all');
+  const [activeSubcategory, setActiveSubcategory] = useState('all');
   const [activeGender, setActiveGender] = useState('all');
+  const [activeBrand, setActiveBrand] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
 
-  let filteredProducts = products.filter((p) => {
-    const categoryMatch = activeCategory === 'all' || p.category === activeCategory;
-    const genderMatch = activeGender === 'all' || p.gender === activeGender;
-    return categoryMatch && genderMatch;
-  });
+  const filteredProducts = useMemo(() => {
+    let result = products.filter((p) => {
+      const categoryMatch = activeCategory === 'all' || p.category === activeCategory;
+      const genderMatch = activeGender === 'all' || p.gender === activeGender;
+      const brandMatch = activeBrand === 'all' || p.brand === activeBrand;
 
-  if (sortBy === 'price-low') {
-    filteredProducts = [...filteredProducts].sort((a, b) => a.priceNumeric - b.priceNumeric);
-  } else if (sortBy === 'price-high') {
-    filteredProducts = [...filteredProducts].sort((a, b) => b.priceNumeric - a.priceNumeric);
-  } else if (sortBy === 'name') {
-    filteredProducts = [...filteredProducts].sort((a, b) => a.name.localeCompare(b.name));
-  }
+      // Subcategory filtering for perfumes
+      let subcategoryMatch = true;
+      if (activeCategory === 'perfume' && activeSubcategory !== 'all') {
+        const notes = p.notes.toLowerCase();
+        const name = p.name.toLowerCase();
+        const combined = `${name} ${notes}`;
+
+        if (activeSubcategory === 'designer') {
+          subcategoryMatch = ['dior', 'armani', 'louis vuitton', 'ysl', 'zara', 'paco', 'valentino', 'prada', 'gucci', 'versace', 'ferragamo', 'calvin klein', 'burberry', 'bvlgari', 'cartier'].some(b => combined.includes(b));
+        } else if (activeSubcategory === 'arabian') {
+          subcategoryMatch = ['afnan', 'al haramain', 'lattafa', 'arabian', 'oud', 'ajmal', 'rasasi', 'swiss arabian', 'al-rehab', 'orientica', 'orient', 'middle east'].some(b => combined.includes(b));
+        } else if (activeSubcategory === 'niche') {
+          subcategoryMatch = ['amouage', 'xerjoff', 'nishane', 'maison', 'niche', 'parfums de marly', 'creed', 'initio', 'memo', 'liquid', 'roja', 'frederic malle', 'byredo', 'le labo'].some(b => combined.includes(b));
+        } else if (activeSubcategory === 'unisex') {
+          subcategoryMatch = p.gender === 'unisex';
+        }
+      }
+
+      return categoryMatch && genderMatch && brandMatch && subcategoryMatch;
+    });
+
+    // Sorting
+    if (sortBy === 'price-low') {
+      result = [...result].sort((a, b) => a.priceNumeric - b.priceNumeric);
+    } else if (sortBy === 'price-high') {
+      result = [...result].sort((a, b) => b.priceNumeric - a.priceNumeric);
+    } else if (sortBy === 'name') {
+      result = [...result].sort((a, b) => a.name.localeCompare(b.name));
+    } else if (sortBy === 'bestsellers') {
+      result = [...result].sort((a, b) => (b.bestseller ? 1 : 0) - (a.bestseller ? 1 : 0));
+    } else if (sortBy === 'newest') {
+      result = [...result].sort((a, b) => (b.newArrival ? 1 : 0) - (a.newArrival ? 1 : 0));
+    }
+
+    return result;
+  }, [products, activeCategory, activeSubcategory, activeGender, activeBrand, sortBy]);
 
   if (loading) {
     return (
@@ -40,22 +71,26 @@ export default function ShopPage() {
   return (
     <div>
       {/* Page header */}
-      <div className="bg-offwhite py-8 md:py-10 px-5 md:px-8 border-b border-border">
+      <div className="bg-offwhite py-6 md:py-10 px-5 md:px-8 border-b border-border">
         <div className="max-w-[1400px] mx-auto text-center">
-          <h1 className="font-serif text-2xl md:text-4xl text-dark">All Products</h1>
-          <p className="text-sm text-muted mt-2">{filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}</p>
+          <h1 className="font-serif text-2xl md:text-4xl text-dark">
+            {activeCategory === 'all' ? 'All Products' :
+             activeCategory === 'perfume' ? 'Perfumes' :
+             activeCategory === 'skincare' ? 'Skincare' : 'Beauty & Glow'}
+          </h1>
+          <p className="text-sm text-muted mt-1.5">{filteredProducts.length} product{filteredProducts.length !== 1 ? 's' : ''}</p>
         </div>
       </div>
 
       {/* Filters bar */}
       <div className="sticky top-[97px] z-40 bg-white border-b border-border">
-        <div className="max-w-[1400px] mx-auto px-5 md:px-8 py-3">
-          {/* Category tabs - scrollable on mobile */}
-          <div className="flex gap-1.5 overflow-x-auto pb-2 -mx-1 px-1 scrollbar-hide md:flex-wrap md:overflow-visible md:pb-0">
+        <div className="max-w-[1400px] mx-auto px-5 md:px-8 py-3 space-y-2.5">
+          {/* Main category tabs */}
+          <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide">
             {categories.map((cat) => (
               <button
                 key={cat.id}
-                onClick={() => setActiveCategory(cat.id)}
+                onClick={() => { setActiveCategory(cat.id); setActiveSubcategory('all'); }}
                 className={`shrink-0 px-4 py-2 text-xs font-semibold tracking-wide transition-all rounded-full ${
                   activeCategory === cat.id
                     ? 'bg-dark text-white'
@@ -67,34 +102,99 @@ export default function ShopPage() {
             ))}
           </div>
 
-          {/* Gender + Sort */}
-          <div className="flex items-center justify-between gap-3 mt-2 pt-2 border-t border-border/50">
-            <div className="flex items-center gap-1 overflow-x-auto scrollbar-hide">
-              {genderFilters.map((g) => (
+          {/* Subcategory filters (only for perfumes) */}
+          {activeCategory === 'perfume' && (
+            <div className="flex gap-1.5 overflow-x-auto pb-1 -mx-1 px-1 scrollbar-hide border-t border-border/40 pt-2.5">
+              {perfumeSubcategories.map((sub) => (
                 <button
-                  key={g.id}
-                  onClick={() => setActiveGender(g.id)}
-                  className={`shrink-0 px-3 py-1.5 text-xs font-medium transition-all rounded-full ${
-                    activeGender === g.id
-                      ? 'text-dark bg-light'
-                      : 'text-muted hover:text-dark'
+                  key={sub.id}
+                  onClick={() => setActiveSubcategory(sub.id)}
+                  className={`shrink-0 px-3 py-1.5 text-[11px] font-medium transition-all rounded-full border ${
+                    activeSubcategory === sub.id
+                      ? 'bg-dark text-white border-dark'
+                      : 'border-border text-muted hover:text-dark hover:border-dark/30'
                   }`}
                 >
-                  {g.label}
+                  {sub.label}
                 </button>
               ))}
             </div>
-            <select
-              value={sortBy}
-              onChange={(e) => setSortBy(e.target.value)}
-              className="text-xs font-medium text-muted bg-offwhite border border-border px-3 py-2 rounded-full focus:outline-none focus:border-dark cursor-pointer shrink-0"
-            >
-              <option value="featured">Featured</option>
-              <option value="price-low">Price ↑</option>
-              <option value="price-high">Price ↓</option>
-              <option value="name">A → Z</option>
-            </select>
+          )}
+
+          {/* Brand filters + Gender + Sort */}
+          <div className="flex items-center gap-3 border-t border-border/40 pt-2.5 overflow-x-auto scrollbar-hide -mx-1 px-1">
+            {/* Brands */}
+            <div className="flex gap-1 shrink-0">
+              {topBrands.map((brand) => (
+                <button
+                  key={brand.id}
+                  onClick={() => setActiveBrand(brand.id)}
+                  className={`shrink-0 px-2.5 py-1 text-[10px] font-medium transition-all rounded-full ${
+                    activeBrand === brand.id
+                      ? 'bg-gold/10 text-gold border border-gold/30'
+                      : 'text-muted/70 hover:text-dark'
+                  }`}
+                >
+                  {brand.label}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center gap-2 shrink-0 ml-auto">
+              {/* Gender */}
+              <div className="flex gap-1">
+                {genderFilters.map((g) => (
+                  <button
+                    key={g.id}
+                    onClick={() => setActiveGender(g.id)}
+                    className={`px-2.5 py-1 text-[10px] font-medium transition-all rounded-full ${
+                      activeGender === g.id
+                        ? 'bg-light text-dark'
+                        : 'text-muted hover:text-dark'
+                    }`}
+                  >
+                    {g.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Sort */}
+              <select
+                value={sortBy}
+                onChange={(e) => setSortBy(e.target.value)}
+                className="text-[11px] font-medium text-muted bg-offwhite border border-border px-2.5 py-1.5 rounded-full focus:outline-none focus:border-dark cursor-pointer"
+              >
+                <option value="featured">Featured</option>
+                <option value="bestsellers">Bestsellers</option>
+                <option value="newest">Newest</option>
+                <option value="price-low">Price ↑</option>
+                <option value="price-high">Price ↓</option>
+                <option value="name">A → Z</option>
+              </select>
+            </div>
           </div>
+
+          {/* Active filters summary */}
+          {(activeSubcategory !== 'all' || activeBrand !== 'all' || activeGender !== 'all') && (
+            <div className="flex items-center gap-2 pt-1 text-[10px] text-muted">
+              <span>Showing:</span>
+              {activeSubcategory !== 'all' && (
+                <span className="px-2 py-0.5 bg-light rounded-full">{perfumeSubcategories.find(s => s.id === activeSubcategory)?.label}</span>
+              )}
+              {activeBrand !== 'all' && (
+                <span className="px-2 py-0.5 bg-light rounded-full">{topBrands.find(b => b.id === activeBrand)?.label}</span>
+              )}
+              {activeGender !== 'all' && (
+                <span className="px-2 py-0.5 bg-light rounded-full capitalize">{activeGender}</span>
+              )}
+              <button
+                onClick={() => { setActiveSubcategory('all'); setActiveBrand('all'); setActiveGender('all'); }}
+                className="text-gold hover:underline ml-1"
+              >
+                Clear all
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
