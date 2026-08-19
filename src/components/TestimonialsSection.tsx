@@ -33,10 +33,10 @@ export default function TestimonialsSection() {
     <section className="py-24 md:py-32 bg-cream">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           {/* Header */}
-        <div className="text-center mb-16">
-          <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Testimonials</span>
-          <h2 className="font-display text-4xl md:text-6xl font-light text-green-950 mt-4">
-            Words from Our <em className="italic font-normal">Clients</em>
+        <div className="text-center mb-16 px-4">
+          <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Testimonials</span>
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-green-950 mt-4 md:mt-6 leading-tight">
+            Words from Our <em className="italic font-bold">Clients</em>
           </h2>
         </div>
 
@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
                   </div>
 
                   {/* Text */}
-                  <p className="font-display text-2xl md:text-3xl font-light text-green-950 leading-relaxed mb-8 italic">
+                  <p className="font-display text-xl md:text-2xl lg:text-3xl font-medium text-green-950 leading-relaxed md:leading-relaxed mb-8 italic px-4 md:px-8">
                     "{testimonial.text}"
                   </p>
 
@@ -78,8 +78,8 @@ export default function TestimonialsSection() {
                       className="w-14 h-14 rounded-full object-cover border-2 border-gold"
                     />
                     <div className="text-left">
-                      <p className="font-semibold text-green-950">{testimonial.name}</p>
-                      <p className="text-gray-600 text-sm">{testimonial.role}</p>
+                      <p className="font-bold text-green-950 text-base md:text-lg">{testimonial.name}</p>
+                      <p className="text-gray-700 text-sm font-medium">{testimonial.role}</p>
                     </div>
                   </div>
                 </div>

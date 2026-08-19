@@ -51,16 +51,16 @@ export default function AboutSection() {
           </div>
 
           {/* Content */}
-          <div className="md:pl-8">
-            <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Our Story</span>
-            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-green-950 mt-4 mb-8 leading-tight">
+          <div className="md:pl-8 lg:pl-12">
+            <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Our Story</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-green-950 mt-4 md:mt-6 mb-6 md:mb-8 leading-tight">
               Crafting Beauty<br />
-              <em className="italic font-normal">Since 2014</em>
+              <em className="italic font-bold">Since 2014</em>
             </h2>
-            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+            <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-6 font-medium">
               Born from a passion for authentic luxury beauty, BeautybyB brings together the world's finest skincare, fragrances, and cosmetics. Every product in our collection is carefully curated to meet the highest standards of quality and efficacy.
             </p>
-            <p className="text-gray-600 text-lg leading-relaxed mb-12">
+            <p className="text-gray-700 text-base md:text-lg leading-relaxed mb-12 font-medium">
               We believe that true beauty comes from within, and our mission is to provide you with the tools to enhance your natural radiance. From clean, sustainable formulations to time-tested luxury ingredients, we offer a holistic approach to beauty that honors both you and the planet.
             </p>
 
@@ -75,15 +75,15 @@ export default function AboutSection() {
                   <div className="font-display text-3xl md:text-4xl font-bold text-green-950 mb-2">
                     {stat.number}
                   </div>
-                  <div className="text-gray-600 text-sm">{stat.label}</div>
+                  <div className="text-gray-700 text-sm font-semibold">{stat.label}</div>
                 </div>
               ))}
             </div>
 
             {/* Signature */}
             <div className="mt-12">
-              <p className="font-display italic text-2xl text-green-950">BeautybyB</p>
-              <p className="text-gray-500 text-sm mt-1">Founder & CEO</p>
+              <p className="font-display italic text-2xl md:text-3xl font-bold text-green-950">BeautybyB</p>
+              <p className="text-gray-600 text-sm mt-1 font-medium">Founder & CEO</p>
             </div>
           </div>
         </div>

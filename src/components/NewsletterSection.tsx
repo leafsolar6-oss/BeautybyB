@@ -10,11 +10,11 @@ export default function NewsletterSection() {
       </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-8 md:px-16 lg:px-24 text-center">
-        <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Join Our Community</span>
-        <h2 className="font-display text-4xl md:text-6xl font-light text-white mt-4 mb-6">
-          Subscribe to Our <em className="italic font-normal">Newsletter</em>
+        <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Join Our Community</span>
+        <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mt-4 md:mt-6 mb-4 md:mb-6 leading-tight">
+          Subscribe to Our <em className="italic font-bold">Newsletter</em>
         </h2>
-        <p className="text-white/70 text-lg mb-12 max-w-2xl mx-auto">
+        <p className="text-white/90 text-base md:text-lg lg:text-xl font-medium leading-relaxed mb-12 max-w-2xl mx-auto px-4">
           Be the first to discover new arrivals, exclusive offers, and beauty insights curated by our experts.
         </p>
 

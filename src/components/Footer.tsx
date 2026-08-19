@@ -3,14 +3,14 @@ import Link from 'next/link';
 export default function Footer() {
   return (
     <footer className="bg-green-950 text-white">
-      <div className="max-w-[1400px] mx-auto px-6 md:px-12 py-16 md:py-20">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-12">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <h3 className="font-display text-3xl font-bold mb-4">
+            <h3 className="font-display text-3xl md:text-4xl font-bold mb-4">
               Beauty<span className="text-gold">by</span>B
             </h3>
-            <p className="text-white/60 leading-relaxed mb-6 max-w-md">
+            <p className="text-white/80 leading-relaxed mb-6 max-w-md text-base md:text-lg font-medium">
               Your premier destination for luxury beauty products. Curated with care, delivered with excellence.
             </p>
             <div className="flex gap-4">
@@ -28,11 +28,11 @@ export default function Footer() {
 
           {/* Shop */}
           <div>
-            <h4 className="font-semibold text-gold mb-4 tracking-wide">Shop</h4>
+            <h4 className="font-bold text-gold mb-4 tracking-wide text-base">Shop</h4>
             <ul className="space-y-3">
               {['Skincare', 'Makeup', 'Fragrances', 'Hair Care', 'Body Care', 'New Arrivals'].map((item) => (
                 <li key={item}>
-                  <Link href="/shop" className="text-white/60 hover:text-gold transition-colors text-sm">
+                  <Link href="/shop" className="text-white/80 hover:text-gold transition-colors text-sm font-medium">
                     {item}
                   </Link>
                 </li>
@@ -42,11 +42,11 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-gold mb-4 tracking-wide">Company</h4>
+            <h4 className="font-bold text-gold mb-4 tracking-wide text-base">Company</h4>
             <ul className="space-y-3">
               {['About Us', 'Our Story', 'Careers', 'Press', 'Sustainability', 'Contact'].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-white/60 hover:text-gold transition-colors text-sm">
+                  <Link href="#" className="text-white/80 hover:text-gold transition-colors text-sm font-medium">
                     {item}
                   </Link>
                 </li>
@@ -56,11 +56,11 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="font-semibold text-gold mb-4 tracking-wide">Support</h4>
+            <h4 className="font-bold text-gold mb-4 tracking-wide text-base">Support</h4>
             <ul className="space-y-3">
               {['FAQ', 'Shipping', 'Returns', 'Track Order', 'Privacy Policy', 'Terms of Service'].map((item) => (
                 <li key={item}>
-                  <Link href="#" className="text-white/60 hover:text-gold transition-colors text-sm">
+                  <Link href="#" className="text-white/80 hover:text-gold transition-colors text-sm font-medium">
                     {item}
                   </Link>
                 </li>

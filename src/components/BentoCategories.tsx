@@ -42,13 +42,13 @@ export default function BentoCategories() {
   return (
     <section className="py-24 md:py-32 bg-cream">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
-          {/* Header */}
-          <div className="text-center mb-16 md:mb-20">
-          <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Curated For You</span>
-          <h2 className="font-display text-4xl md:text-6xl font-light text-green-950 mt-4 mb-6">
-            Shop by <em className="italic font-normal">Category</em>
+        {/* Header */}
+        <div className="text-center mb-16 md:mb-20 px-4">
+          <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Curated For You</span>
+          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-green-950 mt-4 md:mt-6 mb-4 md:mb-6 leading-tight">
+            Shop by <em className="italic font-bold">Category</em>
           </h2>
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          <p className="text-gray-700 text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-3xl mx-auto px-4">
             Explore our meticulously curated collections, each product selected for quality, efficacy, and luxury.
           </p>
         </div>
@@ -70,20 +70,20 @@ export default function BentoCategories() {
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-green-950/90 via-green-950/40 to-transparent" />
-              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
+              <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 lg:p-12">
                 <div className="transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-                  <span className="text-gold text-sm tracking-wider uppercase mb-2 block">
+                  <span className="text-gold text-xs md:text-sm tracking-[0.2em] uppercase font-bold mb-2 md:mb-3 block">
                     {cat.count} Products
                   </span>
-                  <h3 className="font-display text-3xl md:text-4xl font-light text-white mb-2">
+                  <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3 leading-tight">
                     {cat.name}
                   </h3>
-                  <p className="text-white/70 text-sm md:text-base">
+                  <p className="text-white/90 text-sm md:text-base lg:text-lg font-medium leading-relaxed">
                     {cat.description}
                   </p>
-                  <div className="mt-4 inline-flex items-center gap-2 text-gold text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="mt-4 md:mt-6 inline-flex items-center gap-2 text-gold text-sm md:text-base font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     Explore
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </div>

@@ -12,12 +12,12 @@ export default function InstagramFeed() {
     <section className="py-24 md:py-32 bg-white">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           {/* Header */}
-        <div className="text-center mb-12">
-          <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Follow Us</span>
-          <h2 className="font-display text-4xl md:text-5xl font-light text-green-950 mt-4 mb-4">
-            @beautybyb on <em className="italic font-normal">Instagram</em>
+        <div className="text-center mb-12 px-4">
+          <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Follow Us</span>
+          <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-green-950 mt-4 md:mt-6 mb-4 leading-tight">
+            @beautybyb on <em className="italic font-bold">Instagram</em>
           </h2>
-          <p className="text-gray-600">Share your beauty moments with #BeautybyB</p>
+          <p className="text-gray-700 text-base md:text-lg font-medium">Share your beauty moments with #BeautybyB</p>
         </div>
 
         {/* Instagram Grid */}

@@ -48,13 +48,13 @@ export default function ProductShowcase() {
     <section className="py-24 md:py-32 bg-green-950 text-white">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8 px-4">
           <div>
-            <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Our Collection</span>
-            <h2 className="font-display text-4xl md:text-6xl font-light mt-4 mb-6">
-              Best <em className="italic font-normal">Sellers</em>
+            <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Our Collection</span>
+            <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-white mt-4 md:mt-6 mb-4 md:mb-6 leading-tight">
+              Best <em className="italic font-bold">Sellers</em>
             </h2>
-            <p className="text-white/60 text-lg max-w-xl">
+            <p className="text-white/80 text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-xl">
               Discover our most loved products, trusted by thousands of beauty enthusiasts worldwide.
             </p>
           </div>
@@ -122,13 +122,13 @@ export default function ProductShowcase() {
               </div>
 
               {/* Info */}
-              <div className="p-6">
-                <span className="text-gold text-xs tracking-wider uppercase">{product.category}</span>
-                <h3 className="font-display text-xl font-medium text-white mt-2 mb-3 group-hover:text-gold transition-colors">
+              <div className="p-5 md:p-6 lg:p-7">
+                <span className="text-gold text-[10px] md:text-xs tracking-[0.15em] uppercase font-bold">{product.category}</span>
+                <h3 className="font-display text-lg md:text-xl lg:text-2xl font-bold text-white mt-2 md:mt-3 mb-2 md:mb-3 group-hover:text-gold transition-colors leading-tight">
                   {product.name}
                 </h3>
                 <div className="flex items-center gap-3">
-                  <span className="text-gold font-semibold text-lg">${product.price}</span>
+                  <span className="text-gold font-bold text-lg md:text-xl">${product.price}</span>
                   {product.originalPrice && (
                     <span className="text-white/40 line-through text-sm">${product.originalPrice}</span>
                   )}
