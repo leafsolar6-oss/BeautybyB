@@ -1,11 +1,81 @@
 @import "tailwindcss";
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Great+Vibes&display=swap');
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Playfair Display', serif;
+  --font-script: 'Great Vibes', cursive;
+  --color-green-900: #2d5016;
+  --color-green-800: #3a6b1e;
+  --color-green-700: #4a8528;
+  --color-gold: #b8956a;
+  --color-gold-light: #d4b98a;
+  --color-gold-dark: #a07850;
+  --color-bg: #f5f5f5;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: white;
+  font-family: 'Inter', sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-heading { font-family: 'Playfair Display', serif; }
+.font-script { font-family: 'Great Vibes', cursive; }
+
+/* Marquee */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-marquee {
+  animation: marquee 20s linear infinite;
+}
+
+/* Hide scrollbar */
+.hide-scrollbar::-webkit-scrollbar { display: none; }
+.hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Category circle */
+.cat-circle {
+  transition: transform 0.3s ease;
+}
+.cat-circle:hover {
+  transform: translateY(-4px);
+}
+
+/* Product card */
+.product-card {
+  transition: all 0.3s ease;
+}
+.product-card:hover {
+  box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+  transform: translateY(-2px);
+}
+.product-card:hover .product-actions {
+  opacity: 1;
+}
+.product-actions {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+/* FAQ */
+.faq-item { border-bottom: 1px solid #e5e7eb; }
+
+/* Smooth transitions */
+.transition-smooth {
+  transition: all 0.3s ease;
 }
