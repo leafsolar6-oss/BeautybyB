@@ -97,9 +97,9 @@ export default function ShopPage() {
       </div>
 
       {/* Products grid */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-5 md:px-8 py-6 md:py-10">
+      <div className="max-w-[1400px] mx-auto px-3 sm:px-5 md:px-8 py-4 md:py-10">
         {filteredProducts.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-3 gap-y-6 sm:gap-x-4 sm:gap-y-8">
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-5 sm:gap-x-4 sm:gap-y-8">
             {filteredProducts.map((product) => (
               <div key={product.id} className="product-card group">
                 <div className="relative bg-offwhite aspect-[3/4] overflow-hidden rounded-lg mb-2.5 sm:mb-3">
