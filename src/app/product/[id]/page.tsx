@@ -148,7 +148,7 @@ export default function ProductPage() {
               </div>
               <div className="text-center">
                 <p className="text-xs font-bold uppercase tracking-wider mb-1">Free Ship</p>
-                <p className="text-xs text-[#666]">Over $59</p>
+                <p className="text-xs text-[#666]">Over ₦50,000</p>
               </div>
               <div className="text-center">
                 <p className="text-xs font-bold uppercase tracking-wider mb-1">Secure</p>

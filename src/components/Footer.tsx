@@ -92,7 +92,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-10 pt-8 border-t border-white/10">
           {[
             { title: 'Authentic Products', desc: '100% original guarantee' },
-            { title: 'Free Shipping', desc: 'On orders over $59' },
+            { title: 'Free Shipping', desc: 'On orders over ₦50,000' },
             { title: 'Fast Delivery', desc: '2-5 business days' },
             { title: 'Secure Payment', desc: 'SSL encrypted checkout' },
           ].map((badge) => (
