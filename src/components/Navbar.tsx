@@ -44,7 +44,7 @@ export default function Navbar() {
             <div className="flex-1 lg:flex-none lg:mr-auto">
               <Link href="/" className="flex items-center justify-center lg:justify-start">
                 <span className="font-heading text-2xl md:text-3xl tracking-tight font-bold">
-                  Perfume<span className="text-[#c8102e]">Box</span>
+                  Beauty<span className="text-[#c8a84e]">byB</span>
                 </span>
               </Link>
             </div>
