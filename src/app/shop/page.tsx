@@ -92,7 +92,7 @@ export default function ShopPage() {
               <button
                 key={cat.id}
                 onClick={() => { setActiveCategory(cat.id); setActiveSubcategory('all'); }}
-                className={`shrink-0 px-4 py-2 text-xs font-semibold tracking-wide transition-all rounded-full ${
+                className={`shrink-0 px-4 py-2 text-sm font-semibold tracking-wide transition-all rounded-full ${
                   activeCategory === cat.id
                     ? 'bg-dark text-white'
                     : 'bg-offwhite text-muted hover:text-dark hover:bg-light'
@@ -110,7 +110,7 @@ export default function ShopPage() {
                 <button
                   key={sub.id}
                   onClick={() => setActiveSubcategory(sub.id)}
-                  className={`shrink-0 px-3 py-1.5 text-[11px] font-medium transition-all rounded-full border ${
+                  className={`shrink-0 px-3 py-1.5 text-xs font-medium transition-all rounded-full border ${
                     activeSubcategory === sub.id
                       ? 'bg-dark text-white border-dark'
                       : 'border-border text-muted hover:text-dark hover:border-dark/30'

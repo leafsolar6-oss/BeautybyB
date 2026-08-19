@@ -43,11 +43,13 @@ body {
   color: var(--color-text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
 /* Clean scrollbar */
 ::-webkit-scrollbar {
-  width: 4px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -55,8 +57,12 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ddd;
+  background: #ccc;
   border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #999;
 }
 
 /* Adopt-style product card */
@@ -87,12 +93,12 @@ body {
 /* Badge styles */
 .badge {
   display: inline-block;
-  padding: 3px 8px;
-  font-size: 10px;
+  padding: 6px 12px;
+  font-size: 12px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border-radius: 2px;
+  border-radius: 4px;
 }
 
 .badge-new {
@@ -118,10 +124,10 @@ body {
 /* Clean button */
 .btn-add {
   width: 100%;
-  padding: 10px;
+  padding: 14px;
   background: var(--color-dark);
   color: white;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -135,10 +141,10 @@ body {
 }
 
 .btn-outline {
-  padding: 10px 24px;
+  padding: 14px 28px;
   border: 1.5px solid var(--color-dark);
   color: var(--color-dark);
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -192,7 +198,7 @@ body {
 .volume-option {
   padding: 6px 12px;
   border: 1px solid var(--color-border);
-  font-size: 11px;
+  font-size: 13px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
