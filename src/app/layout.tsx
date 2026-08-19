@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
+import { WishlistProvider } from "@/context/WishlistContext";
 
 export const metadata: Metadata = {
   title: "BeautybyB — Authentic Perfumes, Skincare & Supplements | Nigeria",
@@ -18,13 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="font-sans antialiased">
-        <CartProvider>
+        <WishlistProvider>
+          <CartProvider>
           <Navbar />
           <main className="min-h-screen">
             {children}
           </main>
           <Footer />
         </CartProvider>
+        </WishlistProvider>
       </body>
     </html>
   );

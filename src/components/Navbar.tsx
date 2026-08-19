@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import CartDrawer from '@/components/CartDrawer';
+import SearchBar from '@/components/SearchBar';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -181,17 +182,8 @@ export default function Navbar() {
             </div>
 
             {/* Right side icons */}
-            <div className="flex items-center gap-3">
-              <button className="hidden md:flex w-9 h-9 items-center justify-center rounded-full text-muted hover:text-dark hover:bg-offwhite transition-all duration-300" aria-label="Search">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
-              <button className="hidden md:flex w-9 h-9 items-center justify-center rounded-full text-muted hover:text-dark hover:bg-offwhite transition-all duration-300 relative" aria-label="Account">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </button>
+            <div className="flex items-center gap-2 md:gap-3">
+              <SearchBar />
               <CartDrawer />
             </div>
           </div>
