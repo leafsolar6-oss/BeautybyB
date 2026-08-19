@@ -94,37 +94,37 @@ export default function HeroCarousel() {
 
             {/* Content */}
             <div className="absolute inset-0 flex items-center">
-              <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full">
+              <div className="max-w-[1400px] mx-auto px-5 md:px-12 w-full">
                 <div className="max-w-lg">
                   <span
-                    className={`inline-block text-[10px] md:text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 mb-3 transition-all duration-500 delay-200 ${
+                    className={`inline-block text-[9px] md:text-[11px] font-bold tracking-[0.2em] uppercase text-white/80 mb-2 md:mb-3 transition-all duration-500 delay-200 ${
                       index === current ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                     }`}
                   >
                     {slide.subtitle}
                   </span>
                   <h2
-                    className={`font-serif text-3xl md:text-5xl lg:text-6xl text-white leading-[1.1] transition-all duration-500 delay-300 ${
+                    className={`font-serif text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white leading-[1.1] transition-all duration-500 delay-300 ${
                       index === current ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
                     }`}
                   >
                     {slide.title}
                   </h2>
                   <p
-                    className={`text-[13px] md:text-[15px] text-white/70 mt-3 max-w-sm transition-all duration-500 delay-400 ${
+                    className={`text-[12px] sm:text-[14px] md:text-[15px] text-white/70 mt-2 md:mt-3 max-w-sm transition-all duration-500 delay-400 ${
                       index === current ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                     }`}
                   >
                     {slide.description}
                   </p>
                   <div
-                    className={`mt-6 transition-all duration-500 delay-500 ${
+                    className={`mt-4 md:mt-6 transition-all duration-500 delay-500 ${
                       index === current ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-3'
                     }`}
                   >
                     <Link
                       href={slide.ctaLink}
-                      className="inline-block px-7 py-3 bg-white text-dark text-[12px] font-bold uppercase tracking-wider hover:bg-gold hover:text-white transition-colors duration-300"
+                      className="inline-block px-5 py-2.5 md:px-7 md:py-3 bg-white text-dark text-[11px] md:text-[12px] font-bold uppercase tracking-wider hover:bg-gold hover:text-white transition-colors duration-300"
                     >
                       {slide.cta}
                     </Link>
@@ -139,19 +139,19 @@ export default function HeroCarousel() {
       {/* Navigation arrows */}
       <button
         onClick={() => goTo((current - 1 + slides.length) % slides.length)}
-        className="absolute left-4 md:left-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-300"
+        className="absolute left-3 md:left-6 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-300"
         aria-label="Previous slide"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
       <button
         onClick={() => goTo((current + 1) % slides.length)}
-        className="absolute right-4 md:right-6 top-1/2 -translate-y-1/2 w-10 h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-300"
+        className="absolute right-3 md:right-6 top-1/2 -translate-y-1/2 w-8 h-8 md:w-10 md:h-10 flex items-center justify-center bg-white/10 hover:bg-white/20 backdrop-blur-sm text-white transition-all duration-300"
         aria-label="Next slide"
       >
-        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
