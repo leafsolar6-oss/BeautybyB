@@ -1,26 +1,22 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap');
 
 @theme {
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
 
-  /* PerfumeBox-inspired clean palette */
-  --color-white: #ffffff;
-  --color-offwhite: #f8f8f8;
-  --color-light: #f0f0f0;
-  --color-border: #e0e0e0;
-  --color-muted: #666666;
-  --color-text: #222222;
-  --color-dark: #000000;
-  --color-black: #000000;
-  --color-red: #c0392b;
-
-  /* Warm gold accent */
-  --color-gold: #b8956a;
-  --color-gold-light: #d4c4a3;
-  --color-gold-dark: #8a6d3b;
+  /* Dark Luxury Palette */
+  --color-primary: #0a0a0a;
+  --color-secondary: #1a1a1a;
+  --color-surface: #141414;
+  --color-surface-light: #2a2a2a;
+  --color-border: #333333;
+  --color-text: #ffffff;
+  --color-text-muted: #a0a0a0;
+  --color-gold: #d4af37;
+  --color-gold-light: #f0d878;
+  --color-gold-dark: #9a7c1f;
 }
 
 * {
@@ -35,167 +31,138 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
-  background-color: var(--color-white);
+  background-color: var(--color-primary);
   min-height: 100vh;
   color: var(--color-text);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.6;
 }
 
-/* Clean scrollbar */
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: var(--color-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #ccc;
+  background: var(--color-gold-dark);
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #999;
-}
-
-/* Product card */
-.product-card {
-  background: white;
-  transition: all 0.3s ease;
-}
-
-.product-card:hover .product-image {
-  transform: scale(1.03);
-}
-
-.product-card:hover .quick-add {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.product-image {
-  transition: transform 0.5s ease;
-}
-
-.quick-add {
-  opacity: 0;
-  transform: translateY(8px);
-  transition: all 0.3s ease;
-}
-
-/* Badge styles */
-.badge {
-  display: inline-block;
-  padding: 4px 10px;
-  font-size: 10px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  border-radius: 0;
-}
-
-.badge-new {
-  background: var(--color-dark);
-  color: white;
-}
-
-.badge-sale {
-  background: var(--color-red);
-  color: white;
-}
-
-.badge-best {
   background: var(--color-gold);
-  color: white;
 }
 
-/* Clean button - PerfumeBox style */
-.btn-add {
-  width: 100%;
-  padding: 12px;
-  background: var(--color-dark);
-  color: white;
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  border: none;
-  cursor: pointer;
-  transition: all 0.2s ease;
+/* Typography */
+.font-luxury {
+  font-family: 'Playfair Display', serif;
 }
 
-.btn-add:hover {
-  background: var(--color-text);
+/* Luxury gradients */
+.gradient-gold {
+  background: linear-gradient(135deg, var(--color-gold) 0%, var(--color-gold-light) 50%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
-.btn-outline {
-  padding: 12px 24px;
-  border: 1px solid var(--color-dark);
-  color: var(--color-dark);
-  font-size: 12px;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 1px;
+/* Hover effects */
+.hover-luxury {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-luxury:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.15);
+}
+
+/* Card styles */
+.card-luxury {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  transition: all 0.4s ease;
+}
+
+.card-luxury:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 10px 30px rgba(212, 175, 55, 0.1);
+}
+
+/* Button styles */
+.btn-luxury {
   background: transparent;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.btn-outline:hover {
-  background: var(--color-dark);
-  color: white;
-}
-
-/* Category tile */
-.category-tile {
-  position: relative;
-  overflow: hidden;
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  padding: 14px 32px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.category-tile img {
-  transition: transform 0.5s ease;
+.btn-luxury:hover {
+  background: var(--color-gold);
+  color: var(--color-primary);
 }
 
-.category-tile:hover img {
-  transform: scale(1.05);
+.btn-luxury-filled {
+  background: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  color: var(--color-primary);
+  padding: 14px 32px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
-/* Hide scrollbar for horizontal scroll */
-.scrollbar-hide {
+.btn-luxury-filled:hover {
+  background: var(--color-gold-light);
+  border-color: var(--color-gold-light);
+}
+
+/* Sidebar */
+.sidebar-luxury {
+  background: var(--color-secondary);
+  border-right: 1px solid var(--color-border);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes slideInLeft {
+  from { opacity: 0; transform: translateX(-30px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+/* Utility */
+.hide-scrollbar {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
-.scrollbar-hide::-webkit-scrollbar {
+
+.hide-scrollbar::-webkit-scrollbar {
   display: none;
-}
-
-/* Nav link hover */
-.nav-link::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 0;
-  height: 2px;
-  background: var(--color-dark);
-  transition: width 0.3s ease;
-}
-
-.nav-link:hover::after {
-  width: 100%;
-}
-
-/* Line clamp utility */
-.line-clamp-1 {
-  display: -webkit-box;
-  -webkit-line-clamp: 1;
-  -webkit-box-orient: vertical;
-  overflow: hidden;
 }
 
 .line-clamp-2 {
