@@ -190,7 +190,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile slide-in menu */}
-        <div className={`lg:hidden fixed inset-0 top-[97px] z-40 transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${
+        <div className={`lg:hidden fixed inset-0 top-[97px] z-[60] transition-all duration-500 ease-[cubic-bezier(0.77,0,0.175,1)] ${
           isMobileOpen ? 'opacity-100 visible' : 'opacity-0 invisible'
         }`}>
           {/* Backdrop */}
@@ -216,6 +216,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setIsMobileOpen(false)}
                     className={`flex items-center justify-between py-3 text-[14px] font-medium border-b border-border/50 transition-colors duration-200 ${
                       isActive(link.href) ? 'text-dark' : 'text-muted hover:text-dark'
                     }`}
@@ -235,6 +236,7 @@ export default function Navbar() {
                   <Link
                     key={cat.href}
                     href={cat.href}
+                    onClick={() => setIsMobileOpen(false)}
                     className="flex items-center gap-3 py-3 text-[13px] text-muted hover:text-dark border-b border-border/50 transition-colors duration-200"
                   >
                     <span className="text-base">{cat.icon}</span>
@@ -250,6 +252,7 @@ export default function Navbar() {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={() => setIsMobileOpen(false)}
                     className="flex items-center justify-between py-3 text-[14px] font-medium border-b border-border/50 transition-colors duration-200 text-muted hover:text-dark"
                   >
                     {link.label}
