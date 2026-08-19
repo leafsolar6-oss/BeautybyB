@@ -1,13 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import TopBar from "@/components/TopBar";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
-  title: "BeautybyB | Authentic Perfumes & Colognes Online",
-  description: "Nigeria's premier destination for authentic designer, Arabian, and niche perfumes. Free shipping on orders over ₦50,000.",
+  title: "BeautybyB",
+  description: "BeautybyB",
 };
 
 export default function RootLayout({
@@ -17,14 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-sans">
-        <CartProvider>
-          <TopBar />
-          <Navbar />
-          <main className="min-h-screen">{children}</main>
-          <Footer />
-        </CartProvider>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
