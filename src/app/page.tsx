@@ -3,9 +3,11 @@
 import Link from 'next/link';
 import HeroCarousel from '@/components/HeroCarousel';
 import { useProducts } from '@/hooks/useProducts';
+import { useCart } from '@/context/CartContext';
 
 export default function HomePage() {
   const { products } = useProducts();
+  const { addToCart, isInCart } = useCart();
 
   const bestsellers = products.filter((p) => p.bestseller).slice(0, 4);
   const newArrivals = products.filter((p) => p.newArrival).slice(0, 8);
@@ -87,7 +89,7 @@ export default function HomePage() {
                       </div>
                     )}
                     <div className="quick-add absolute bottom-0 left-0 right-0 p-1.5 sm:p-2">
-                      <button className="btn-add text-center text-[9px] sm:text-xs py-1.5 sm:py-2">Add</button>
+                      <button onClick={() => addToCart(product)} className="btn-add text-center text-[9px] sm:text-xs py-1.5 sm:py-2">{isInCart(product.id) ? "Added ✓" : "Add"}</button>
                     </div>
                   </div>
                   <div className="px-0.5">
@@ -165,7 +167,7 @@ export default function HomePage() {
                       </div>
                     )}
                     <div className="quick-add absolute bottom-0 left-0 right-0 p-1.5 sm:p-2">
-                      <button className="btn-add text-center text-[9px] sm:text-xs py-1.5 sm:py-2">Add</button>
+                      <button onClick={() => addToCart(product)} className="btn-add text-center text-[9px] sm:text-xs py-1.5 sm:py-2">{isInCart(product.id) ? "Added ✓" : "Add"}</button>
                     </div>
                   </div>
                   <div className="px-0.5">

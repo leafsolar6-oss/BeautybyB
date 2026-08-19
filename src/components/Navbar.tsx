@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import CartDrawer from '@/components/CartDrawer';
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -191,12 +192,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
               </button>
-              <button className="flex w-9 h-9 items-center justify-center rounded-full text-muted hover:text-dark hover:bg-offwhite transition-all duration-300 relative" aria-label="Cart">
-                <svg className="w-[18px] h-[18px]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-                <span className="absolute -top-0.5 -right-0.5 w-[16px] h-[16px] bg-dark text-white text-[9px] rounded-full flex items-center justify-center font-bold">0</span>
-              </button>
+              <CartDrawer />
             </div>
           </div>
         </div>

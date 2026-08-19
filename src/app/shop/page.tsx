@@ -3,9 +3,11 @@
 import { useState } from 'react';
 import { categories, genderFilters } from '@/data/products';
 import { useProducts } from '@/hooks/useProducts';
+import { useCart } from '@/context/CartContext';
 
 export default function ShopPage() {
   const { products, loading } = useProducts();
+  const { addToCart, isInCart } = useCart();
   const [activeCategory, setActiveCategory] = useState('all');
   const [activeGender, setActiveGender] = useState('all');
   const [sortBy, setSortBy] = useState('featured');
@@ -138,10 +140,11 @@ export default function ShopPage() {
                   {/* Quick add */}
                   <div className="quick-add absolute bottom-0 left-0 right-0 p-2 sm:p-2.5">
                     <button
+                      onClick={() => product.inStock && addToCart(product)}
                       className={`btn-add text-center text-[10px] sm:text-xs ${!product.inStock ? 'opacity-50 cursor-not-allowed' : ''}`}
                       disabled={!product.inStock}
                     >
-                      {product.inStock ? 'Add' : 'Unavailable'}
+                      {isInCart(product.id) ? 'Added ✓' : product.inStock ? 'Add to Cart' : 'Unavailable'}
                     </button>
                   </div>
                 </div>
