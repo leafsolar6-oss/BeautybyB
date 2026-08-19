@@ -85,15 +85,15 @@ export default function Navbar() {
             </div>
           </div>
 
-          {/* Mobile nav links */}
+          {/* Mobile nav links - Vertical */}
           {isMobileOpen && (
-            <nav className="lg:hidden py-4 border-t border-[#e0e0e0] flex flex-wrap gap-3">
+            <nav className="lg:hidden py-4 border-t border-[#e0e0e0] flex flex-col">
               {navLinks.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
                   onClick={() => setIsMobileOpen(false)}
-                  className="text-xs font-semibold tracking-wider text-[#333] hover:text-[#c8102e] px-3 py-1.5 border border-[#e0e0e0] rounded"
+                  className="text-sm font-semibold tracking-wider text-[#333] hover:text-[#c8102e] hover:bg-gray-50 px-4 py-3 border-b border-[#f0f0f0] transition-colors"
                 >
                   {link.label}
                 </Link>
