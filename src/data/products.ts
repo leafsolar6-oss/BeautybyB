@@ -21,12 +21,12 @@ export const allProducts: Product[] = [
   // Add your products here. Example:
   // {
   //   id: 1,
-  //   name: 'Your Fragrance Name',
+  //   name: 'Your Fragrance',
   //   brand: 'Brand Name',
-  //   tagline: 'Short & Catchy',
+  //   tagline: 'Short tagline',
   //   price: '₦50,000',
   //   priceNumeric: 50000,
-  //   category: 'designer',
+  //   category: 'perfume',
   //   gender: 'unisex',
   //   notes: 'Note 1, Note 2, Note 3',
   //   image: '/images/your-product.jpg',
@@ -39,10 +39,13 @@ export const allProducts: Product[] = [
 ];
 
 export const categories = [
-  { id: 'all', label: 'All Fragrances' },
-  { id: 'designer', label: 'Designer' },
-  { id: 'niche', label: 'Niche & Exclusive' },
-  { id: 'perfume-oils', label: 'Perfume Oils' },
+  { id: 'all', label: 'All Products' },
+  { id: 'perfume', label: 'Perfumes' },
+  { id: 'skincare', label: 'Skincare' },
+  { id: 'supplements', label: 'Supplements' },
+  { id: 'weight-management', label: 'Weight Management' },
+  { id: 'gym-fitness', label: 'Gym & Fitness' },
+  { id: 'beauty-glow', label: 'Beauty & Glow' },
 ];
 
 export const genderFilters = [

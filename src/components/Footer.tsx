@@ -8,10 +8,10 @@ export default function Footer() {
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 py-10">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
             {[
-              { icon: '✓', title: '100% Authentic', desc: 'Guaranteed genuine products' },
+              { icon: '✨', title: 'Authentic Perfumes', desc: '100% original fragrances' },
               { icon: '📦', title: 'Nationwide Delivery', desc: 'Fast shipping across Nigeria' },
-              { icon: '↩', title: 'Easy Returns', desc: '30-day return policy' },
-              { icon: '💬', title: 'Expert Support', desc: 'Fragrance consultation available' },
+              { icon: '↩', title: 'DM to Order', desc: 'Easy ordering via Instagram' },
+              { icon: '💬', title: 'Customer Support', desc: 'Always here to help' },
             ].map((item) => (
               <div key={item.title} className="flex flex-col items-center">
                 <span className="text-xl mb-2">{item.icon}</span>
@@ -31,17 +31,14 @@ export default function Footer() {
             <div>
               <h3 className="font-serif text-xl text-dark mb-4">Beauty<span className="text-gold">byB</span></h3>
               <p className="text-[12px] text-muted leading-relaxed mb-4">
-                Nigeria's premier destination for luxury fragrances. Curating the world's most prestigious houses for you.
+                Your trusted destination for authentic perfumes, skincare, supplements, and beauty products in Nigeria.
               </p>
               <div className="flex gap-3">
-                {['Instagram', 'TikTok', 'Pinterest'].map((social) => (
-                  <span
-                    key={social}
-                    className="text-[11px] text-muted hover:text-dark cursor-pointer font-medium transition-colors"
-                  >
-                    {social}
-                  </span>
-                ))}
+                <a href="https://www.instagram.com/beauty_byb.ng" target="_blank" rel="noopener noreferrer" className="text-[11px] text-muted hover:text-dark font-medium transition-colors">
+                  Instagram
+                </a>
+                <span className="text-[11px] text-muted hover:text-dark cursor-pointer font-medium transition-colors">TikTok</span>
+                <span className="text-[11px] text-muted hover:text-dark cursor-pointer font-medium transition-colors">WhatsApp</span>
               </div>
             </div>
 
@@ -49,10 +46,17 @@ export default function Footer() {
             <div>
               <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Shop</h4>
               <ul className="space-y-2.5">
-                {['All Fragrances', 'Designer', 'Niche & Exclusive', 'Perfume Oils', 'Gift Sets'].map((item) => (
-                  <li key={item}>
-                    <Link href="/shop" className="text-[12px] text-muted hover:text-dark transition-colors">
-                      {item}
+                {[
+                  { label: 'Perfumes', href: '/shop' },
+                  { label: 'Skincare', href: '/shop?cat=skincare' },
+                  { label: 'Supplements', href: '/shop?cat=supplements' },
+                  { label: 'Weight Management', href: '/shop?cat=weight-management' },
+                  { label: 'Gym & Fitness', href: '/shop?cat=gym-fitness' },
+                  { label: 'Beauty & Glow', href: '/shop?cat=beauty-glow' },
+                ].map((item) => (
+                  <li key={item.label}>
+                    <Link href={item.href} className="text-[12px] text-muted hover:text-dark transition-colors">
+                      {item.label}
                     </Link>
                   </li>
                 ))}
@@ -63,7 +67,7 @@ export default function Footer() {
             <div>
               <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Help</h4>
               <ul className="space-y-2.5">
-                {['Contact Us', 'Shipping Info', 'Returns & Exchanges', 'FAQ', 'Track Order', 'Fragrance Consultation'].map((item) => (
+                {['Contact Us', 'Shipping Info', 'How to Order', 'FAQ', 'Track Order'].map((item) => (
                   <li key={item}>
                     <span className="text-[12px] text-muted hover:text-dark cursor-pointer transition-colors">
                       {item}
@@ -75,8 +79,8 @@ export default function Footer() {
 
             {/* Newsletter */}
             <div>
-              <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Newsletter</h4>
-              <p className="text-[12px] text-muted mb-3">Get 10% off your first order.</p>
+              <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Stay Updated</h4>
+              <p className="text-[12px] text-muted mb-3">Get notified about new arrivals and exclusive deals.</p>
               <div className="flex">
                 <input
                   type="email"
@@ -99,7 +103,7 @@ export default function Footer() {
             © 2026 BeautybyB. All rights reserved.
           </p>
           <div className="flex gap-4">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item) => (
+            {['Privacy Policy', 'Terms of Service'].map((item) => (
               <span key={item} className="text-[11px] text-muted hover:text-dark cursor-pointer transition-colors">
                 {item}
               </span>

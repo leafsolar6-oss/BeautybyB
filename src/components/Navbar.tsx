@@ -17,10 +17,13 @@ export default function Navbar() {
 
   const navLinks = [
     { href: '/', label: 'Home' },
-    { href: '/shop', label: 'Shop All' },
-    { href: '/shop?cat=designer', label: 'Designer' },
-    { href: '/shop?cat=niche', label: 'Niche' },
-    { href: '/about', label: 'Our Story' },
+    { href: '/shop', label: 'Perfumes' },
+    { href: '/shop?cat=skincare', label: 'Skincare' },
+    { href: '/shop?cat=supplements', label: 'Supplements' },
+    { href: '/shop?cat=weight-management', label: 'Weight Management' },
+    { href: '/shop?cat=gym-fitness', label: 'Gym & Fitness' },
+    { href: '/shop?cat=beauty-glow', label: 'Beauty & Glow' },
+    { href: '/about', label: 'About' },
     { href: '/contact', label: 'Contact' },
   ];
 
@@ -28,7 +31,7 @@ export default function Navbar() {
     <>
       {/* Top bar */}
       <div className="bg-dark text-white text-center py-2 text-[11px] tracking-wide font-medium">
-        Free delivery on orders over ₦150,000 · Nationwide shipping · 100% Authentic
+        Authentic Perfumes, Skincare & Supplements · Nationwide Delivery · DM to Order
       </div>
 
       {/* Main nav */}
@@ -62,12 +65,12 @@ export default function Navbar() {
             </Link>
 
             {/* Desktop Nav */}
-            <div className="hidden lg:flex items-center gap-7">
+            <div className="hidden lg:flex items-center gap-5">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-[13px] font-medium tracking-wide transition-colors ${
+                  className={`text-[12px] font-medium tracking-wide transition-colors ${
                     pathname === link.href
                       ? 'text-dark border-b border-dark pb-0.5'
                       : 'text-muted hover:text-dark'
@@ -101,7 +104,7 @@ export default function Navbar() {
             isMobileOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="flex flex-col py-4">
+          <div className="flex flex-col py-4 max-h-[70vh] overflow-y-auto">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

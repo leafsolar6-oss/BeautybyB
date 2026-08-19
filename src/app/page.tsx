@@ -3,33 +3,33 @@ import Link from 'next/link';
 export default function HomePage() {
   return (
     <div>
-      {/* ===== HERO BANNER ===== */}
+      {/* ===== HERO BANNER — PERFUME FOCUSED ===== */}
       <section className="relative bg-offwhite">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[520px]">
             {/* Text side */}
             <div className="flex flex-col justify-center px-8 md:px-16 py-16">
-              <span className="text-[11px] font-semibold tracking-widest uppercase text-gold mb-4">New Season</span>
+              <span className="text-[11px] font-semibold tracking-widest uppercase text-gold mb-4">Authentic Luxury Fragrances</span>
               <h1 className="font-serif text-4xl md:text-5xl lg:text-6xl text-dark leading-[1.1] font-normal">
-                Discover your
+                Find your
                 <br />
                 <span className="italic">signature scent</span>
               </h1>
               <p className="text-sm text-muted mt-5 max-w-md leading-relaxed">
-                Luxury fragrances from the world's most prestigious houses — delivered across Nigeria.
+                Discover authentic perfumes, premium skincare, and quality supplements — all in one place. Nigeria's trusted beauty destination.
               </p>
               <div className="flex gap-3 mt-8">
                 <Link
                   href="/shop"
                   className="btn-add max-w-[200px] text-center"
                 >
-                  Shop Now
+                  Shop Perfumes
                 </Link>
                 <Link
-                  href="/about"
+                  href="/shop?cat=skincare"
                   className="btn-outline"
                 >
-                  Our Story
+                  Shop Skincare
                 </Link>
               </div>
             </div>
@@ -38,7 +38,7 @@ export default function HomePage() {
             <div className="relative overflow-hidden bg-light min-h-[300px] lg:min-h-0">
               <img
                 src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=900&fit=crop"
-                alt="Luxury fragrance"
+                alt="Luxury perfume collection"
                 className="absolute inset-0 w-full h-full object-cover"
               />
             </div>
@@ -46,53 +46,25 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== BRAND STRIP ===== */}
-      <div className="border-b border-border py-6">
-        <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-wrap items-center justify-center gap-6 md:gap-12">
-          {['Tom Ford', 'Xerjoff', 'Amouage', 'Nishane', 'Versace', 'Armani', 'Valentino'].map((brand) => (
-            <span key={brand} className="text-[13px] font-medium text-muted/50 hover:text-dark transition-colors cursor-default tracking-wide">
-              {brand}
-            </span>
-          ))}
-        </div>
-      </div>
-
-      {/* ===== FEATURED PRODUCTS ===== */}
-      <section className="py-14 px-4 md:px-8">
+      {/* ===== MAIN CATEGORIES ===== */}
+      <section className="py-12 px-4 md:px-8 border-b border-border">
         <div className="max-w-[1400px] mx-auto">
-          <div className="flex items-end justify-between mb-8">
-            <div>
-              <h2 className="font-serif text-2xl md:text-3xl text-dark">Bestsellers</h2>
-              <p className="text-[12px] text-muted mt-1">Our most loved fragrances</p>
-            </div>
-            <Link href="/shop" className="text-[12px] font-semibold text-dark underline underline-offset-2 hover:no-underline transition-all">
-              View All →
-            </Link>
-          </div>
-
-          <div className="bg-offwhite py-16 text-center">
-            <p className="text-muted text-sm">Products coming soon.</p>
-            <Link href="/shop" className="btn-outline inline-block mt-4">Browse Shop</Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== CATEGORY TILES ===== */}
-      <section className="py-6 px-4 md:px-8">
-        <div className="max-w-[1400px] mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <h2 className="font-serif text-2xl text-dark text-center mb-8">Shop by Category</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
             {[
-              { title: 'Designer', desc: 'Tom Ford, Versace & more', image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=600&h=500&fit=crop', link: '/shop?cat=designer' },
-              { title: 'Niche & Exclusive', desc: 'Xerjoff, Amouage, Nishane', image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=600&h=500&fit=crop', link: '/shop?cat=niche' },
-              { title: 'Perfume Oils', desc: 'Concentrated luxury', image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=600&h=500&fit=crop', link: '/shop?cat=perfume-oils' },
+              { title: 'Perfumes', desc: 'Luxury fragrances', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop', link: '/shop', primary: true },
+              { title: 'Skincare', desc: 'Imported & authentic', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop', link: '/shop?cat=skincare', primary: false },
+              { title: 'Supplements', desc: 'Health & wellness', image: 'https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=400&h=400&fit=crop', link: '/shop?cat=supplements', primary: false },
+              { title: 'Weight Mgmt', desc: 'Gain & loss', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8f?w=400&h=400&fit=crop', link: '/shop?cat=weight-management', primary: false },
+              { title: 'Gym & Fitness', desc: 'Performance boost', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop', link: '/shop?cat=gym-fitness', primary: false },
+              { title: 'Beauty & Glow', desc: 'Radiance essentials', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop', link: '/shop?cat=beauty-glow', primary: false },
             ].map((cat) => (
-              <Link key={cat.title} href={cat.link} className="category-tile relative h-[280px] md:h-[340px] block">
+              <Link key={cat.title} href={cat.link} className={`category-tile relative ${cat.primary ? 'h-[260px] md:h-[300px]' : 'h-[200px] md:h-[240px]'} block`}>
                 <img src={cat.image} alt={cat.title} className="absolute inset-0 w-full h-full object-cover" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/10 to-transparent" />
-                <div className="absolute bottom-0 left-0 p-6 text-white">
-                  <h3 className="font-serif text-xl md:text-2xl">{cat.title}</h3>
-                  <p className="text-[12px] mt-1 opacity-80">{cat.desc}</p>
-                  <span className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">Shop Now →</span>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <div className="absolute bottom-0 left-0 p-4 text-white">
+                  <h3 className={`font-serif ${cat.primary ? 'text-xl md:text-2xl' : 'text-base md:text-lg'}`}>{cat.title}</h3>
+                  <p className="text-[11px] mt-0.5 opacity-80">{cat.desc}</p>
                 </div>
               </Link>
             ))}
@@ -100,39 +72,63 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== EDITORIAL BANNER ===== */}
+      {/* ===== PERFUMES — MAIN FEATURE ===== */}
+      <section className="py-14 px-4 md:px-8">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <span className="text-[10px] font-semibold tracking-widest uppercase text-gold">Our Main Collection</span>
+              <h2 className="font-serif text-2xl md:text-3xl text-dark mt-1">Perfumes</h2>
+              <p className="text-[12px] text-muted mt-1">Authentic luxury fragrances for every occasion</p>
+            </div>
+            <Link href="/shop" className="text-[12px] font-semibold text-dark underline underline-offset-2 hover:no-underline transition-all">
+              View All →
+            </Link>
+          </div>
+
+          <div className="bg-offwhite py-16 text-center">
+            <p className="text-muted text-sm">Perfumes coming soon.</p>
+            <Link href="/shop" className="btn-outline inline-block mt-4">Browse Shop</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== EDITORIAL BANNERS ===== */}
       <section className="py-6 px-4 md:px-8">
         <div className="max-w-[1400px] mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="relative h-[320px] md:h-[400px] overflow-hidden bg-offwhite">
+            {/* Skincare banner */}
+            <div className="relative h-[280px] md:h-[340px] overflow-hidden bg-offwhite">
               <img
-                src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=600&h=700&fit=crop"
-                alt="Fragrance collection"
+                src="https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=600&h=500&fit=crop"
+                alt="Skincare products"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
-                <span className="text-[10px] font-semibold tracking-widest uppercase opacity-80">Curated Selection</span>
-                <h3 className="font-serif text-2xl md:text-3xl mt-2">The Collection</h3>
-                <p className="text-[12px] mt-1 opacity-80 max-w-[200px]">Every scent tells a story. Find yours.</p>
-                <Link href="/shop" className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">
-                  Discover →
+                <span className="text-[10px] font-semibold tracking-widest uppercase opacity-80">Skincare</span>
+                <h3 className="font-serif text-2xl md:text-3xl mt-2">Glow from within</h3>
+                <p className="text-[12px] mt-1 opacity-80 max-w-[200px]">Authentic imported skincare for every skin type.</p>
+                <Link href="/shop?cat=skincare" className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">
+                  Shop Skincare →
                 </Link>
               </div>
             </div>
-            <div className="relative h-[320px] md:h-[400px] overflow-hidden bg-offwhite">
+
+            {/* Supplements banner */}
+            <div className="relative h-[280px] md:h-[340px] overflow-hidden bg-offwhite">
               <img
-                src="https://images.unsplash.com/photo-1547887538-e3a2f32cb1cc?w=600&h=700&fit=crop"
-                alt="Fragrance consultation"
+                src="https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=600&h=500&fit=crop"
+                alt="Supplements"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-r from-black/40 to-transparent" />
               <div className="absolute bottom-0 left-0 p-8 text-white">
-                <span className="text-[10px] font-semibold tracking-widest uppercase opacity-80">Personal Service</span>
-                <h3 className="font-serif text-2xl md:text-3xl mt-2">Fragrance Consultation</h3>
-                <p className="text-[12px] mt-1 opacity-80 max-w-[200px]">Let our experts help you find your perfect scent.</p>
-                <Link href="/contact" className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">
-                  Book Now →
+                <span className="text-[10px] font-semibold tracking-widest uppercase opacity-80">Health & Fitness</span>
+                <h3 className="font-serif text-2xl md:text-3xl mt-2">Fuel your journey</h3>
+                <p className="text-[12px] mt-1 opacity-80 max-w-[200px]">Supplements, weight management & gym essentials.</p>
+                <Link href="/shop?cat=supplements" className="text-[11px] font-semibold mt-3 inline-block underline underline-offset-2">
+                  Shop Supplements →
                 </Link>
               </div>
             </div>
@@ -140,8 +136,37 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== WHAT WE OFFER ===== */}
+      <section className="py-14 px-4 md:px-8 bg-offwhite border-y border-border">
+        <div className="max-w-[1400px] mx-auto">
+          <div className="text-center mb-10">
+            <h2 className="font-serif text-2xl md:text-3xl text-dark">Everything you need, all authentic</h2>
+            <p className="text-[13px] text-muted mt-2 max-w-lg mx-auto">
+              From luxury perfumes to skincare, supplements, and fitness products — all original, safely sourced, and delivered to your door.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+            {[
+              { icon: '✨', title: 'Perfumes', desc: 'Designer & niche fragrances' },
+              { icon: '🧴', title: 'Skincare', desc: 'Imported skincare routines' },
+              { icon: '💊', title: 'Supplements', desc: 'Adults & children wellness' },
+              { icon: '⚖️', title: 'Weight Mgmt', desc: 'Gain & loss solutions' },
+              { icon: '💪', title: 'Gym & Fitness', desc: 'Performance supplements' },
+              { icon: '🌟', title: 'Beauty & Glow', desc: 'Radiance essentials' },
+            ].map((item) => (
+              <div key={item.title} className="bg-white p-5 border border-border text-center">
+                <span className="text-2xl mb-2 block">{item.icon}</span>
+                <h3 className="text-[12px] font-semibold text-dark">{item.title}</h3>
+                <p className="text-[11px] text-muted mt-1">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ===== REVIEWS ===== */}
-      <section className="py-14 px-4 md:px-8 bg-offwhite">
+      <section className="py-14 px-4 md:px-8">
         <div className="max-w-[1400px] mx-auto">
           <div className="text-center mb-10">
             <h2 className="font-serif text-2xl md:text-3xl text-dark">What our customers say</h2>
@@ -156,9 +181,9 @@ export default function HomePage() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { name: 'Adaeze O.', city: 'Lagos', text: "The quality is unmatched. I receive compliments every time. Pure luxury." },
-              { name: 'Chidinma M.', city: 'Abuja', text: "Beautiful fragrances and fast delivery. My new go-to store." },
-              { name: 'Tunde A.', city: 'Lagos', text: "The consultation helped me find my perfect signature scent. Highly recommend." },
+              { name: 'Adaeze O.', city: 'Lagos', text: "The perfumes are 100% authentic. I can tell the difference. My go-to store for fragrances!" },
+              { name: 'Chidinma M.', city: 'Abuja', text: "Love the skincare products and the supplements. Fast delivery and great customer service." },
+              { name: 'Tunde A.', city: 'Lagos', text: "Best gym supplements in Nigeria. Everything is original and well-priced. Highly recommend." },
             ].map((review, i) => (
               <div key={i} className="bg-white p-6 border border-border">
                 <div className="flex gap-0.5 mb-3">
@@ -179,21 +204,26 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== FRAGRANCE DIAGNOSIS ===== */}
-      <section className="py-14 px-4 md:px-8">
+      {/* ===== CTA ===== */}
+      <section className="py-14 px-4 md:px-8 bg-offwhite border-t border-border">
         <div className="max-w-[1400px] mx-auto">
-          <div className="bg-offwhite p-8 md:p-14 text-center">
-            <h2 className="font-serif text-2xl md:text-3xl text-dark">Find your perfect fragrance</h2>
+          <div className="text-center">
+            <h2 className="font-serif text-2xl md:text-3xl text-dark">Ready to shop?</h2>
             <p className="text-[13px] text-muted mt-2 max-w-md mx-auto">
-              Not sure where to start? Book a personal consultation with our fragrance experts and discover your signature scent.
+              Browse our full collection or send us a DM on Instagram to place your order.
             </p>
             <div className="flex justify-center gap-3 mt-6">
-              <Link href="/contact" className="btn-add max-w-[220px] text-center">
-                Book Consultation
+              <Link href="/shop" className="btn-add max-w-[180px] text-center">
+                Shop Now
               </Link>
-              <Link href="/shop" className="btn-outline">
-                Shop All
-              </Link>
+              <a
+                href="https://www.instagram.com/beauty_byb.ng"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline"
+              >
+                DM on Instagram
+              </a>
             </div>
           </div>
         </div>
