@@ -4,23 +4,37 @@ import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const mainLinks = [
-  { label: 'Men', href: '/shop?gender=Men', icon: 'M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z' },
-  { label: 'Women', href: '/shop?gender=Women', icon: 'M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z' },
-  { label: 'Brands', href: '/shop', icon: 'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5' },
-  { label: 'Best Sellers', href: '/shop', icon: 'M12 15l-2 5l9-11h-5l2-7l-9 11h5l-2 7z' },
-  { label: 'New Arrivals', href: '/shop', icon: 'M12 4v16m0-16l4 4m-4-4l-4 4' },
-  { label: 'Gift Sets', href: '/shop', icon: 'M20 12v10H4V12M2 7h20v5H2zM12 22V7M12 7H7.5a2.5 2.5 0 010-5C11 2 12 7 12 7zm0 0h4.5a2.5 2.5 0 000-5C13 2 12 7 12 7z' },
-  { label: 'Skincare', href: '/shop', icon: 'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z' },
+// Main navigation items
+const mainNavItems = [
+  { label: 'Home', href: '/' },
+  { label: 'Designer Perfumes', href: '/shop?category=designer' },
+  { label: 'Imported Skincare', href: '/shop?category=skincare' },
+  { label: 'Skincare Supplements', href: '/shop?category=supplements' },
+  { label: 'Gym Supplements', href: '/shop?category=gym' },
 ];
 
-const footerLinks = [
-  { label: 'About Us', href: '/about', icon: 'M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z' },
-  { label: 'Contact', href: '/contact', icon: 'M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z' },
+// Lash & Brow Booking sub-items
+const lashBrowItems = [
+  { label: 'Classic Lashes', href: '/services/lashes?style=classic' },
+  { label: 'Hybrid Lashes', href: '/services/lashes?style=hybrid' },
+  { label: 'Volume Lashes', href: '/services/lashes?style=volume' },
+  { label: 'Lash Refill', href: '/services/lashes?style=refill' },
+  { label: 'Brow Tint', href: '/services/brows?type=tint' },
+  { label: 'Brow Lamination', href: '/services/brows?type=lamination' },
+  { label: 'Other Brow Services', href: '/services/brows' },
+];
+
+// About/Contact/Search
+const infoItems = [
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
+  { label: 'Search for product', href: '/shop', isSearch: true },
 ];
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+  const [searchQuery, setSearchQuery] = useState('');
   const pathname = usePathname();
 
   // Prevent body scroll when menu is open
@@ -41,8 +55,17 @@ export default function Navbar() {
   }, [pathname]);
 
   const isActive = (href: string) => {
-    if (href === '/shop') return pathname.startsWith('/shop');
-    return pathname === href;
+    if (href === '/') return pathname === '/';
+    return pathname.startsWith(href.split('?')[0]);
+  };
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      window.location.href = `/shop?search=${encodeURIComponent(searchQuery.trim())}`;
+    }
+    setShowSearch(false);
+    setSearchQuery('');
   };
 
   return (
@@ -50,16 +73,16 @@ export default function Navbar() {
       <header className="bg-white border-b border-[#e8e8e8] sticky top-0 z-40">
         <div className="max-w-[1400px] mx-auto px-4">
           <div className="flex items-center justify-between h-16">
-            {/* Hamburger Button - Animated */}
+            {/* Hamburger Button */}
             <button
-              className="lg:hidden w-11 h-11 flex items-center justify-center relative group"
+              className="lg:hidden w-11 h-11 flex items-center justify-center"
               onClick={() => setIsOpen(true)}
               aria-label="Open menu"
             >
-              <div className="w-6 flex flex-col items-end gap-[6px]">
-                <span className="block h-[2px] bg-[#1a1a1a] transition-all duration-300 group-hover:w-6 w-6" />
-                <span className="block h-[2px] bg-[#1a1a1a] transition-all duration-300 group-hover:w-4 w-5" />
-                <span className="block h-[2px] bg-[#1a1a1a] transition-all duration-300 group-hover:w-5 w-4" />
+              <div className="w-6 flex flex-col gap-[5px]">
+                <span className="block h-[2px] bg-[#1a1a1a] w-6" />
+                <span className="block h-[2px] bg-[#1a1a1a] w-4" />
+                <span className="block h-[2px] bg-[#1a1a1a] w-5" />
               </div>
             </button>
 
@@ -73,8 +96,8 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Navigation */}
-            <nav className="hidden lg:flex items-center gap-7">
-              {mainLinks.slice(0, 6).map((link) => (
+            <nav className="hidden lg:flex items-center gap-6">
+              {mainNavItems.map((link) => (
                 <Link
                   key={link.label}
                   href={link.href}
@@ -91,24 +114,32 @@ export default function Navbar() {
             </nav>
 
             {/* Icons */}
-            <div className="flex items-center gap-2">
-              <button className="hidden sm:flex w-11 h-11 items-center justify-center hover:bg-gray-50 rounded-full transition-colors">
+            <div className="flex items-center gap-1">
+              <button
+                onClick={() => setShowSearch(true)}
+                className="hidden sm:flex w-11 h-11 items-center justify-center hover:bg-gray-50 rounded-full transition-colors"
+              >
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
-              <button className="w-11 h-11 flex items-center justify-center hover:bg-gray-50 rounded-full transition-colors relative">
+              <Link href="/cart" className="w-11 h-11 flex items-center justify-center hover:bg-gray-50 rounded-full transition-colors relative">
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
                 </svg>
                 <span className="absolute top-1 right-1 w-5 h-5 bg-[#c8a84e] text-white text-[10px] font-bold rounded-full flex items-center justify-center">0</span>
-              </button>
+              </Link>
+              <Link href="/account" className="hidden sm:flex w-11 h-11 items-center justify-center hover:bg-gray-50 rounded-full transition-colors">
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                </svg>
+              </Link>
             </div>
           </div>
         </div>
       </header>
 
-      {/* ===== FULL-SCREEN MOBILE MENU OVERLAY ===== */}
+      {/* ===== FULL-SCREEN MOBILE MENU ===== */}
       <div
         className={`fixed inset-0 z-[100] transition-all duration-500 lg:hidden ${
           isOpen ? 'opacity-100 visible' : 'opacity-0 invisible pointer-events-none'
@@ -127,7 +158,7 @@ export default function Navbar() {
           }`}
         >
           {/* Header */}
-          <div className="flex items-center justify-between px-6 py-5 border-b border-[#f0f0f0] bg-white/90 backdrop-blur-md">
+          <div className="flex items-center justify-between px-6 py-5 border-b border-white/10 bg-white/90 backdrop-blur-md flex-shrink-0">
             <span className="font-heading text-2xl font-bold">
               Beauty<span className="text-[#c8a84e]">byB</span>
             </span>
@@ -142,47 +173,107 @@ export default function Navbar() {
             </button>
           </div>
 
-          {/* Scrollable Links */}
-          <div className="flex-1 overflow-y-auto py-6">
-            {/* Shop Section */}
-            <div className="px-6">
-              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/80 mb-3">Shop</p>
+          {/* Scrollable Content */}
+          <div className="flex-1 overflow-y-auto">
+            {/* Main Navigation Section */}
+            <div className="px-6 pt-6 pb-4">
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-white/60 mb-3">Navigation</p>
               <div className="space-y-1">
-                {mainLinks.map((link) => (
+                {mainNavItems.map((link) => (
                   <Link
                     key={link.label}
                     href={link.href}
                     onClick={() => setIsOpen(false)}
-                    className={`group flex items-center gap-4 px-4 py-3.5 rounded-xl transition-all duration-300 ${
+                    className={`group flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-300 ${
                       isActive(link.href)
-                        ? 'bg-white/20 text-white backdrop-blur-sm'
+                        ? 'bg-[#c8a84e]/20 text-[#c8a84e]'
                         : 'text-white hover:bg-white/10'
                     }`}
                   >
-                    <div className={`w-9 h-9 flex items-center justify-center rounded-lg transition-all duration-300 ${
-                      isActive(link.href)
-                        ? 'bg-[#c8a84e]/30 text-[#c8a84e]'
-                        : 'bg-white/10 text-white/70 group-hover:bg-[#c8a84e]/20 group-hover:text-[#c8a84e]'
-                    }`}>
-                      <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
-                        <path d={link.icon} />
-                      </svg>
-                    </div>
-                    <span className="flex-1 font-semibold tracking-wider text-sm">
+                    <span className="w-1.5 h-1.5 rounded-full bg-current flex-shrink-0" />
+                    <span className="flex-1 font-semibold tracking-wide text-sm">
                       {link.label}
                     </span>
-                    <svg className="w-4 h-4 text-white/40 -translate-x-1 group-hover:translate-x-0 group-hover:text-[#c8a84e] transition-all duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 text-white/30 group-hover:text-[#c8a84e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>
                   </Link>
                 ))}
               </div>
             </div>
+
+            {/* Divider */}
+            <div className="mx-6">
+              <div className="h-px bg-white/10" />
+            </div>
+
+            {/* Lash & Brow Booking Section */}
+            <div className="px-6 pt-4 pb-4">
+              <p className="text-[10px] font-bold tracking-[0.2em] uppercase text-[#c8a84e] mb-3">Lash & Brow Booking</p>
+              <div className="space-y-1">
+                {lashBrowItems.map((link) => (
+                  <Link
+                    key={link.label}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="group flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-300 text-white/80 hover:bg-white/10 hover:text-white"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-current/50 flex-shrink-0" />
+                    <span className="flex-1 font-medium tracking-wide text-sm">
+                      {link.label}
+                    </span>
+                    <svg className="w-4 h-4 text-white/30 group-hover:text-[#c8a84e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </Link>
+                ))}
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="mx-6">
+              <div className="h-px bg-white/10" />
+            </div>
+
+            {/* Brand Section */}
+            <div className="px-6 pt-4 pb-2">
+              <p className="text-[11px] font-bold tracking-[0.15em] text-[#c8a84e] mb-3">BEAUTY<span className="text-white">BY</span><span className="text-[#c8a84e]">B</span></p>
+              <div className="space-y-1">
+                {infoItems.map((link) => (
+                  <button
+                    key={link.label}
+                    onClick={() => {
+                      if (link.isSearch) {
+                        setIsOpen(false);
+                        setShowSearch(true);
+                      } else {
+                        setIsOpen(false);
+                      }
+                    }}
+                    className="group flex items-center gap-3 px-3 py-3 rounded-lg transition-all duration-300 text-white/80 hover:bg-white/10 hover:text-white w-full text-left"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-current/50 flex-shrink-0" />
+                    <span className="flex-1 font-medium tracking-wide text-sm">
+                      {link.label}
+                    </span>
+                    {link.isSearch ? (
+                      <svg className="w-4 h-4 text-white/30 group-hover:text-[#c8a84e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                    ) : (
+                      <svg className="w-4 h-4 text-white/30 group-hover:text-[#c8a84e] transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
           </div>
 
-          {/* Footer - Horizontal Layout with Social & Links */}
-          <div className="border-t border-white/10 px-6 py-4 bg-white/90 backdrop-blur-md">
-            <div className="flex items-center justify-between gap-2">
+          {/* Footer - Horizontal Layout */}
+          <div className="border-t border-white/10 px-6 py-4 bg-white/90 backdrop-blur-md flex-shrink-0">
+            <div className="flex items-center gap-2">
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/beauty_byb.ng"
@@ -209,27 +300,62 @@ export default function Navbar() {
                 </svg>
               </a>
 
-              {/* About Us */}
+              {/* Cart */}
               <Link
-                href="/about"
+                href="/cart"
                 onClick={() => setIsOpen(false)}
                 className="flex-1 px-3 py-2.5 bg-[#1a1a1a] text-white text-[10px] font-bold tracking-wider uppercase rounded-full hover:bg-[#c8a84e] transition-colors duration-300 text-center flex-shrink-0"
               >
-                About Us
+                Cart (0)
               </Link>
 
-              {/* Contact */}
+              {/* Account */}
               <Link
-                href="/contact"
+                href="/account"
                 onClick={() => setIsOpen(false)}
                 className="flex-1 px-3 py-2.5 bg-[#1a1a1a] text-white text-[10px] font-bold tracking-wider uppercase rounded-full hover:bg-[#c8a84e] transition-colors duration-300 text-center flex-shrink-0"
               >
-                Contact
+                Account
               </Link>
             </div>
           </div>
         </div>
       </div>
+
+      {/* ===== SEARCH OVERLAY ===== */}
+      {showSearch && (
+        <div className="fixed inset-0 z-[110] bg-black/90 backdrop-blur-md flex items-start justify-center pt-24 px-6">
+          <div className="w-full max-w-lg">
+            <div className="flex items-center gap-3 mb-6">
+              <h3 className="text-white text-xl font-heading font-bold flex-1">Search Products</h3>
+              <button
+                onClick={() => setShowSearch(false)}
+                className="w-10 h-10 flex items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition-colors"
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <form onSubmit={handleSearch} className="flex gap-2">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                placeholder="Type product name..."
+                className="flex-1 px-5 py-3.5 bg-white/10 border border-white/20 text-white placeholder:text-white/40 text-sm rounded-full focus:outline-none focus:border-[#c8a84e] transition-colors"
+                autoFocus
+              />
+              <button
+                type="submit"
+                className="px-6 py-3.5 bg-[#c8a84e] text-[#1a1a1a] text-sm font-bold rounded-full hover:bg-[#e8c94e] transition-colors"
+              >
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      )}
     </>
   );
 }
