@@ -70,9 +70,9 @@ export default function HomePage() {
 
           {bestsellers.length > 0 ? (
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-5 md:gap-x-4 md:gap-y-8">
-              {bestsellers.map((product) => (
-                <div key={product.id} className="product-card group">
-                  <div className="relative bg-offwhite aspect-[3/4] overflow-hidden rounded-lg mb-2">
+                {bestsellers.map((product) => (
+                  <Link key={product.id} href={`/product/${product.id}`} className="product-card group block">
+                    <div className="relative bg-offwhite aspect-[3/4] overflow-hidden rounded-lg mb-2">
                     {product.bestseller && (
                       <span className="badge badge-best absolute top-1.5 left-1.5 z-10 text-[8px] sm:text-[10px]">Bestseller</span>
                     )}
@@ -94,7 +94,7 @@ export default function HomePage() {
                     <h3 className="text-[11px] sm:text-[13px] font-semibold text-dark mt-0.5 leading-snug line-clamp-2">{product.name}</h3>
                     <p className="text-[11px] sm:text-[13px] font-semibold text-dark mt-1">{product.price}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           ) : (
@@ -149,7 +149,7 @@ export default function HomePage() {
             </div>
             <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-5 md:gap-x-4 md:gap-y-8">
               {newArrivals.map((product) => (
-                <div key={product.id} className="product-card group">
+                <Link key={product.id} href={`/product/${product.id}`} className="product-card group block">
                   <div className="relative bg-offwhite aspect-[3/4] overflow-hidden rounded-lg mb-2">
                     {product.newArrival && (
                       <span className="badge badge-new absolute top-1.5 left-1.5 z-10 text-[8px] sm:text-[10px]">New</span>
@@ -172,7 +172,7 @@ export default function HomePage() {
                     <h3 className="text-[11px] sm:text-[13px] font-semibold text-dark mt-0.5 leading-snug line-clamp-2">{product.name}</h3>
                     <p className="text-[11px] sm:text-[13px] font-semibold text-dark mt-1">{product.price}</p>
                   </div>
-                </div>
+                </Link>
               ))}
             </div>
           </div>

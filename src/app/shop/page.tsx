@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
 import { categories, genderFilters, perfumeSubcategories, topBrands } from '@/data/products';
 import { useProducts } from '@/hooks/useProducts';
 import { useCart } from '@/context/CartContext';
@@ -203,7 +204,7 @@ export default function ShopPage() {
         {filteredProducts.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-x-2 gap-y-5 sm:gap-x-4 sm:gap-y-8">
             {filteredProducts.map((product) => (
-              <div key={product.id} className="product-card group">
+              <Link key={product.id} href={`/product/${product.id}`} className="product-card group block">
                 <div className="relative bg-offwhite aspect-[3/4] overflow-hidden rounded-lg mb-2.5 sm:mb-3">
                   {/* Badges */}
                   <div className="absolute top-2 left-2 flex flex-col gap-1 z-10">
@@ -263,7 +264,7 @@ export default function ShopPage() {
                   )}
                   <p className="text-[12px] sm:text-[13px] font-semibold text-dark mt-1.5 sm:mt-2">{product.price}</p>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         ) : (
