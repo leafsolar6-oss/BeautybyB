@@ -58,7 +58,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="text-xs tracking-widest uppercase text-gold-500 mb-1">Email</p>
-                    <p className="text-sm text-deep/70">hello@beautybyb.com</p>
+                    <p className="text-sm text-deep/70">info@essenza.ng</p>
                   </div>
                 </div>
 

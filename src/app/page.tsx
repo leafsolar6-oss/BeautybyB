@@ -3,44 +3,50 @@ import Link from 'next/link';
 const featuredProducts = [
   {
     id: 1,
-    name: 'Noir Élégance',
-    tagline: 'Mysterious & Bold',
-    price: '$185',
-    notes: 'Oud, Black Rose, Amber',
-    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop',
+    name: 'Patron De Nuit',
+    brand: 'Essenza Collection',
+    tagline: 'Commanding & Mysterious',
+    price: '₦132,000',
+    notes: 'Oud, Leather, Black Amber',
+    image: 'https://www.essenza.ng/cdn/shop/products/essenza_patron_de_nuit-min_1.jpg?v=1722428451&width=916',
   },
   {
-    id: 2,
-    name: 'Rose Éternelle',
-    tagline: 'Timeless & Romantic',
-    price: '$210',
-    notes: 'Damask Rose, Peony, Musk',
-    image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400&h=500&fit=crop',
+    id: 5,
+    name: 'Ambre Exclusif',
+    brand: 'Essenza Collection',
+    tagline: 'Warm & Opulent',
+    price: '₦132,000',
+    notes: 'Amber, Benzoin, Tonka Bean',
+    image: 'https://www.essenza.ng/cdn/shop/products/essenza_exclusif-min_1.jpg?v=1722428383&width=916',
   },
   {
-    id: 3,
-    name: 'Soleil d\'Or',
-    tagline: 'Radiant & Warm',
-    price: '$195',
-    notes: 'Bergamot, Jasmine, Sandalwood',
-    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=500&fit=crop',
+    id: 7,
+    name: 'Gemme Sapphire',
+    brand: 'Essenza Gemme',
+    tagline: 'Royal & Captivating',
+    price: '₦164,000',
+    notes: 'Sapphire Accord, Iris, White Musk',
+    image: 'https://www.essenza.ng/cdn/shop/products/DSC_8604-Editcopy.png?v=1663327991&width=4016',
   },
 ];
 
 const testimonials = [
   {
-    name: 'Amara O.',
-    text: "BeautybyB's Noir Élégance is unlike anything I've ever worn. It lingers beautifully and I receive compliments every time.",
+    name: 'Adaeze O.',
+    location: 'Lagos',
+    text: "Essenza's Patron De Nuit is unlike anything I've ever worn. It lingers beautifully and I receive compliments every single time. Pure luxury.",
     rating: 5,
   },
   {
-    name: 'Chloe M.',
-    text: "Rose Éternelle makes me feel like I'm walking through a garden in full bloom. Absolutely divine and long-lasting.",
+    name: 'Chidinma M.',
+    location: 'Abuja',
+    text: "Gemme Sapphire makes me feel like royalty. The sillage is incredible — people notice me before I even enter the room. Absolutely divine.",
     rating: 5,
   },
   {
-    name: 'David L.',
-    text: "The quality is extraordinary. Soleil d'Or has become my signature scent — sophisticated yet approachable.",
+    name: 'Tunde A.',
+    location: 'Lagos',
+    text: "Le Meilleur has become my signature scent. The quality rivals anything from Dubai or Paris. BeautybyB understands African luxury.",
     rating: 5,
   },
 ];
@@ -93,13 +99,13 @@ export default function HomePage() {
           <div className="mt-16 animate-float">
             <div className="glass-card rounded-3xl p-8 max-w-md mx-auto">
               <img
-                src="https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop"
-                alt="Luxury perfume bottle"
+                src="https://www.essenza.ng/cdn/shop/products/essenza_patron_de_nuit-min_1.jpg?v=1722428451&width=916"
+                alt="Essenza Patron De Nuit — Featured Fragrance"
                 className="w-full h-64 object-cover rounded-2xl"
               />
               <div className="mt-4 text-center">
-                <p className="font-serif text-lg text-deep/80">New Arrival</p>
-                <p className="text-sm text-deep/50 mt-1">Limited Edition Collection 2026</p>
+                <p className="font-serif text-lg text-deep/80">Patron De Nuit</p>
+                <p className="text-sm text-deep/50 mt-1">Essenza Collection — Our Signature Scent</p>
               </div>
             </div>
           </div>
@@ -112,12 +118,12 @@ export default function HomePage() {
 
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <span className="font-sans text-xs tracking-widest uppercase text-gold-500">Curated Selection</span>
+            <span className="font-sans text-xs tracking-widest uppercase text-gold-500">Essenza Collection</span>
             <h2 className="font-serif text-4xl md:text-5xl font-light mt-3 text-deep">
-              Signature <span className="italic text-gradient">Collection</span>
+              Signature <span className="italic text-gradient">Fragrances</span>
             </h2>
             <p className="mt-4 text-deep/50 max-w-xl mx-auto">
-              Three masterpieces that define the essence of BeautybyB — each crafted for those who seek the extraordinary.
+              Our house collection — masterpieces inspired by African excellence, crafted for those who seek the extraordinary.
             </p>
           </div>
 
@@ -137,6 +143,7 @@ export default function HomePage() {
                   <div className="absolute inset-0 bg-gradient-to-t from-deep/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
                 <div className="p-6">
+                  <p className="text-[10px] tracking-widest uppercase text-deep/40 mb-0.5">{product.brand}</p>
                   <p className="text-xs tracking-widest uppercase text-gold-500 mb-1">{product.tagline}</p>
                   <h3 className="font-serif text-2xl text-deep">{product.name}</h3>
                   <p className="text-sm text-deep/50 mt-2">{product.notes}</p>
@@ -192,15 +199,16 @@ export default function HomePage() {
               <h2 className="font-serif text-4xl md:text-5xl font-light mt-3 text-deep leading-tight">
                 Crafted with <span className="italic text-gradient">Passion</span>,<br />Worn with Confidence
               </h2>
-              <p className="mt-6 text-deep/60 leading-relaxed">
-                At BeautybyB, we believe fragrance is the most intimate form of self-expression.
-                Each perfume is born from a deep reverence for nature's finest essences — hand-selected
-                from the lavender fields of Provence to the oud forests of Southeast Asia.
-              </p>
-              <p className="mt-4 text-deep/60 leading-relaxed">
-                Our master perfumers blend tradition with innovation, creating scents that evolve
-                beautifully on your skin from the first spritz to the lingering base notes hours later.
-              </p>
+            <p className="mt-6 text-deep/60 leading-relaxed">
+              At BeautybyB, we believe fragrance is the most intimate form of self-expression.
+              Inspired by African excellence and built on the cultural heritage of the Essenza brand,
+              we bring you the finest perfumes from Nigeria and the world's most prestigious houses.
+            </p>
+            <p className="mt-4 text-deep/60 leading-relaxed">
+              From our signature Essenza Collection to curated selections from Tom Ford, Xerjoff,
+              Amouage, and Nishane — every fragrance we offer is a testament to uncompromising quality
+              and timeless elegance.
+            </p>
               <Link
                 href="/about"
                 className="inline-flex items-center gap-2 mt-8 font-sans text-sm tracking-widest uppercase text-deep/70 hover:text-gold-500 transition-colors"
@@ -247,7 +255,10 @@ export default function HomePage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-gold-300 to-rose flex items-center justify-center">
                     <span className="font-serif text-sm text-white">{testimonial.name[0]}</span>
                   </div>
-                  <span className="font-sans text-sm text-deep/80">{testimonial.name}</span>
+                  <div>
+                    <span className="font-sans text-sm text-deep/80">{testimonial.name}</span>
+                    <p className="text-[10px] text-deep/40">{testimonial.location}</p>
+                  </div>
                 </div>
               </div>
             ))}

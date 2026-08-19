@@ -2,104 +2,27 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-
-const allProducts = [
-  {
-    id: 1,
-    name: 'Noir Élégance',
-    tagline: 'Mysterious & Bold',
-    price: 185,
-    category: 'eau-de-parfum',
-    notes: 'Oud, Black Rose, Amber',
-    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=500&fit=crop',
-    bestseller: true,
-  },
-  {
-    id: 2,
-    name: 'Rose Éternelle',
-    tagline: 'Timeless & Romantic',
-    price: 210,
-    category: 'eau-de-parfum',
-    notes: 'Damask Rose, Peony, Musk',
-    image: 'https://images.unsplash.com/photo-1588405748880-12d1d2a59f75?w=400&h=500&fit=crop',
-    bestseller: true,
-  },
-  {
-    id: 3,
-    name: "Soleil d'Or",
-    tagline: 'Radiant & Warm',
-    price: 195,
-    category: 'eau-de-parfum',
-    notes: 'Bergamot, Jasmine, Sandalwood',
-    image: 'https://images.unsplash.com/photo-1594035910387-fea47794261f?w=400&h=500&fit=crop',
-    bestseller: true,
-  },
-  {
-    id: 4,
-    name: 'Velvet Oud',
-    tagline: 'Deep & Enveloping',
-    price: 245,
-    category: 'extrait',
-    notes: 'Oud, Vanilla, Saffron',
-    image: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=400&h=500&fit=crop',
-    bestseller: false,
-  },
-  {
-    id: 5,
-    name: 'Fleur de Minuit',
-    tagline: 'Floral & Ethereal',
-    price: 175,
-    category: 'eau-de-parfum',
-    notes: 'Tuberose, Iris, White Musk',
-    image: 'https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=400&h=500&fit=crop',
-    bestseller: false,
-  },
-  {
-    id: 6,
-    name: 'Ambre Royal',
-    tagline: 'Opulent & Warm',
-    price: 225,
-    category: 'extrait',
-    notes: 'Amber, Benzoin, Tonka Bean',
-    image: 'https://images.unsplash.com/photo-1592945403244-b3fbafd7f539?w=400&h=500&fit=crop',
-    bestseller: false,
-  },
-  {
-    id: 7,
-    name: 'Brise Marine',
-    tagline: 'Fresh & Aquatic',
-    price: 165,
-    category: 'eau-de-toilette',
-    notes: 'Sea Salt, Neroli, Driftwood',
-    image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=400&h=500&fit=crop',
-    bestseller: false,
-  },
-  {
-    id: 8,
-    name: 'Nuit Étoilée',
-    tagline: 'Celestial & Dreamy',
-    price: 235,
-    category: 'extrait',
-    notes: 'Violet, Incense, Cashmere Wood',
-    image: 'https://images.unsplash.com/photo-1563170351-be82bc888aa4?w=400&h=500&fit=crop',
-    bestseller: false,
-  },
-];
-
-const categories = [
-  { id: 'all', label: 'All Fragrances' },
-  { id: 'eau-de-parfum', label: 'Eau de Parfum' },
-  { id: 'extrait', label: 'Extrait de Parfum' },
-  { id: 'eau-de-toilette', label: 'Eau de Toilette' },
-];
+import { allProducts, categories, genderFilters } from '@/data/products';
 
 export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState('all');
+  const [activeGender, setActiveGender] = useState('all');
+  const [sortBy, setSortBy] = useState('featured');
 
-  const filteredProducts =
-    activeCategory === 'all'
-      ? allProducts
-      : allProducts.filter((p) => p.category === activeCategory);
+  let filteredProducts = allProducts.filter((p) => {
+    const categoryMatch = activeCategory === 'all' || p.category === activeCategory;
+    const genderMatch = activeGender === 'all' || p.gender === activeGender;
+    return categoryMatch && genderMatch;
+  });
+
+  // Sort
+  if (sortBy === 'price-low') {
+    filteredProducts = [...filteredProducts].sort((a, b) => a.priceNumeric - b.priceNumeric);
+  } else if (sortBy === 'price-high') {
+    filteredProducts = [...filteredProducts].sort((a, b) => b.priceNumeric - a.priceNumeric);
+  } else if (sortBy === 'name') {
+    filteredProducts = [...filteredProducts].sort((a, b) => a.name.localeCompare(b.name));
+  }
 
   return (
     <div className="pt-32 pb-16 px-6">
@@ -108,24 +31,25 @@ export default function ShopPage() {
       <div className="blob w-72 h-72 bg-gold-200/20 bottom-20 right-10" />
 
       {/* Header */}
-      <div className="max-w-7xl mx-auto text-center mb-16">
+      <div className="max-w-7xl mx-auto text-center mb-12">
         <span className="font-sans text-xs tracking-widest uppercase text-gold-500">The Collection</span>
         <h1 className="font-serif text-4xl md:text-6xl font-light mt-3 text-deep">
           Our <span className="italic text-gradient">Fragrances</span>
         </h1>
         <p className="mt-4 text-deep/50 max-w-xl mx-auto">
-          Explore our complete range of handcrafted luxury perfumes. Each scent is a journey through the world's most exquisite ingredients.
+          From our signature Essenza Collection to the world's most coveted luxury houses — explore fragrances crafted for those who demand the extraordinary.
         </p>
       </div>
 
-      {/* Category Filter */}
-      <div className="max-w-7xl mx-auto mb-12">
-        <div className="flex flex-wrap justify-center gap-3">
+      {/* Filters */}
+      <div className="max-w-7xl mx-auto mb-6">
+        {/* Category Filter */}
+        <div className="flex flex-wrap justify-center gap-2 mb-4">
           {categories.map((cat) => (
             <button
               key={cat.id}
               onClick={() => setActiveCategory(cat.id)}
-              className={`px-5 py-2.5 rounded-full text-xs tracking-widest uppercase transition-all duration-300 ${
+              className={`px-4 py-2 rounded-full text-xs tracking-wider uppercase transition-all duration-300 ${
                 activeCategory === cat.id
                   ? 'bg-gradient-to-r from-deep to-plum text-white shadow-lg shadow-deep/20'
                   : 'glass text-deep/70 hover:text-deep'
@@ -135,37 +59,99 @@ export default function ShopPage() {
             </button>
           ))}
         </div>
+
+        {/* Gender + Sort Row */}
+        <div className="flex flex-wrap items-center justify-between gap-4 mt-6">
+          <div className="flex items-center gap-2">
+            <span className="text-xs text-deep/50 uppercase tracking-wider mr-2">For:</span>
+            {genderFilters.map((g) => (
+              <button
+                key={g.id}
+                onClick={() => setActiveGender(g.id)}
+                className={`px-3 py-1.5 rounded-full text-xs tracking-wider transition-all duration-300 ${
+                  activeGender === g.id
+                    ? 'bg-deep/10 text-deep font-medium'
+                    : 'text-deep/50 hover:text-deep/70'
+                }`}
+              >
+                {g.label}
+              </button>
+            ))}
+          </div>
+
+          <div className="flex items-center gap-3">
+            <span className="text-xs text-deep/50 uppercase tracking-wider">Sort:</span>
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="px-3 py-1.5 rounded-full bg-white/40 backdrop-blur-sm border border-white/50 text-xs text-deep focus:outline-none focus:border-gold-300"
+            >
+              <option value="featured">Featured</option>
+              <option value="price-low">Price: Low to High</option>
+              <option value="price-high">Price: High to Low</option>
+              <option value="name">Name: A–Z</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Results count */}
+        <p className="text-center text-xs text-deep/40 mt-4">
+          Showing {filteredProducts.length} fragrance{filteredProducts.length !== 1 ? 's' : ''}
+        </p>
       </div>
 
       {/* Products Grid */}
       <div className="max-w-7xl mx-auto">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
             <div
               key={product.id}
-              className="glass-card rounded-3xl overflow-hidden group transition-all duration-500"
+              className="glass-card rounded-3xl overflow-hidden group transition-all duration-500 flex flex-col"
             >
               <div className="relative overflow-hidden">
                 <img
                   src={product.image}
-                  alt={product.name}
+                  alt={`${product.brand} ${product.name}`}
                   className="w-full h-64 object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                {product.bestseller && (
-                  <span className="absolute top-3 left-3 px-3 py-1 rounded-full bg-gold-400/90 text-white text-[10px] tracking-widest uppercase">
-                    Bestseller
-                  </span>
+                {/* Badges */}
+                <div className="absolute top-3 left-3 flex flex-col gap-1.5">
+                  {product.bestseller && (
+                    <span className="px-2.5 py-0.5 rounded-full bg-gold-400/90 text-white text-[9px] tracking-widest uppercase">
+                      Bestseller
+                    </span>
+                  )}
+                  {product.newArrival && (
+                    <span className="px-2.5 py-0.5 rounded-full bg-rose/90 text-white text-[9px] tracking-widest uppercase">
+                      New
+                    </span>
+                  )}
+                </div>
+                {!product.inStock && (
+                  <div className="absolute inset-0 bg-deep/40 flex items-center justify-center">
+                    <span className="px-4 py-1.5 rounded-full bg-white/20 backdrop-blur-sm text-white text-xs tracking-widest uppercase">
+                      Sold Out
+                    </span>
+                  </div>
                 )}
                 <div className="absolute inset-0 bg-gradient-to-t from-deep/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
-              <div className="p-5">
-                <p className="text-[10px] tracking-widest uppercase text-gold-500 mb-1">{product.tagline}</p>
+              <div className="p-5 flex-1 flex flex-col">
+                <p className="text-[10px] tracking-widest uppercase text-gold-500 mb-0.5">{product.brand}</p>
                 <h3 className="font-serif text-xl text-deep">{product.name}</h3>
-                <p className="text-xs text-deep/50 mt-1.5">{product.notes}</p>
-                <div className="flex items-center justify-between mt-4">
-                  <span className="font-serif text-lg text-deep">${product.price}</span>
-                  <button className="btn-luxury px-3 py-1.5 rounded-full bg-gradient-to-r from-deep/10 to-plum/10 text-[10px] tracking-wider uppercase text-deep hover:from-deep hover:to-plum hover:text-white transition-all duration-300">
-                    Add to Bag
+                <p className="text-[11px] text-deep/40 mt-0.5">{product.concentration} — {product.size}</p>
+                <p className="text-xs text-deep/50 mt-2 italic">{product.notes}</p>
+                <div className="flex items-center justify-between mt-auto pt-4">
+                  <span className="font-serif text-lg text-deep">{product.price}</span>
+                  <button
+                    className={`btn-luxury px-3 py-1.5 rounded-full text-[10px] tracking-wider uppercase transition-all duration-300 ${
+                      product.inStock
+                        ? 'bg-gradient-to-r from-deep/10 to-plum/10 text-deep hover:from-deep hover:to-plum hover:text-white'
+                        : 'bg-deep/5 text-deep/30 cursor-not-allowed'
+                    }`}
+                    disabled={!product.inStock}
+                  >
+                    {product.inStock ? 'Add to Bag' : 'Unavailable'}
                   </button>
                 </div>
               </div>
@@ -178,10 +164,10 @@ export default function ShopPage() {
       <div className="max-w-4xl mx-auto mt-20 text-center">
         <div className="glass-card rounded-3xl p-10">
           <h3 className="font-serif text-2xl md:text-3xl font-light text-deep">
-            Can't Decide? Let Us Help
+            Can't Decide? Let Us Guide You
           </h3>
           <p className="mt-3 text-deep/50 text-sm max-w-md mx-auto">
-            Book a personalized fragrance consultation with our experts and find your perfect match.
+            Book a personalized fragrance consultation with our experts and discover the scent that tells your story.
           </p>
           <Link
             href="/contact"

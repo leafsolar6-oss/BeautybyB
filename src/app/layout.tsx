@@ -4,9 +4,9 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "BeautybyB — Luxury Fragrances",
-  description: "Discover exquisite luxury perfumes crafted with the finest ingredients. Elevate your essence with BeautybyB.",
-  keywords: "luxury perfume, fragrance, BeautybyB, eau de parfum, niche fragrance",
+  title: "BeautybyB — Nigeria's Luxury Fragrance Destination",
+  description: "Discover exquisite luxury perfumes from Essenza Collection, Tom Ford, Xerjoff, Amouage, Nishane and more. Nigeria's premier fragrance store — delivering nationwide.",
+  keywords: "luxury perfume Nigeria, Essenza, Tom Ford, Xerjoff, Amouage, Nishane, fragrance Lagos, perfume Abuja, BeautybyB",
 };
 
 export default function RootLayout({
