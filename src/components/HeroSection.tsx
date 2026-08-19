@@ -2,93 +2,91 @@ import Link from 'next/link';
 
 export default function HeroSection() {
   return (
-    <section className="bg-white py-12 md:py-20 relative overflow-hidden">
-      {/* Subtle sparkle decorations */}
-      <div className="absolute top-10 left-10 text-[#b8956a]/20 text-2xl">✦</div>
-      <div className="absolute top-20 right-1/4 text-[#b8956a]/15 text-lg">✧</div>
-      <div className="absolute bottom-20 left-1/4 text-[#b8956a]/20 text-xl">✦</div>
+    <section className="relative h-screen min-h-[800px] overflow-hidden bg-green-950">
+      {/* Background Video */}
+      <div className="absolute inset-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-60"
+          poster="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=1920&h=1080&fit=crop&q=90"
+        >
+          <source src="https://cdn.coverr.co/videos/coverr-applying-face-cream-2745/1080p.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-r from-green-950/90 via-green-950/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-green-950 via-transparent to-green-950/30" />
+      </div>
 
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-2 gap-10 items-center">
-          {/* Left Content */}
-          <div className="relative z-10">
-            {/* Trust Badge */}
-            <div className="inline-flex items-center gap-2 bg-white shadow-sm rounded-full px-4 py-2 mb-6 border border-gray-100">
-              <span className="text-sm">🌿</span>
-              <span className="text-sm font-medium text-[#333]">Glow with Confidence, Shop with Trust</span>
+      {/* Content */}
+      <div className="relative z-10 h-full flex items-center">
+        <div className="max-w-[1400px] mx-auto px-6 md:px-12 w-full">
+          <div className="max-w-3xl">
+            {/* Tagline */}
+            <div className="animate-fade-in-up" style={{ animationDelay: '0.2s', opacity: 0 }}>
+              <span className="inline-flex items-center gap-2 text-gold text-sm tracking-[0.3em] uppercase font-medium mb-6">
+                <span className="w-8 h-px bg-gold" />
+                Luxury Beauty Redefined
+              </span>
             </div>
 
             {/* Headline */}
-            <h1 className="font-heading text-4xl md:text-5xl lg:text-[3.5rem] font-bold leading-tight mb-4 text-[#1a1a1a]">
-              Your Ultimate <span className="text-[#b8956a] italic">Beauty</span><br />
-              & Cosmetics Hub
+            <h1 className="animate-fade-in-up" style={{ animationDelay: '0.4s', opacity: 0 }}>
+              <span className="block font-display text-5xl md:text-7xl lg:text-8xl font-light text-white leading-[0.9] mb-4">
+                The Art of
+              </span>
+              <span className="block font-display text-5xl md:text-7xl lg:text-8xl font-light italic gradient-text leading-[0.9]">
+                Radiance
+              </span>
             </h1>
 
             {/* Description */}
-            <p className="text-[#888] text-base mb-8 max-w-md leading-relaxed">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+            <p className="animate-fade-in-up mt-8 text-white/80 text-lg md:text-xl font-light leading-relaxed max-w-xl" style={{ animationDelay: '0.6s', opacity: 0 }}>
+              Discover our curated collection of premium skincare, luxury fragrances, and professional beauty treatments crafted for the discerning individual.
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-4">
+            <div className="animate-fade-in-up mt-12 flex flex-col sm:flex-row gap-4" style={{ animationDelay: '0.8s', opacity: 0 }}>
               <Link
                 href="/shop"
-                className="inline-flex items-center gap-2 px-7 py-3.5 bg-[#2d5016] text-white text-sm font-semibold rounded-full hover:bg-[#1e3a0e] transition-colors"
+                className="btn-luxury inline-flex items-center justify-center gap-3 px-10 py-5 bg-gold text-green-950 font-semibold tracking-wide hover:bg-gold-light transition-all duration-500 group"
               >
-                Shop Now
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                Explore Collection
+                <svg className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
               <Link
-                href="/shop"
-                className="text-sm font-medium text-[#333] underline hover:text-[#2d5016] transition-colors"
+                href="/about"
+                className="inline-flex items-center justify-center gap-3 px-10 py-5 border border-white/30 text-white font-medium tracking-wide hover:bg-white/10 transition-all duration-500 backdrop-blur-sm"
               >
-                View All Products
+                Our Story
               </Link>
             </div>
-          </div>
 
-          {/* Right Image */}
-          <div className="relative">
-            {/* Palm leaf decorations */}
-            <div className="absolute -right-6 -top-6 w-40 h-40 opacity-30 pointer-events-none">
-              <svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M100 200C100 200 50 130 80 90C110 50 170 30 170 30C170 30 150 90 100 120C50 150 100 200 100 200Z" fill="#2d5016"/>
-                <path d="M100 200C100 200 150 130 120 90C90 50 30 30 30 30C30 30 50 90 100 120C150 150 100 200 100 200Z" fill="#2d5016" opacity="0.5"/>
-              </svg>
-            </div>
-
-            {/* Main image container */}
-            <div className="relative rounded-2xl overflow-hidden aspect-[4/5]">
-              <img
-                src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=800&h=1000&fit=crop&q=80"
-                alt="Beauty"
-                className="w-full h-full object-cover"
-              />
-
-              {/* 100% Authentic badge */}
-              <div className="absolute top-4 right-4 w-16 h-16 md:w-20 md:h-20 rounded-full bg-[#2d5016] flex items-center justify-center shadow-lg">
-                <div className="text-center leading-tight">
-                  <span className="text-[#b8956a] text-[10px] font-bold block">100%</span>
-                  <span className="text-white text-[7px] md:text-[8px] block uppercase tracking-wider">Authentic</span>
-                  <span className="text-white text-[7px] md:text-[8px] block uppercase tracking-wider">Products</span>
+            {/* Trust Badges */}
+            <div className="animate-fade-in-up mt-16 flex flex-wrap items-center gap-8" style={{ animationDelay: '1s', opacity: 0 }}>
+              {[
+                { icon: '🌿', text: 'Clean Beauty' },
+                { icon: '✨', text: 'Dermatologist Tested' },
+                { icon: '', text: 'Cruelty Free' },
+              ].map((badge) => (
+                <div key={badge.text} className="flex items-center gap-2 text-white/70 text-sm">
+                  <span className="text-lg">{badge.icon}</span>
+                  <span>{badge.text}</span>
                 </div>
-              </div>
-
-              {/* Floating Fast Delivery badge */}
-              <div className="absolute top-1/3 left-0 bg-white rounded-full px-3 py-2 shadow-md flex items-center gap-2 -translate-x-2">
-                <span className="text-sm"></span>
-                <span className="text-xs font-medium text-[#333]">Fast Delivery</span>
-              </div>
-
-              {/* Floating Secure Payment badge */}
-              <div className="absolute bottom-1/4 right-0 bg-white rounded-full px-3 py-2 shadow-md flex items-center gap-2 translate-x-2">
-                <span className="text-sm">🔒</span>
-                <span className="text-xs font-medium text-[#333]">Secure Payment</span>
-              </div>
+              ))}
             </div>
           </div>
+        </div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-fade-in" style={{ animationDelay: '1.5s', opacity: 0 }}>
+        <div className="flex flex-col items-center gap-2 text-white/60">
+          <span className="text-xs tracking-widest uppercase">Scroll</span>
+          <div className="w-px h-12 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
       </div>
     </section>

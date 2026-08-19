@@ -1,70 +1,90 @@
 export default function AboutSection() {
   return (
-    <section className="py-14 md:py-20 bg-[#f5f5f5]">
-      <div className="max-w-[1280px] mx-auto px-4 md:px-8">
-        <div className="grid md:grid-cols-2 gap-10 md:gap-16 items-center">
-          {/* Photo Collage */}
+    <section className="py-24 md:py-32 bg-white">
+      <div className="max-w-[1400px] mx-auto px-6 md:px-12">
+        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
+          {/* Image Collage */}
           <div className="relative">
-            <div className="grid grid-cols-2 gap-3 max-w-md">
-              <div className="space-y-3">
-                <div className="rounded-tl-3xl rounded-tr-lg rounded-bl-lg rounded-br-lg overflow-hidden aspect-square border-t-4 border-l-4 border-[#2d5016]">
-                  <img src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=400&h=400&fit=crop&q=80" alt="" className="w-full h-full object-cover" />
+            <div className="grid grid-cols-2 gap-4">
+              <div className="space-y-4">
+                <div className="aspect-[3/4] overflow-hidden rounded-2xl image-zoom">
+                  <img
+                    src="https://images.unsplash.com/photo-1596755389378-c31d21fd1273?w=600&h=800&fit=crop&q=90"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="rounded-lg overflow-hidden aspect-square">
-                  <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=400&h=400&fit=crop&q=80" alt="" className="w-full h-full object-cover" />
+                <div className="aspect-square overflow-hidden rounded-2xl image-zoom">
+                  <img
+                    src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=600&h=600&fit=crop&q=90"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
-              <div className="space-y-3 pt-4">
-                <div className="rounded-lg overflow-hidden aspect-square">
-                  <img src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=400&h=400&fit=crop&q=80" alt="" className="w-full h-full object-cover" />
+              <div className="pt-8 space-y-4">
+                <div className="aspect-square overflow-hidden rounded-2xl image-zoom">
+                  <img
+                    src="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&h=600&fit=crop&q=90"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
-                <div className="rounded-br-3xl rounded-bl-lg rounded-tl-lg rounded-tr-lg overflow-hidden aspect-square border-b-4 border-r-4 border-[#b8956a]">
-                  <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=400&h=400&fit=crop&q=80" alt="" className="w-full h-full object-cover" />
+                <div className="aspect-[3/4] overflow-hidden rounded-2xl image-zoom">
+                  <img
+                    src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=600&h=800&fit=crop&q=90"
+                    alt=""
+                    className="w-full h-full object-cover"
+                  />
                 </div>
               </div>
             </div>
-            {/* Center Badge */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-16 h-16 rounded-full bg-[#2d5016] flex items-center justify-center shadow-xl z-10 border-4 border-white">
-              <div className="text-center leading-tight">
-                <span className="text-[#b8956a] text-[9px] font-bold block">100%</span>
-                <span className="text-white text-[7px] block uppercase">Authentic</span>
+
+            {/* Floating Badge */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-32 h-32 rounded-full bg-gold flex items-center justify-center shadow-2xl animate-scale-in">
+              <div className="text-center">
+                <span className="block font-display text-3xl font-bold text-green-950">10+</span>
+                <span className="block text-green-950/80 text-xs tracking-wider uppercase">Years</span>
+                <span className="block text-green-950/80 text-xs tracking-wider uppercase">of Excellence</span>
               </div>
             </div>
-            {/* Decorative sparkles */}
-            <div className="absolute -bottom-2 -left-2 text-[#2d5016] text-2xl">✦</div>
-            <div className="absolute -bottom-4 left-4 text-[#b8956a] text-xl">✧</div>
           </div>
 
           {/* Content */}
-          <div>
-            <p className="text-[#888] text-sm mb-2">About Us</p>
-            <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#1a1a1a] mb-4 leading-tight">
-              Your Journey to<br/><span className="text-[#b8956a]">Effortless Elegance</span>
+          <div className="md:pl-8">
+            <span className="text-gold text-sm tracking-[0.3em] uppercase font-medium">Our Story</span>
+            <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-light text-green-950 mt-4 mb-8 leading-tight">
+              Crafting Beauty<br />
+              <em className="italic font-normal">Since 2014</em>
             </h2>
-            <p className="text-[#888] leading-relaxed mb-6">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+            <p className="text-gray-600 text-lg leading-relaxed mb-6">
+              Born from a passion for authentic luxury beauty, BeautybyB brings together the world's finest skincare, fragrances, and cosmetics. Every product in our collection is carefully curated to meet the highest standards of quality and efficacy.
+            </p>
+            <p className="text-gray-600 text-lg leading-relaxed mb-12">
+              We believe that true beauty comes from within, and our mission is to provide you with the tools to enhance your natural radiance. From clean, sustainable formulations to time-tested luxury ingredients, we offer a holistic approach to beauty that honors both you and the planet.
             </p>
 
-            {/* Stats Bar */}
-            <div className="bg-[#2d5016] rounded-xl p-5 mb-6">
-              <div className="grid grid-cols-3 gap-4 text-center">
-                <div>
-                  <p className="text-[#b8956a] text-2xl md:text-3xl font-bold font-heading">24+</p>
-                  <p className="text-white/80 text-xs mt-1">Categories</p>
+            {/* Stats */}
+            <div className="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+              {[
+                { number: '2500+', label: 'Products' },
+                { number: '50K+', label: 'Happy Clients' },
+                { number: '99%', label: 'Satisfaction' },
+              ].map((stat) => (
+                <div key={stat.label}>
+                  <div className="font-display text-3xl md:text-4xl font-bold text-green-950 mb-2">
+                    {stat.number}
+                  </div>
+                  <div className="text-gray-600 text-sm">{stat.label}</div>
                 </div>
-                <div className="border-x border-white/20">
-                  <p className="text-[#b8956a] text-2xl md:text-3xl font-bold font-heading">2500+</p>
-                  <p className="text-white/80 text-xs mt-1">Products</p>
-                </div>
-                <div>
-                  <p className="text-[#b8956a] text-2xl md:text-3xl font-bold font-heading">99%</p>
-                  <p className="text-white/80 text-xs mt-1">Satisfied Customer</p>
-                </div>
-              </div>
+              ))}
             </div>
 
             {/* Signature */}
-            <p className="font-script text-3xl text-[#333]">Jenny Alexander</p>
+            <div className="mt-12">
+              <p className="font-display italic text-2xl text-green-950">BeautybyB</p>
+              <p className="text-gray-500 text-sm mt-1">Founder & CEO</p>
+            </div>
           </div>
         </div>
       </div>
