@@ -30,6 +30,7 @@ export default function Navbar() {
 
   const shopCategories = [
     { href: '/shop', label: 'All Products', icon: '✨' },
+    { href: '/shop?cat=supplement', label: 'Supplements', icon: '💊' },
     { href: '/shop?cat=skincare', label: 'Skincare', icon: '🧴' },
     { href: '/shop?cat=beauty-glow', label: 'Beauty & Glow', icon: '🌟' },
   ];

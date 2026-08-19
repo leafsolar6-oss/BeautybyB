@@ -51,9 +51,9 @@ export default function AboutPage() {
           <h2 className="font-serif text-2xl text-dark text-center mb-12">What We Offer</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: '✨', title: 'Perfumes', desc: 'Our main collection — 994 luxury fragrances from Amouage, Dior, Zara, Armani, Louis Vuitton, Victoria\'s Secret, and more. Designer and niche. Every bottle guaranteed original.' },
-              { icon: '🧴', title: 'Skincare', desc: '64 authentic imported skincare products from Anua, Clarins, Clinique, Fenty Skin, and more. Cleansers, serums, moisturizers, and complete routines for all skin types.' },
-              { icon: '🌟', title: 'Beauty & Glow', desc: '63 beauty essentials including Victoria\'s Secret body mists, shimmer oils, makeup products, home fragrances, and radiance-boosting treatments.' },
+              { icon: '✨', title: 'Perfumes', desc: 'Our main collection — 875 luxury fragrances from Amouage, Dior, Zara, Armani, Louis Vuitton, Victoria\'s Secret, and more. Designer, Arabian, and niche. Every bottle guaranteed original.' },
+              { icon: '💊', title: 'Supplements', desc: 'Coming soon. Health and wellness supplements for adults — vitamins, capsules, and daily wellness products to support your glow journey.' },
+              { icon: '🧴', title: 'Skincare', desc: 'Coming soon. Authentic imported skincare products — cleansers, serums, moisturizers, and complete routines for all skin types.' },
             ].map((item) => (
               <div key={item.title} className="bg-white p-8 border border-border">
                 <span className="text-2xl mb-3 block">{item.icon}</span>

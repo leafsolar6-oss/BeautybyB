@@ -20,6 +20,7 @@ export interface Product {
 export const categories = [
   { id: 'all', label: 'All Products' },
   { id: 'perfume', label: 'Perfumes' },
+  { id: 'supplement', label: 'Supplements' },
   { id: 'skincare', label: 'Skincare' },
   { id: 'beauty-glow', label: 'Beauty & Glow' },
 ];

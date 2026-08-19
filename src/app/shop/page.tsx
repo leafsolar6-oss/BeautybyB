@@ -76,6 +76,7 @@ export default function ShopPage() {
           <h1 className="font-serif text-2xl md:text-4xl text-dark">
             {activeCategory === 'all' ? 'All Products' :
              activeCategory === 'perfume' ? 'Perfumes' :
+             activeCategory === 'supplement' ? 'Supplements' :
              activeCategory === 'skincare' ? 'Skincare' : 'Beauty & Glow'}
           </h1>
         </div>

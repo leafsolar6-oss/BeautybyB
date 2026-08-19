@@ -48,6 +48,7 @@ export default function Footer() {
               <ul className="space-y-2.5">
                 {[
                   { label: 'Perfumes', href: '/shop' },
+                  { label: 'Supplements', href: '/shop?cat=supplement' },
                   { label: 'Skincare', href: '/shop?cat=skincare' },
                   { label: 'Beauty & Glow', href: '/shop?cat=beauty-glow' },
                 ].map((item) => (

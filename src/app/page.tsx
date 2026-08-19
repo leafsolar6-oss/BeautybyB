@@ -35,8 +35,8 @@ export default function HomePage() {
           <div className="grid grid-cols-1 gap-2.5 md:grid-cols-3 md:gap-4">
             {[
               { title: 'Perfumes', desc: 'Luxury fragrances', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=300&fit=crop&q=80', link: '/shop?cat=perfume', accent: 'from-amber-900/60' },
-              { title: 'Skincare', desc: 'Imported products', image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=300&fit=crop&q=80', link: '/shop?cat=skincare', accent: 'from-teal-900/60' },
-              { title: 'Beauty & Glow', desc: 'Radiance essentials', image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=300&fit=crop&q=80', link: '/shop?cat=beauty-glow', accent: 'from-rose-900/60' },
+              { title: 'Supplements', desc: 'Health & wellness', image: 'https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=600&h=300&fit=crop&q=80', link: '/shop?cat=supplement', accent: 'from-green-900/60' },
+              { title: 'Skincare', desc: 'Coming soon', image: 'https://images.unsplash.com/photo-1598440947619-2c35fc9aa908?w=600&h=300&fit=crop&q=80', link: '/shop?cat=skincare', accent: 'from-teal-900/60' },
             ].map((cat) => (
               <Link key={cat.title} href={cat.link} className="relative h-[130px] md:h-[220px] block rounded-xl overflow-hidden group">
                 <img src={cat.image} alt={cat.title} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
@@ -190,9 +190,9 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-6">
             {[
-              { icon: '✨', title: 'Perfumes', desc: '994 luxury fragrances from Amouage, Dior, Zara, Armani, Louis Vuitton, and more. Designer and niche collections.' },
-              { icon: '🧴', title: 'Skincare', desc: '64 authentic skincare products from Anua, Clarins, Clinique, and Fenty Skin. Cleansers, serums, and moisturizers.' },
-              { icon: '🌟', title: 'Beauty & Glow', desc: '63 beauty essentials including Victoria\'s Secret body mists, shimmer oils, makeup, and home fragrances.' },
+              { icon: '✨', title: 'Perfumes', desc: '875 luxury fragrances from Amouage, Dior, Zara, Armani, Louis Vuitton, and more. Designer, Arabian, and niche collections.' },
+              { icon: '💊', title: 'Supplements', desc: 'Coming soon. Health & wellness products for your glow journey.' },
+              { icon: '🧴', title: 'Skincare', desc: 'Coming soon. Authentic imported skincare products.' },
             ].map((item) => (
               <div key={item.title} className="bg-white p-5 sm:p-6 md:p-6 border border-border rounded-xl text-center">
                 <span className="text-xl md:text-2xl mb-3 block">{item.icon}</span>
@@ -247,7 +247,7 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto text-center">
           <h2 className="font-serif text-lg md:text-3xl text-dark">Ready to shop?</h2>
           <p className="text-xs sm:text-sm text-muted mt-1.5 max-w-md mx-auto">
-            Browse our 1,100+ products or DM us on Instagram to place your order.
+            Browse our full collection or DM us on Instagram to place your order.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-2.5 sm:gap-3 mt-5">
             <Link href="/shop" className="btn-add max-w-[200px] text-center text-xs sm:text-sm">Shop Now</Link>
