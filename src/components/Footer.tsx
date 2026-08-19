@@ -107,7 +107,7 @@ export default function Footer() {
       {/* Bottom bar */}
       <div className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-4 py-4 text-center">
-          <p className="text-xs text-white/50">© 2026 PerfumeBox. All rights reserved.</p>
+          <p className="text-xs text-white/50">© 2026 BeautybyB. All rights reserved.</p>
         </div>
       </div>
     </footer>

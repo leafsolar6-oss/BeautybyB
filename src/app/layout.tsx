@@ -6,8 +6,8 @@ import Footer from "@/components/Footer";
 import { CartProvider } from "@/context/CartContext";
 
 export const metadata: Metadata = {
-  title: "Perfume Box | Authentic Perfumes & Colognes Online",
-  description: "Shop authentic designer and niche perfumes at unbeatable prices. Free shipping on orders over $59.",
+  title: "BeautybyB | Authentic Perfumes & Colognes Online",
+  description: "Nigeria's premier destination for authentic designer, Arabian, and niche perfumes. Free shipping on orders over ₦50,000.",
 };
 
 export default function RootLayout({

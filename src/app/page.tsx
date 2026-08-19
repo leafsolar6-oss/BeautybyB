@@ -238,7 +238,7 @@ export default function Home() {
       <section className="py-12 md:py-16 bg-[#f8f8f8]">
         <div className="max-w-[1400px] mx-auto px-4">
           <h2 className="font-heading text-2xl md:text-3xl uppercase tracking-wider text-center mb-8">
-            Beauty Tips
+            Fragrance Insights
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-white p-6">
@@ -262,9 +262,9 @@ export default function Home() {
               <p className="text-xs text-[#999] mt-3 italic">Review by Suzana</p>
             </div>
             <div className="bg-white p-6">
-              <h3 className="font-bold text-base mb-2">Why Choose PerfumeBox?</h3>
+              <h3 className="font-bold text-base mb-2">Why Choose BeautybyB?</h3>
               <p className="text-sm text-[#666] leading-relaxed mb-3">
-                We offer 100% authentic fragrances at unbeatable prices. Trusted online since 1997 with over 40 million orders shipped worldwide. Free shipping on orders over $59.
+                We offer 100% authentic fragrances at unbeatable prices. Your trusted destination for designer, Arabian, and niche perfumes. Free shipping on orders over ₦50,000.
               </p>
               <a href="#" className="text-xs font-semibold text-[#c8102e] uppercase tracking-wider hover:underline">
                 Show More

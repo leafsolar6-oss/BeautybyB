@@ -1,4 +1,4 @@
-// PerfumeBox-style product data
+// BeautybyB product data
 export interface Product {
   id: string;
   name: string;
