@@ -22,8 +22,8 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="aspect-[4/5] bg-offwhite overflow-hidden">
               <img
-                src="https://www.essenza.ng/cdn/shop/products/essenza_le_perle-min.jpg?v=1722428396&width=916"
-                alt="Essenza La Perle"
+                src="https://images.unsplash.com/photo-1615634260167-c8cdede054de?w=600&h=700&fit=crop"
+                alt="Luxury fragrances"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -31,10 +31,10 @@ export default function AboutPage() {
               <h2 className="font-serif text-3xl text-dark">A dream born from excellence</h2>
               <div className="mt-6 space-y-4 text-[13px] text-muted leading-relaxed">
                 <p>
-                  BeautybyB was built on a simple belief: everyone deserves access to exceptional fragrance. Inspired by African excellence and built on the cultural heritage of the Essenza brand, we curate the world's finest perfumes for the Nigerian market.
+                  BeautybyB was built on a simple belief: everyone deserves access to exceptional fragrance. Inspired by African excellence, we curate the world's finest perfumes for the Nigerian market.
                 </p>
                 <p>
-                  From our own signature Essenza Collection — crafted with rare ingredients and deep attention to detail — to curated selections from Tom Ford, Xerjoff, Amouage, and Nishane, every fragrance in our collection is chosen for its quality, its story, and its ability to make you feel extraordinary.
+                  From curated selections from Tom Ford, Xerjoff, Amouage, and Nishane to our own signature collection — every fragrance in our collection is chosen for its quality, its story, and its ability to make you feel extraordinary.
                 </p>
                 <p>
                   We source only the finest raw materials — Bulgarian rose, Indian sandalwood, rare oud — and we believe that true luxury should be accessible, authentic, and personal.

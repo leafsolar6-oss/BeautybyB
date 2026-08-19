@@ -18,7 +18,6 @@ export default function Navbar() {
   const navLinks = [
     { href: '/', label: 'Home' },
     { href: '/shop', label: 'Shop All' },
-    { href: '/shop?cat=essenza-collection', label: 'Essenza' },
     { href: '/shop?cat=designer', label: 'Designer' },
     { href: '/shop?cat=niche', label: 'Niche' },
     { href: '/about', label: 'Our Story' },

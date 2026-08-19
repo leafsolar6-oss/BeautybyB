@@ -31,7 +31,7 @@ export default function Footer() {
             <div>
               <h3 className="font-serif text-xl text-dark mb-4">Beauty<span className="text-gold">byB</span></h3>
               <p className="text-[12px] text-muted leading-relaxed mb-4">
-                Nigeria's premier destination for luxury fragrances. From our signature Essenza Collection to the world's most prestigious houses.
+                Nigeria's premier destination for luxury fragrances. Curating the world's most prestigious houses for you.
               </p>
               <div className="flex gap-3">
                 {['Instagram', 'TikTok', 'Pinterest'].map((social) => (
@@ -49,7 +49,7 @@ export default function Footer() {
             <div>
               <h4 className="text-[11px] font-semibold tracking-widest uppercase text-dark mb-4">Shop</h4>
               <ul className="space-y-2.5">
-                {['All Fragrances', 'Essenza Collection', 'Designer', 'Niche & Exclusive', 'Perfume Oils', 'Gift Sets'].map((item) => (
+                {['All Fragrances', 'Designer', 'Niche & Exclusive', 'Perfume Oils', 'Gift Sets'].map((item) => (
                   <li key={item}>
                     <Link href="/shop" className="text-[12px] text-muted hover:text-dark transition-colors">
                       {item}
