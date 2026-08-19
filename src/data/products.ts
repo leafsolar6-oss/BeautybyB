@@ -50,9 +50,6 @@ export const quickCategories = [
   { name: 'Imported Skincare', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=1200&h=1200&fit=crop&crop=center&q=90&auto=format', href: '/shop?category=skincare' },
   { name: 'Skincare Supplements', image: 'https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=1200&h=1200&fit=crop&crop=center&q=90&auto=format', href: '/shop?category=supplements' },
   { name: 'Gym Supplements', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&h=1200&fit=crop&crop=center&q=90&auto=format', href: '/shop?category=gym' },
-  { name: 'Best Sellers', image: 'https://images.unsplash.com/photo-1523293182086-7651a899d37f?w=1200&h=1200&fit=crop&crop=center&q=90&auto=format', href: '/shop' },
-  { name: 'New Arrivals', image: 'https://images.unsplash.com/photo-1587017539504-67cfbddac569?w=1200&h=1200&fit=crop&crop=center&q=90&auto=format', href: '/shop' },
-  { name: 'Gift Sets', image: 'https://images.unsplash.com/photo-1549298222-1b090ee4ec07?w=1200&h=1200&fit=crop&crop=center&q=90&auto=format', href: '/shop' },
 ];
 
 export const heroSlides = [
