@@ -1,0 +1,2 @@
+id,name,brand,tagline,price,priceNumeric,category,gender,notes,image,bestseller,newArrival,inStock,size,concentration
+1,Example Perfume,Brand Name,Short tagline,₦50000,50000,perfume,unisex,"Rose, Oud, Vanilla",/images/example.jpg,true,false,true,100ml,Eau de Parfum

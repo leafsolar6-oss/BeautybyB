@@ -1,4 +1,4 @@
-// Product data — Add your products here
+// Product types and CSV import support
 export interface Product {
   id: number;
   name: string;
@@ -16,27 +16,6 @@ export interface Product {
   size: string;
   concentration: string;
 }
-
-export const allProducts: Product[] = [
-  // Add your products here. Example:
-  // {
-  //   id: 1,
-  //   name: 'Your Fragrance',
-  //   brand: 'Brand Name',
-  //   tagline: 'Short tagline',
-  //   price: '₦50,000',
-  //   priceNumeric: 50000,
-  //   category: 'perfume',
-  //   gender: 'unisex',
-  //   notes: 'Note 1, Note 2, Note 3',
-  //   image: '/images/your-product.jpg',
-  //   bestseller: true,
-  //   newArrival: false,
-  //   inStock: true,
-  //   size: '100ml',
-  //   concentration: 'Eau de Parfum',
-  // },
-];
 
 export const categories = [
   { id: 'all', label: 'All Products' },
