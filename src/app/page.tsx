@@ -14,7 +14,9 @@ export default function Home() {
       <HeroSlider />
 
       {/* Category Grid */}
-      <CategoryGrid />
+      <div className="py-12 md:py-20">
+        <CategoryGrid />
+      </div>
 
       {/* ===== BEST SELLERS — Exotic Arabian Luxury ===== */}
       <section className="py-20 md:py-32 bg-gradient-to-b from-[#0a0a0a] via-[#1a1510] to-[#0a0a0a] relative overflow-hidden">
