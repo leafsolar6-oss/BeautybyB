@@ -29,9 +29,6 @@ export default function Navbar() {
   const shopCategories = [
     { href: '/shop', label: 'All Products', icon: '✨' },
     { href: '/shop?cat=skincare', label: 'Skincare', icon: '🧴' },
-    { href: '/shop?cat=supplements', label: 'Supplements', icon: '💊' },
-    { href: '/shop?cat=weight-management', label: 'Weight Management', icon: '⚖️' },
-    { href: '/shop?cat=gym-fitness', label: 'Gym & Fitness', icon: '💪' },
     { href: '/shop?cat=beauty-glow', label: 'Beauty & Glow', icon: '🌟' },
   ];
 

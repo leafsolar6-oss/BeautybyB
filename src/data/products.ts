@@ -21,9 +21,6 @@ export const categories = [
   { id: 'all', label: 'All Products' },
   { id: 'perfume', label: 'Perfumes' },
   { id: 'skincare', label: 'Skincare' },
-  { id: 'supplements', label: 'Supplements' },
-  { id: 'weight-management', label: 'Weight Management' },
-  { id: 'gym-fitness', label: 'Gym & Fitness' },
   { id: 'beauty-glow', label: 'Beauty & Glow' },
 ];
 

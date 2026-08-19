@@ -49,14 +49,11 @@ export default function AboutPage() {
       <section className="py-16 px-4 md:px-8 bg-offwhite border-y border-border">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="font-serif text-2xl text-dark text-center mb-12">What We Offer</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: '✨', title: 'Perfumes', desc: 'Our main collection. Authentic designer and niche fragrances for men, women, and unisex. Every bottle is guaranteed original.' },
-              { icon: '🧴', title: 'Skincare', desc: 'Imported skincare products for all skin types. Cleansers, serums, moisturizers, and complete routines.' },
-              { icon: '💊', title: 'Supplements', desc: 'Health and wellness supplements for adults and children. Vitamins, capsules, and daily wellness products.' },
-              { icon: '⚖️', title: 'Weight Management', desc: 'Quality weight gain and weight loss supplements to support your body goals safely.' },
-              { icon: '💪', title: 'Gym & Fitness', desc: 'Original gym supplements for anyone serious about their fitness journey. Protein, pre-workout, and more.' },
-              { icon: '🌟', title: 'Beauty & Glow', desc: 'Products that help you glow from within. Beauty supplements and radiance essentials.' },
+              { icon: '✨', title: 'Perfumes', desc: 'Our main collection — 994 luxury fragrances from Amouage, Dior, Zara, Armani, Louis Vuitton, Victoria\'s Secret, and more. Designer and niche. Every bottle guaranteed original.' },
+              { icon: '🧴', title: 'Skincare', desc: '64 authentic imported skincare products from Anua, Clarins, Clinique, Fenty Skin, and more. Cleansers, serums, moisturizers, and complete routines for all skin types.' },
+              { icon: '🌟', title: 'Beauty & Glow', desc: '63 beauty essentials including Victoria\'s Secret body mists, shimmer oils, makeup products, home fragrances, and radiance-boosting treatments.' },
             ].map((item) => (
               <div key={item.title} className="bg-white p-8 border border-border">
                 <span className="text-2xl mb-3 block">{item.icon}</span>

@@ -49,9 +49,6 @@ export default function Footer() {
                 {[
                   { label: 'Perfumes', href: '/shop' },
                   { label: 'Skincare', href: '/shop?cat=skincare' },
-                  { label: 'Supplements', href: '/shop?cat=supplements' },
-                  { label: 'Weight Management', href: '/shop?cat=weight-management' },
-                  { label: 'Gym & Fitness', href: '/shop?cat=gym-fitness' },
                   { label: 'Beauty & Glow', href: '/shop?cat=beauty-glow' },
                 ].map((item) => (
                   <li key={item.label}>

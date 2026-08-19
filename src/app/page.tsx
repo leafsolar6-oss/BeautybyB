@@ -18,7 +18,7 @@ export default function HomePage() {
       {/* ===== BRAND STRIP ===== */}
       <div className="border-b border-border py-5">
         <div className="max-w-[1400px] mx-auto px-4 md:px-8 flex flex-wrap items-center justify-center gap-5 md:gap-10">
-          {['Perfumes', 'Skincare', 'Supplements', 'Weight Management', 'Gym & Fitness', 'Beauty & Glow'].map((item) => (
+          {['Amouage', 'Dior', 'Zara', 'Armani', 'Louis Vuitton', 'Victoria\'s Secret', 'Paco Rabanne', 'YSL'].map((item) => (
             <span key={item} className="text-[12px] font-semibold text-muted/40 tracking-wider uppercase hover:text-dark transition-colors cursor-default">
               {item}
             </span>
@@ -30,13 +30,10 @@ export default function HomePage() {
       <section className="py-12 px-4 md:px-8 border-b border-border">
         <div className="max-w-[1400px] mx-auto">
           <h2 className="font-serif text-2xl text-dark text-center mb-8">Shop by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { title: 'Perfumes', desc: 'Luxury fragrances', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop', link: '/shop?cat=perfume' },
+              { title: 'Perfumes', desc: 'Luxury fragrances', image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=400&h=400&fit=crop', link: '/shop' },
               { title: 'Skincare', desc: 'Imported & authentic', image: 'https://images.unsplash.com/photo-1556228578-0d85b1a4d571?w=400&h=400&fit=crop', link: '/shop?cat=skincare' },
-              { title: 'Supplements', desc: 'Health & wellness', image: 'https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=400&h=400&fit=crop', link: '/shop?cat=supplements' },
-              { title: 'Weight Mgmt', desc: 'Gain & loss', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8f?w=400&h=400&fit=crop', link: '/shop?cat=weight-management' },
-              { title: 'Gym & Fitness', desc: 'Performance boost', image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=400&fit=crop', link: '/shop?cat=gym-fitness' },
               { title: 'Beauty & Glow', desc: 'Radiance essentials', image: 'https://images.unsplash.com/photo-1596755094514-f87e34085b2c?w=400&h=400&fit=crop', link: '/shop?cat=beauty-glow' },
             ].map((cat) => (
               <Link key={cat.title} href={cat.link} className="category-tile relative h-[200px] md:h-[240px] block">
@@ -181,14 +178,11 @@ export default function HomePage() {
               From luxury perfumes to skincare, supplements, and fitness products — all original, safely sourced, and delivered to your door.
             </p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {[
-              { icon: '✨', title: 'Perfumes', desc: 'Designer & niche fragrances' },
-              { icon: '🧴', title: 'Skincare', desc: 'Imported skincare routines' },
-              { icon: '💊', title: 'Supplements', desc: 'Adults & children wellness' },
-              { icon: '⚖️', title: 'Weight Mgmt', desc: 'Gain & loss solutions' },
-              { icon: '💪', title: 'Gym & Fitness', desc: 'Performance supplements' },
-              { icon: '🌟', title: 'Beauty & Glow', desc: 'Radiance essentials' },
+              { icon: '✨', title: 'Perfumes', desc: '994 luxury fragrances from Amouage, Dior, Zara, Armani, Louis Vuitton, and more. Designer and niche collections.' },
+              { icon: '🧴', title: 'Skincare', desc: '64 authentic skincare products from Anua, Clarins, Clinique, and Fenty Skin. Cleansers, serums, and moisturizers.' },
+              { icon: '🌟', title: 'Beauty & Glow', desc: '63 beauty essentials including Victoria\'s Secret body mists, shimmer oils, makeup, and home fragrances.' },
             ].map((item) => (
               <div key={item.title} className="bg-white p-5 border border-border text-center">
                 <span className="text-2xl mb-2 block">{item.icon}</span>
