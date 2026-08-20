@@ -159,6 +159,14 @@ export default function Navbar() {
                 <div>
                   <p className="text-white text-xl font-bold mb-4">Home page</p>
                   <div className="space-y-3">
+                    <Link
+                      href="/"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center gap-3 text-gold text-lg font-bold hover:text-gold-light transition-colors"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                      Home
+                    </Link>
                     {[
                       { label: 'Designer Perfumes', href: '/shop?category=designer#products' },
                       { label: 'Imported Skincare', href: '/shop?category=skincare#products' },

@@ -16,7 +16,7 @@ const categories = [
   {
     name: 'Skincare Supplements',
     description: 'Beauty from within',
-    image: 'https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=600&h=600&fit=crop&q=90',
+    image: 'https://images.unsplash.com/photo-1734607404574-df50e1839d6d?w=600&h=600&fit=crop&q=90',
     size: 'medium',
   },
   {
