@@ -30,10 +30,10 @@ const categories = [
     size: 'small',
   },
   {
-    name: 'Hair Care',
-    description: 'Premium treatments',
-    image: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=600&h=600&fit=crop&q=90',
-    count: 86,
+    name: 'Lash & Brow Booking',
+    description: 'Book your appointment',
+    image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=600&fit=crop&q=90',
+    count: 7,
     size: 'small',
   },
 ];
@@ -58,7 +58,7 @@ export default function BentoCategories() {
           {categories.map((cat, i) => (
             <Link
               key={cat.name}
-              href={`/shop?category=${cat.name.toLowerCase()}`}
+              href={cat.name === 'Lash & Brow Booking' ? '/services/lash-brow' : `/shop?category=${cat.name.toLowerCase()}`}
               className={`group relative overflow-hidden rounded-lg image-zoom ${
                 cat.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''
               } ${cat.size === 'medium' ? 'md:col-span-1 md:row-span-1' : ''}
