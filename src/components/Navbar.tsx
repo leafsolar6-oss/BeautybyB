@@ -171,48 +171,102 @@ export default function Navbar() {
 
             {/* Menu Items */}
             <nav className="flex-1 overflow-y-auto p-6">
-              <div className="space-y-6">
+              <div className="space-y-8">
+                {/* Home Page Section */}
                 <div>
-                  <p className="text-gold text-xs font-bold tracking-widest uppercase mb-4">Shop</p>
+                  <p className="text-white text-xl font-bold mb-4">Home page</p>
                   <div className="space-y-3">
-                    {['Skincare', 'Makeup', 'Fragrances', 'Hair Care', 'Body Care', 'New Arrivals'].map(item => (
+                    {[
+                      { label: 'Designer Perfumes', href: '/shop?category=designer' },
+                      { label: 'Imported Skincare', href: '/shop?category=skincare' },
+                      { label: 'Skincare Supplements', href: '/shop?category=supplements' },
+                      { label: 'Gym Supplements', href: '/shop?category=gym' },
+                    ].map(item => (
+                      <Link
+                        key={item.label}
+                        href={item.href}
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="flex items-center gap-3 text-white text-lg hover:text-gold transition-colors"
+                      >
+                        <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Lash & Brow Booking Section */}
+                <div>
+                  <p className="text-white text-xl font-bold mb-4">Lash & Brow Booking</p>
+                  <div className="space-y-3">
+                    {[
+                      'Classic Lashes',
+                      'Hybrid Lashes',
+                      'Volume Lashes',
+                      'Lash Refill',
+                      'Brow Tint',
+                      'Brow Lamination',
+                      'Other Brow Services',
+                    ].map(item => (
                       <Link
                         key={item}
-                        href={`/shop?category=${item.toLowerCase().replace(' ', '-')}`}
+                        href={`/services/lash-brow?service=${item.toLowerCase().replace(/ & /g, '-').replace(' ', '-')}`}
                         onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-white text-lg hover:text-gold transition-colors"
+                        className="flex items-center gap-3 text-white text-lg hover:text-gold transition-colors"
                       >
+                        <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
                         {item}
                       </Link>
                     ))}
                   </div>
                 </div>
 
+                {/* About Us Section */}
                 <div>
-                  <p className="text-gold text-xs font-bold tracking-widest uppercase mb-4">About</p>
+                  <p className="text-white text-xl font-bold mb-4">About Us</p>
                   <div className="space-y-3">
-                    {['Our Story', 'Lash & Brow Booking', 'Contact'].map(item => (
-                      <Link
-                        key={item}
-                        href={`/${item.toLowerCase().replace(/ & /g, '-').replace(' ', '-')}`}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block text-white text-lg hover:text-gold transition-colors"
-                      >
-                        {item}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-
-                <div>
-                  <p className="text-gold text-xs font-bold tracking-widest uppercase mb-4">Account</p>
-                  <div className="space-y-3">
-                    <Link href="/account" onClick={() => setIsMobileMenuOpen(false)} className="block text-white text-lg hover:text-gold transition-colors">
-                      My Account
+                    <Link
+                      href="/contact"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center gap-3 text-white text-lg hover:text-gold transition-colors"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                      Contact
                     </Link>
-                    <button onClick={() => { setIsMobileMenuOpen(false); setIsCartOpen(true); }} className="block text-white text-lg hover:text-gold transition-colors">
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setIsSearchOpen(true);
+                      }}
+                      className="flex items-center gap-3 text-white text-lg hover:text-gold transition-colors w-full text-left"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                      Search for product
+                    </button>
+                  </div>
+                </div>
+
+                {/* Cart & Account */}
+                <div className="pt-4 border-t border-white/10">
+                  <div className="space-y-3">
+                    <button
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setIsCartOpen(true);
+                      }}
+                      className="flex items-center gap-3 text-white text-xl font-bold hover:text-gold transition-colors w-full text-left"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
                       Cart ({totalItems})
                     </button>
+                    <Link
+                      href="/account"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className="flex items-center gap-3 text-white text-xl font-bold hover:text-gold transition-colors"
+                    >
+                      <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
+                      Account
+                    </Link>
                   </div>
                 </div>
               </div>
