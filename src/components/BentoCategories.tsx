@@ -9,10 +9,10 @@ const categories = [
     size: 'large',
   },
   {
-    name: 'Fragrances',
-    description: 'Signature scents',
-    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=600&h=600&fit=crop&q=90',
-    count: 27,
+    name: 'Imported Skincare',
+    description: 'Premium serums & creams',
+    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop&q=90',
+    count: 48,
     size: 'medium',
   },
   {
