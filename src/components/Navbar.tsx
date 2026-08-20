@@ -30,11 +30,7 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-lg py-3'
-            : 'bg-transparent py-6'
-        }`}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-sm py-4 md:py-5`}
       >
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           <div className="grid grid-cols-3 items-center">
@@ -42,21 +38,19 @@ export default function Navbar() {
             <div>
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className={`flex flex-col gap-[5px] transition-colors duration-300 ${isScrolled ? 'text-green-950' : 'text-white'}`}
+                className="flex flex-col gap-[5px] transition-colors duration-300 text-green-950"
                 aria-label="Open menu"
               >
-                <span className={`block w-6 h-[2px] transition-colors ${isScrolled ? 'bg-green-950' : 'bg-white'}`} />
-                <span className={`block w-4 h-[2px] transition-colors ${isScrolled ? 'bg-green-950' : 'bg-white'}`} />
-                <span className={`block w-5 h-[2px] transition-colors ${isScrolled ? 'bg-green-950' : 'bg-white'}`} />
+                <span className="block w-6 h-[2px] bg-green-950" />
+                <span className="block w-4 h-[2px] bg-green-950" />
+                <span className="block w-5 h-[2px] bg-green-950" />
               </button>
             </div>
 
             {/* Center: Logo */}
             <div className="flex justify-center">
               <Link href="/" className="block">
-                <h1 className={`font-display text-2xl md:text-3xl font-bold tracking-wide transition-colors duration-500 ${
-                  isScrolled ? 'text-green-950' : 'text-white'
-                }`}>
+                <h1 className="font-display text-2xl md:text-3xl font-bold tracking-wide text-green-950">
                   Beauty<span className="text-gold">by</span>B
                 </h1>
               </Link>
