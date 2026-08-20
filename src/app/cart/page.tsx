@@ -16,7 +16,7 @@ export default function CartPage() {
           <h1 className="font-display text-3xl font-bold text-green-950 mb-4">Your Cart is Empty</h1>
           <p className="text-gray-600 mb-8">Looks like you haven't added any products yet. Start shopping to fill it up!</p>
           <Link
-            href="/#bestsellers"
+            href="/shop"
             className="inline-flex items-center gap-3 px-8 py-4 bg-green-950 text-white font-bold tracking-wide rounded-sm hover:bg-gold hover:text-green-950 transition-all duration-300"
           >
             Start Shopping
@@ -145,7 +145,7 @@ export default function CartPage() {
                   Proceed to Checkout
                 </Link>
                 <Link
-                  href="/#bestsellers"
+                  href="/shop"
                   className="block w-full py-3 text-sm text-center text-gray-600 hover:text-green-950 transition-colors"
                 >
                   Continue Shopping

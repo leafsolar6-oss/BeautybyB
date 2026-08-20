@@ -1,6 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
 const products = [
@@ -22,32 +23,9 @@ const products = [
 
 const categories = ['All', 'Designer Perfumes', 'Imported Skincare', 'Skincare Supplements', 'Gym Supplements'];
 
-// Map URL filter param values to category names
-const FILTER_TO_CATEGORY: Record<string, string> = {
-  'designer': 'Designer Perfumes',
-  'skincare': 'Imported Skincare',
-  'supplements': 'Skincare Supplements',
-  'gym': 'Gym Supplements',
-};
-
 export default function ProductShowcase() {
   const [activeCategory, setActiveCategory] = useState('All');
   const { addToCart } = useCart();
-
-  // Read filter param from URL on mount and set active category
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const filter = params.get('filter');
-    if (filter && FILTER_TO_CATEGORY[filter]) {
-      setActiveCategory(FILTER_TO_CATEGORY[filter]);
-    }
-    // Clean up URL param after reading so it doesn't persist on refresh
-    if (filter) {
-      const url = new URL(window.location.href);
-      url.searchParams.delete('filter');
-      window.history.replaceState({}, '', url.pathname + url.hash);
-    }
-  }, []);
 
   const filteredProducts = activeCategory === 'All'
     ? products
@@ -127,6 +105,18 @@ export default function ProductShowcase() {
           ))}
         </div>
 
+        {/* View All Link */}
+        <div className="text-center mt-14">
+          <Link
+            href="/shop"
+            className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-wider uppercase hover:text-gold-light transition-colors border-b border-gold/30 pb-1 hover:border-gold"
+          >
+            View All Products
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
       </div>
     </section>
   );

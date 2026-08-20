@@ -32,12 +32,12 @@ export default function Footer() {
             <h4 className="font-bold text-gold mb-4 tracking-wide text-base">Shop</h4>
             <ul className="space-y-3">
               {[
-                { label: 'Skincare', href: '/?filter=skincare#bestsellers' },
-                { label: 'Makeup', href: '/#bestsellers' },
-                { label: 'Fragrances', href: '/?filter=designer#bestsellers' },
-                { label: 'Hair Care', href: '/#bestsellers' },
-                { label: 'Body Care', href: '/#bestsellers' },
-                { label: 'New Arrivals', href: '/#bestsellers' },
+                { label: 'Skincare', href: '/shop?category=skincare#products' },
+                { label: 'Makeup', href: '/shop#products' },
+                { label: 'Fragrances', href: '/shop?category=designer#products' },
+                { label: 'Hair Care', href: '/shop#products' },
+                { label: 'Body Care', href: '/shop#products' },
+                { label: 'New Arrivals', href: '/shop#products' },
               ].map((item) => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-white/80 hover:text-gold transition-colors text-sm font-medium">

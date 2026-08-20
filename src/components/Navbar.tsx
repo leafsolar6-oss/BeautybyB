@@ -160,10 +160,10 @@ export default function Navbar() {
                   <p className="text-white text-xl font-bold mb-4">Home page</p>
                   <div className="space-y-3">
                     {[
-                      { label: 'Designer Perfumes', href: '/?filter=designer#bestsellers' },
-                      { label: 'Imported Skincare', href: '/?filter=skincare#bestsellers' },
-                      { label: 'Skincare Supplements', href: '/?filter=supplements#bestsellers' },
-                      { label: 'Gym Supplements', href: '/?filter=gym#bestsellers' },
+                      { label: 'Designer Perfumes', href: '/shop?category=designer#products' },
+                      { label: 'Imported Skincare', href: '/shop?category=skincare#products' },
+                      { label: 'Skincare Supplements', href: '/shop?category=supplements#products' },
+                      { label: 'Gym Supplements', href: '/shop?category=gym#products' },
                     ].map(item => (
                       <Link
                         key={item.label}
