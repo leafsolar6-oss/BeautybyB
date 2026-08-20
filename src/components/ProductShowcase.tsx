@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
@@ -23,9 +23,32 @@ const products = [
 
 const categories = ['All', 'Designer Perfumes', 'Imported Skincare', 'Skincare Supplements', 'Gym Supplements'];
 
+// Map URL filter param values to category names
+const FILTER_TO_CATEGORY: Record<string, string> = {
+  'designer': 'Designer Perfumes',
+  'skincare': 'Imported Skincare',
+  'supplements': 'Skincare Supplements',
+  'gym': 'Gym Supplements',
+};
+
 export default function ProductShowcase() {
   const [activeCategory, setActiveCategory] = useState('All');
   const { addToCart } = useCart();
+
+  // Read filter param from URL on mount and set active category
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const filter = params.get('filter');
+    if (filter && FILTER_TO_CATEGORY[filter]) {
+      setActiveCategory(FILTER_TO_CATEGORY[filter]);
+    }
+    // Clean up URL param after reading so it doesn't persist on refresh
+    if (filter) {
+      const url = new URL(window.location.href);
+      url.searchParams.delete('filter');
+      window.history.replaceState({}, '', url.pathname + url.hash);
+    }
+  }, []);
 
   const filteredProducts = activeCategory === 'All'
     ? products

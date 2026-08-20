@@ -33,8 +33,8 @@ const categories = [
   },
 ];
 
-// Map category display names to their shop page query IDs (must match category IDs in shop/page.tsx)
-const CATEGORY_HREF_MAP: Record<string, string> = {
+// Map category display names to their filter IDs (used in homepage ProductShowcase section)
+const CATEGORY_FILTER_MAP: Record<string, string> = {
   'Designer Perfumes': 'designer',
   'Imported Skincare': 'skincare',
   'Skincare Supplements': 'supplements',
@@ -62,7 +62,7 @@ export default function BentoCategories() {
             const href =
               cat.name === 'Lash & Brow Booking'
                 ? '/services/lash-brow'
-                : `/shop?category=${CATEGORY_HREF_MAP[cat.name]}#products`;
+                : `/?filter=${CATEGORY_FILTER_MAP[cat.name]}#bestsellers`;
 
             return (
             <Link
