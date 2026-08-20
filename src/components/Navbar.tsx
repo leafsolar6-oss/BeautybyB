@@ -183,13 +183,13 @@ export default function Navbar() {
                   <p className="text-white text-xl font-bold mb-4">Lash & Brow Booking</p>
                   <div className="space-y-3">
                     {[
-                      { label: 'Classic Lashes', href: '/services/lash-brow?service=classic-lashes' },
-                      { label: 'Hybrid Lashes', href: '/services/lash-brow?service=hybrid-lashes' },
-                      { label: 'Volume Lashes', href: '/services/lash-brow?service=volume-lashes' },
-                      { label: 'Lash Refill', href: '/services/lash-brow?service=lash-refill' },
-                      { label: 'Brow Tint', href: '/services/lash-brow?service=brow-tint' },
-                      { label: 'Brow Lamination', href: '/services/lash-brow?service=brow-lamination' },
-                      { label: 'Other Brow Services', href: '/services/lash-brow?service=other-brow-services' },
+                      { label: 'Classic Lashes', href: '/services/lash-brow#classic-lashes' },
+                      { label: 'Hybrid Lashes', href: '/services/lash-brow#hybrid-lashes' },
+                      { label: 'Volume Lashes', href: '/services/lash-brow#volume-lashes' },
+                      { label: 'Lash Refill', href: '/services/lash-brow#lash-refill' },
+                      { label: 'Brow Tint', href: '/services/lash-brow#brow-tint' },
+                      { label: 'Brow Lamination', href: '/services/lash-brow#brow-lamination' },
+                      { label: 'Other Brow Services', href: '/services/lash-brow#other-brow-services' },
                     ].map(item => (
                       <Link
                         key={item.label}

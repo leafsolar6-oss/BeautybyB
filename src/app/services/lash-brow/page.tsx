@@ -1,4 +1,9 @@
+'use client';
+
+import { useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
+import { Suspense } from 'react';
 
 const services = [
   {
@@ -66,7 +71,25 @@ const services = [
   },
 ];
 
-export default function LashBrowPage() {
+function LashBrowContent() {
+  const searchParams = useSearchParams();
+  const serviceParam = searchParams.get('service');
+
+  useEffect(() => {
+    if (serviceParam) {
+      setTimeout(() => {
+        const el = document.getElementById(serviceParam);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          el.classList.add('ring-4', 'ring-gold/50', 'ring-offset-4', 'ring-offset-cream');
+          setTimeout(() => {
+            el.classList.remove('ring-4', 'ring-gold/50', 'ring-offset-4', 'ring-offset-cream');
+          }, 2500);
+        }
+      }, 300);
+    }
+  }, [serviceParam]);
+
   return (
     <div className="min-h-screen bg-cream pt-24">
       {/* Hero Banner */}
@@ -82,12 +105,38 @@ export default function LashBrowPage() {
         </div>
       </section>
 
+      {/* Quick Nav */}
+      <div className="bg-white border-b border-gray-200 sticky top-[64px] md:top-[72px] z-30 shadow-sm">
+        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
+          <div className="flex overflow-x-auto hide-scrollbar gap-2 py-3">
+            {services.map(s => (
+              <a
+                key={s.id}
+                href={`#${s.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById(s.id);
+                  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }}
+                className="px-4 py-2 bg-gray-100 text-xs md:text-sm font-medium rounded-full whitespace-nowrap hover:bg-gold hover:text-green-950 transition-colors flex-shrink-0"
+              >
+                {s.name}
+              </a>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Services Grid */}
       <section className="py-12 md:py-16">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {services.map((service) => (
-              <div key={service.id} className="product-card group bg-white rounded-lg overflow-hidden border border-gray-100">
+              <div
+                key={service.id}
+                id={service.id}
+                className="product-card group bg-white rounded-lg overflow-hidden border border-gray-100 scroll-mt-32 transition-all duration-500"
+              >
                 <div className="relative aspect-[4/3] overflow-hidden">
                   <img
                     src={service.image}
@@ -102,7 +151,6 @@ export default function LashBrowPage() {
                   <h3 className="font-display text-2xl font-bold text-green-950 mb-3 group-hover:text-gold transition-colors">{service.name}</h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-4">{service.description}</p>
 
-                  {/* Features */}
                   <ul className="space-y-2 mb-6">
                     {service.features.map((feature, i) => (
                       <li key={i} className="flex items-center gap-2 text-sm text-gray-700">
@@ -114,14 +162,13 @@ export default function LashBrowPage() {
                     ))}
                   </ul>
 
-                  {/* Price & CTA */}
                   <div className="flex items-center justify-between pt-4 border-t border-gray-100">
                     <div>
                       <span className="text-xs text-gray-500">Starting from</span>
                       <p className="text-green-950 font-bold text-xl">₦{service.price.toLocaleString()}</p>
                     </div>
                     <a
-                      href="https://wa.me/2348012345678?text=Hello! I'd like to book ${service.name}"
+                      href={`https://wa.me/2348012345678?text=Hello! I'd like to book ${service.name}`}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-3 bg-green-950 text-white text-sm font-bold tracking-wide rounded-sm hover:bg-gold hover:text-green-950 transition-all duration-300"
@@ -146,7 +193,7 @@ export default function LashBrowPage() {
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
               {[
-                { icon: '', title: 'Book Ahead', desc: 'Reserve your slot at least 24 hours in advance for the best availability.' },
+                { icon: '📅', title: 'Book Ahead', desc: 'Reserve your slot at least 24 hours in advance for the best availability.' },
                 { icon: '🕐', title: 'Arrive On Time', desc: 'Please arrive 10 minutes early to complete your consultation form.' },
                 { icon: '💳', title: 'Secure Payment', desc: 'Pay via bank transfer, card, or WhatsApp payment. Receipt provided.' },
               ].map((item) => (
@@ -161,5 +208,13 @@ export default function LashBrowPage() {
         </div>
       </section>
     </div>
+  );
+}
+
+export default function LashBrowPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-cream pt-24 flex items-center justify-center"><p>Loading...</p></div>}>
+      <LashBrowContent />
+    </Suspense>
   );
 }

@@ -5,35 +5,30 @@ const categories = [
     name: 'Designer Perfumes',
     description: 'Luxury fragrances & scents',
     image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop&q=90',
-    count: 52,
     size: 'large',
   },
   {
     name: 'Imported Skincare',
     description: 'Premium serums & creams',
     image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=600&h=600&fit=crop&q=90',
-    count: 48,
     size: 'medium',
   },
   {
     name: 'Skincare Supplements',
     description: 'Beauty from within',
     image: 'https://images.unsplash.com/photo-1584308666744-24d5c4df491f?w=600&h=600&fit=crop&q=90',
-    count: 27,
     size: 'medium',
   },
   {
     name: 'Gym Supplements',
     description: 'Performance & recovery',
     image: 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=600&fit=crop&q=90',
-    count: 35,
     size: 'small',
   },
   {
     name: 'Lash & Brow Booking',
     description: 'Book your appointment',
     image: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&h=600&fit=crop&q=90',
-    count: 7,
     size: 'small',
   },
 ];
@@ -72,9 +67,6 @@ export default function BentoCategories() {
               <div className="absolute inset-0 bg-gradient-to-t from-green-950/90 via-green-950/40 to-transparent" />
               <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-10 lg:p-12">
                 <div className="transform transition-transform duration-500 group-hover:translate-y-[-8px]">
-                  <span className="text-gold text-xs md:text-sm tracking-[0.2em] uppercase font-bold mb-2 md:mb-3 block">
-                    {cat.count} Products
-                  </span>
                   <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-2 md:mb-3 leading-tight">
                     {cat.name}
                   </h3>
