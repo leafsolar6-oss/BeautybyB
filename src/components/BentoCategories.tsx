@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const categories = [
   {
-    name: 'Skincare',
-    description: 'Luxury serums & moisturizers',
-    image: 'https://images.unsplash.com/photo-1556228720-195a672e8a03?w=800&h=800&fit=crop&q=90',
+    name: 'Designer Perfumes',
+    description: 'Luxury fragrances & scents',
+    image: 'https://images.unsplash.com/photo-1541643600914-78b084683601?w=800&h=800&fit=crop&q=90',
     count: 52,
     size: 'large',
   },
