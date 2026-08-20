@@ -40,7 +40,7 @@ const categories = [
 
 export default function BentoCategories() {
   return (
-    <section className="py-24 md:py-32 bg-cream">
+    <section id="categories" className="py-24 md:py-32 bg-cream">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
         {/* Header */}
         <div className="text-center mb-16 md:mb-20 px-4">

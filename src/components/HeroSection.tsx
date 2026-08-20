@@ -56,7 +56,7 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className="animate-fade-in-up text-white/85 text-base md:text-lg font-normal leading-relaxed max-w-xl mx-auto mb-10" style={{ animationDelay: '0.6s', opacity: 0 }}>
+            <p className="animate-fade-in-up text-white/85 text-base md:text-lg font-normal leading-relaxed max-w-xl mx-auto mb-10 text-center px-4" style={{ animationDelay: '0.6s', opacity: 0 }}>
               Discover our curated collection of premium skincare, luxury fragrances,
               and professional beauty treatments crafted for the discerning individual.
             </p>
@@ -64,7 +64,7 @@ export default function HeroSection() {
             {/* CTA Buttons */}
             <div className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-14" style={{ animationDelay: '0.8s', opacity: 0 }}>
               <Link
-                href="/shop"
+                href="#categories"
                 className="group relative inline-flex items-center gap-3 px-9 py-4 bg-gold text-green-950 text-sm font-bold tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-500 rounded-sm"
               >
                 <span className="relative z-10">Explore Collection</span>
@@ -121,15 +121,15 @@ export default function HeroSection() {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-fade-in" style={{ animationDelay: '1.5s', opacity: 0 }}>
-        <div className="flex flex-col items-center gap-3 text-white/50">
-          <span className="text-[9px] tracking-[0.3em] uppercase font-medium">Scroll</span>
-          <div className="w-px h-10 bg-gradient-to-b from-white/50 to-transparent" />
+      <div className="absolute bottom-16 left-1/2 -translate-x-1/2 animate-fade-in" style={{ animationDelay: '1.5s', opacity: 0 }}>
+        <div className="flex flex-col items-center gap-2 text-white/60">
+          <span className="text-[10px] tracking-[0.2em] uppercase font-medium">Welcome — Scroll to Explore</span>
+          <div className="w-px h-8 bg-gradient-to-b from-white/60 to-transparent" />
         </div>
       </div>
 
-      {/* Bottom Decorative Line */}
-      <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+      {/* Bottom Fade - Separates welcome page from content */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-cream to-transparent" />
     </section>
   );
 }
