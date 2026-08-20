@@ -62,7 +62,7 @@ export default function HeroSection() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-14" style={{ animationDelay: '0.8s', opacity: 0 }}>
+            <div className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-20" style={{ animationDelay: '0.8s', opacity: 0 }}>
               <Link
                 href="#categories"
                 className="group relative inline-flex items-center gap-3 px-9 py-4 bg-gold text-green-950 text-sm font-bold tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-500 rounded-sm"
