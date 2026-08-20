@@ -30,68 +30,55 @@ export default function Navbar() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white shadow-sm py-4 md:py-5`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm"
       >
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
-          <div className="grid grid-cols-3 items-center">
-            {/* Left: Hamburger */}
-            <div>
-              <button
-                onClick={() => setIsMobileMenuOpen(true)}
-                className="flex flex-col gap-[5px] transition-colors duration-300 text-green-950"
-                aria-label="Open menu"
-              >
-                <span className="block w-6 h-[2px] bg-green-950" />
-                <span className="block w-4 h-[2px] bg-green-950" />
-                <span className="block w-5 h-[2px] bg-green-950" />
-              </button>
-            </div>
+        <div className="flex items-center justify-between px-4 py-3 md:px-8 md:py-4">
+          {/* Left: Hamburger */}
+          <button
+            onClick={() => setIsMobileMenuOpen(true)}
+            className="flex flex-col gap-[5px] flex-shrink-0 w-10 h-10 items-center justify-center"
+            aria-label="Open menu"
+          >
+            <span className="block w-6 h-[2px] bg-green-950" />
+            <span className="block w-4 h-[2px] bg-green-950" />
+            <span className="block w-5 h-[2px] bg-green-950" />
+          </button>
 
-            {/* Center: Logo */}
-            <div className="flex justify-center">
-              <Link href="/" className="block">
-                <h1 className="font-display text-2xl md:text-3xl font-bold tracking-wide text-green-950">
-                  Beauty<span className="text-gold">by</span>B
-                </h1>
-              </Link>
-            </div>
+          {/* Center: Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <h1 className="font-display text-xl sm:text-2xl md:text-3xl font-bold tracking-wide text-green-950 whitespace-nowrap">
+              Beauty<span className="text-gold">by</span>B
+            </h1>
+          </Link>
 
-            {/* Right: Actions */}
-            <div className="flex items-center justify-end gap-4">
-              {/* Search */}
-              <button
-                onClick={() => setIsSearchOpen(true)}
-                className={`transition-colors duration-300 ${isScrolled ? 'text-green-950' : 'text-white'}`}
-                aria-label="Search"
-              >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                </svg>
-              </button>
+          {/* Right: Actions */}
+          <div className="flex items-center gap-2 md:gap-4 flex-shrink-0">
+            {/* Search - hidden on mobile */}
+            <button
+              onClick={() => setIsSearchOpen(true)}
+              className="hidden sm:block text-green-950 w-10 h-10 flex items-center justify-center"
+              aria-label="Search"
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+              </svg>
+            </button>
 
-              {/* Cart */}
-              <button
-                onClick={() => setIsCartOpen(true)}
-                className="relative w-9 h-9 rounded-full bg-gold flex items-center justify-center shadow-md hover:bg-gold-light transition-colors duration-300"
-                aria-label="Cart"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="#1a2f14" strokeWidth={2.5} viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
-                </svg>
-                {totalItems > 0 && (
-                  <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] rounded-full flex items-center justify-center font-bold">
-                    {totalItems}
-                  </span>
-                )}
-              </button>
-
-              {/* Account */}
-              <button className={`hidden sm:block transition-colors duration-300 ${isScrolled ? 'text-green-950' : 'text-white'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                </svg>
-              </button>
-            </div>
+            {/* Cart */}
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="relative w-9 h-9 rounded-full bg-gold flex items-center justify-center shadow-md hover:bg-gold-light transition-colors duration-300 flex-shrink-0"
+              aria-label="Cart"
+            >
+              <svg className="w-4 h-4" fill="none" stroke="#1a2f14" strokeWidth={2.5} viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              {totalItems > 0 && (
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] rounded-full flex items-center justify-center font-bold">
+                  {totalItems}
+                </span>
+              )}
+            </button>
           </div>
         </div>
       </header>
