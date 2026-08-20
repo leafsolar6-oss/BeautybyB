@@ -72,12 +72,6 @@ export default function HeroSection() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link
-                href="/about"
-                className="inline-flex items-center gap-3 px-9 py-4 text-white text-sm font-semibold tracking-[0.15em] uppercase border border-white/25 hover:border-white/50 hover:bg-white/5 transition-all duration-500 rounded-sm"
-              >
-                Our Story
-              </Link>
             </div>
 
             {/* Trust Indicators */}
