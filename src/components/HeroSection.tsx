@@ -25,14 +25,15 @@ export default function HeroSection() {
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24 w-full">
-          <div className="max-w-2xl md:ml-4">
+          <div className="max-w-3xl mx-auto text-center">
 
             {/* Decorative Element */}
-            <div className="animate-fade-in-up flex items-center gap-4 mb-8" style={{ animationDelay: '0.2s', opacity: 0 }}>
+            <div className="animate-fade-in-up flex items-center justify-center gap-4 mb-8" style={{ animationDelay: '0.2s', opacity: 0 }}>
               <div className="w-12 h-px bg-gold/60" />
-              <span className="text-gold/90 text-[10px] md:text-xs tracking-[0.4em] uppercase font-semibold">
+              <span className="text-gold/90 text-[10px] md:text-xs tracking-[0.4em] uppercase font-semibold whitespace-nowrap">
                 Luxury Beauty Redefined
               </span>
+              <div className="w-12 h-px bg-gold/60" />
             </div>
 
             {/* Headline */}
@@ -46,7 +47,7 @@ export default function HeroSection() {
             </h1>
 
             {/* Elegant Divider */}
-            <div className="animate-fade-in-up mb-6" style={{ animationDelay: '0.5s', opacity: 0 }}>
+            <div className="animate-fade-in-up mb-6 flex justify-center" style={{ animationDelay: '0.5s', opacity: 0 }}>
               <div className="flex items-center gap-3">
                 <div className="w-8 h-px bg-gold/50" />
                 <div className="w-1.5 h-1.5 rounded-full bg-gold/50" />
@@ -55,13 +56,13 @@ export default function HeroSection() {
             </div>
 
             {/* Description */}
-            <p className="animate-fade-in-up text-white/85 text-base md:text-lg font-normal leading-relaxed max-w-lg mb-10" style={{ animationDelay: '0.6s', opacity: 0 }}>
+            <p className="animate-fade-in-up text-white/85 text-base md:text-lg font-normal leading-relaxed max-w-xl mx-auto mb-10" style={{ animationDelay: '0.6s', opacity: 0 }}>
               Discover our curated collection of premium skincare, luxury fragrances,
               and professional beauty treatments crafted for the discerning individual.
             </p>
 
             {/* CTA Buttons */}
-            <div className="animate-fade-in-up flex flex-col sm:flex-row items-start gap-4 mb-14" style={{ animationDelay: '0.8s', opacity: 0 }}>
+            <div className="animate-fade-in-up flex flex-col sm:flex-row items-center justify-center gap-4 mb-14" style={{ animationDelay: '0.8s', opacity: 0 }}>
               <Link
                 href="/shop"
                 className="group relative inline-flex items-center gap-3 px-9 py-4 bg-gold text-green-950 text-sm font-bold tracking-[0.15em] uppercase hover:bg-gold-light transition-all duration-500 rounded-sm"
@@ -80,22 +81,39 @@ export default function HeroSection() {
             </div>
 
             {/* Trust Indicators */}
-            <div className="animate-fade-in-up flex flex-wrap items-center gap-8" style={{ animationDelay: '1s', opacity: 0 }}>
-              {[
-                { icon: '🌿', label: 'Clean Beauty' },
-                { icon: '✨', label: 'Dermatologist Tested' },
-                { label: 'Cruelty Free' },
-              ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2.5">
-                  {item.icon && <span className="text-base">{item.icon}</span>}
-                  <span className="text-white/75 text-xs md:text-sm font-medium tracking-wide">
-                    {item.label}
-                  </span>
-                  {i < 2 && (
-                    <span className="ml-4 w-px h-4 bg-white/20" />
-                  )}
+            <div className="animate-fade-in-up flex flex-wrap items-center justify-center gap-4 md:gap-6" style={{ animationDelay: '1s', opacity: 0 }}>
+              {/* Clean Beauty Badge */}
+              <div className="flex items-center gap-3 px-5 py-3 border border-gold/30 rounded-sm bg-white/5 backdrop-blur-sm">
+                <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                </svg>
+                <div className="text-left">
+                  <div className="text-white text-xs font-bold tracking-wide">Clean Beauty</div>
+                  <div className="text-white/60 text-[10px]">Non-toxic formulas</div>
                 </div>
-              ))}
+              </div>
+
+              {/* Dermatologist Tested Badge */}
+              <div className="flex items-center gap-3 px-5 py-3 border border-gold/30 rounded-sm bg-white/5 backdrop-blur-sm">
+                <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                <div className="text-left">
+                  <div className="text-white text-xs font-bold tracking-wide">Dermatologist Tested</div>
+                  <div className="text-white/60 text-[10px]">Clinically verified</div>
+                </div>
+              </div>
+
+              {/* Cruelty Free Badge */}
+              <div className="flex items-center gap-3 px-5 py-3 border border-gold/30 rounded-sm bg-white/5 backdrop-blur-sm">
+                <svg className="w-5 h-5 text-gold" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
+                </svg>
+                <div className="text-left">
+                  <div className="text-white text-xs font-bold tracking-wide">Cruelty Free</div>
+                  <div className="text-white/60 text-[10px]">Never tested on animals</div>
+                </div>
+              </div>
             </div>
 
           </div>
