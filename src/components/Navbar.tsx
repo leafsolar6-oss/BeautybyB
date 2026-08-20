@@ -163,9 +163,11 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <h2 className="font-display text-2xl font-bold text-white">
-                Beauty<span className="text-gold">by</span>B
-              </h2>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block">
+                <h2 className="font-display text-2xl font-bold text-white hover:text-gold transition-colors duration-300">
+                  Beauty<span className="text-gold">by</span>B
+                </h2>
+              </Link>
               <div className="w-6" />
             </div>
 
