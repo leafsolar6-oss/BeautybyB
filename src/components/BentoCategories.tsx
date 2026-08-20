@@ -53,7 +53,7 @@ export default function BentoCategories() {
           {categories.map((cat, i) => (
             <Link
               key={cat.name}
-              href={cat.name === 'Lash & Brow Booking' ? '/services/lash-brow' : `/shop?category=${cat.name.toLowerCase()}`}
+              href={cat.name === 'Lash & Brow Booking' ? '/services/lash-brow' : `/shop?category=${cat.name.toLowerCase().replace(/ & /g, '-').replace(' ', '-')}#products`}
               className={`group relative overflow-hidden rounded-lg image-zoom ${
                 cat.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''
               } ${cat.size === 'medium' ? 'md:col-span-1 md:row-span-1' : ''}

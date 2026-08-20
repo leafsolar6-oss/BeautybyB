@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useMemo, Suspense } from 'react';
+import { useState, useMemo, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
@@ -42,6 +42,16 @@ function ShopContent() {
   const [activeCategory, setActiveCategory] = useState(searchParams.get('category') || 'all');
   const [sortBy, setSortBy] = useState('featured');
 
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (hash) {
+      setTimeout(() => {
+        const el = document.querySelector(hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 300);
+    }
+  }, []);
+
   const filteredProducts = useMemo(() => {
     let result = activeCategory === 'all' ? products : products.filter(p => p.category === activeCategory);
     if (sortBy === 'price-low') result = [...result].sort((a, b) => a.price - b.price);
@@ -73,7 +83,7 @@ function ShopContent() {
       </section>
 
       {/* Filters & Products */}
-      <section className="py-12 md:py-16">
+      <section id="products" className="py-12 md:py-16">
         <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
           {/* Filters Bar */}
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 mb-10 pb-6 border-b border-gray-200">

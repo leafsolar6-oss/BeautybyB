@@ -9,13 +9,13 @@ import InstagramFeed from '@/components/InstagramFeed';
 export default function Home() {
   return (
     <>
-      <HeroSection />
-      <BentoCategories />
-      <AboutSection />
-      <ProductShowcase />
-      <TestimonialsSection />
-      <InstagramFeed />
-      <NewsletterSection />
+      <section id="home"><HeroSection /></section>
+      <section id="categories"><BentoCategories /></section>
+      <section id="about"><AboutSection /></section>
+      <section id="bestsellers"><ProductShowcase /></section>
+      <section id="testimonials"><TestimonialsSection /></section>
+      <section id="instagram"><InstagramFeed /></section>
+      <section id="newsletter"><NewsletterSection /></section>
     </>
   );
 }
