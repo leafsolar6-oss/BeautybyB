@@ -33,6 +33,14 @@ const categories = [
   },
 ];
 
+// Map category display names to their shop page query IDs (must match category IDs in shop/page.tsx)
+const CATEGORY_HREF_MAP: Record<string, string> = {
+  'Designer Perfumes': 'designer',
+  'Imported Skincare': 'skincare',
+  'Skincare Supplements': 'supplements',
+  'Gym Supplements': 'gym',
+};
+
 export default function BentoCategories() {
   return (
     <section id="categories" className="py-24 md:py-32 bg-cream">
@@ -50,10 +58,16 @@ export default function BentoCategories() {
 
         {/* Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 auto-rows-[300px] md:auto-rows-[350px]">
-          {categories.map((cat, i) => (
+          {categories.map((cat) => {
+            const href =
+              cat.name === 'Lash & Brow Booking'
+                ? '/services/lash-brow'
+                : `/shop?category=${CATEGORY_HREF_MAP[cat.name]}#products`;
+
+            return (
             <Link
               key={cat.name}
-              href={cat.name === 'Lash & Brow Booking' ? '/services/lash-brow' : `/shop?category=${cat.name.toLowerCase().replace(/ & /g, '-').replace(' ', '-')}#products`}
+              href={href}
               className={`group relative overflow-hidden rounded-lg image-zoom ${
                 cat.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''
               } ${cat.size === 'medium' ? 'md:col-span-1 md:row-span-1' : ''}
@@ -82,7 +96,8 @@ export default function BentoCategories() {
                 </div>
               </div>
             </Link>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>
