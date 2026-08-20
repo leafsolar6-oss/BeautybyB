@@ -30,13 +30,13 @@ export default function TestimonialsSection() {
   const [active, setActive] = useState(0);
 
   return (
-    <section className="py-24 md:py-32 bg-cream">
-        <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
-          {/* Header */}
-        <div className="text-center mb-16 px-4">
+    <section className="py-24 md:py-32 bg-[#f5f5f5]">
+      <div className="max-w-[1400px] mx-auto px-8 md:px-16 lg:px-24">
+        {/* Header */}
+        <div className="text-center mb-16">
           <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Testimonials</span>
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-green-950 mt-4 md:mt-6 leading-tight">
-            Words from Our <em className="italic font-bold">Clients</em>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-green-950 mt-4 leading-tight">
+            Words from Our <em className="italic font-normal">Clients</em>
           </h2>
         </div>
 
@@ -66,7 +66,7 @@ export default function TestimonialsSection() {
                   </div>
 
                   {/* Text */}
-                  <p className="font-display text-xl md:text-2xl lg:text-3xl font-medium text-green-950 leading-relaxed md:leading-relaxed mb-8 italic px-4 md:px-8">
+                  <p className="font-display text-2xl md:text-3xl font-medium text-green-950 leading-relaxed mb-8 italic px-4 md:px-8">
                     "{testimonial.text}"
                   </p>
 

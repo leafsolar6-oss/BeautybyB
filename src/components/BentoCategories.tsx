@@ -45,10 +45,10 @@ export default function BentoCategories() {
         {/* Header */}
         <div className="text-center mb-16 md:mb-20 px-4">
           <span className="text-gold text-xs md:text-sm tracking-[0.3em] uppercase font-bold">Curated For You</span>
-          <h2 className="font-display text-4xl md:text-6xl lg:text-7xl font-bold text-green-950 mt-4 md:mt-6 mb-4 md:mb-6 leading-tight">
-            Shop by <em className="italic font-bold">Category</em>
+          <h2 className="font-display text-4xl md:text-6xl font-bold text-green-950 mt-4 mb-6 leading-tight">
+            Shop by <em className="italic font-normal">Category</em>
           </h2>
-          <p className="text-gray-700 text-base md:text-lg lg:text-xl font-medium leading-relaxed max-w-3xl mx-auto px-4">
+          <p className="text-gray-700 text-base md:text-lg font-medium leading-relaxed max-w-3xl mx-auto px-4">
             Explore our meticulously curated collections, each product selected for quality, efficacy, and luxury.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function BentoCategories() {
             <Link
               key={cat.name}
               href={`/shop?category=${cat.name.toLowerCase()}`}
-              className={`group relative overflow-hidden rounded-2xl image-zoom ${
+              className={`group relative overflow-hidden rounded-lg image-zoom ${
                 cat.size === 'large' ? 'md:col-span-2 md:row-span-2' : ''
               } ${cat.size === 'medium' ? 'md:col-span-1 md:row-span-1' : ''}
               ${cat.size === 'small' ? 'md:col-span-1 md:row-span-1' : ''}`}
@@ -75,13 +75,13 @@ export default function BentoCategories() {
                   <span className="text-gold text-xs md:text-sm tracking-[0.2em] uppercase font-bold mb-2 md:mb-3 block">
                     {cat.count} Products
                   </span>
-                  <h3 className="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-3 leading-tight">
+                  <h3 className="font-display text-3xl md:text-4xl font-bold text-white mb-2 md:mb-3 leading-tight">
                     {cat.name}
                   </h3>
-                  <p className="text-white/90 text-sm md:text-base lg:text-lg font-medium leading-relaxed">
+                  <p className="text-white/90 text-sm md:text-base font-medium leading-relaxed">
                     {cat.description}
                   </p>
-                  <div className="mt-4 md:mt-6 inline-flex items-center gap-2 text-gold text-sm md:text-base font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="mt-4 md:mt-6 inline-flex items-center gap-2 text-gold text-sm font-bold opacity-0 group-hover:opacity-100 transition-opacity duration-500">
                     Explore
                     <svg className="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />

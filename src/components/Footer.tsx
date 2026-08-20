@@ -19,6 +19,7 @@ export default function Footer() {
                   key={social}
                   href="#"
                   className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-gold hover:text-green-950 transition-all duration-300"
+                  aria-label={social}
                 >
                   <span className="text-xs font-bold">{social[0]}</span>
                 </a>

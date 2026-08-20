@@ -1,4 +1,5 @@
 import Navbar from '@/components/Navbar';
+import CartDrawer from '@/components/CartDrawer';
 import HeroSection from '@/components/HeroSection';
 import BentoCategories from '@/components/BentoCategories';
 import AboutSection from '@/components/AboutSection';
@@ -12,6 +13,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      <CartDrawer />
       <main>
         <HeroSection />
         <BentoCategories />
