@@ -161,7 +161,7 @@ export default function Navbar() {
                   <div className="space-y-3">
                     {[
                       { label: 'Designer Perfumes', href: '/shop?category=designer' },
-                      { label: 'Imported Skincare', href: '/shop?category=skincare' },
+                      { label: 'Imported Skincare', href: '/shop?category=supplements' },
                       { label: 'Skincare Supplements', href: '/shop?category=supplements' },
                       { label: 'Gym Supplements', href: '/shop?category=gym' },
                     ].map(item => (
