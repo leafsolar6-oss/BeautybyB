@@ -1,7 +1,6 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import Link from 'next/link';
 import { useCart } from '@/context/CartContext';
 
 const products = [
@@ -128,18 +127,6 @@ export default function ProductShowcase() {
           ))}
         </div>
 
-        {/* View All Link */}
-        <div className="text-center mt-14">
-          <Link
-            href="/shop"
-            className="inline-flex items-center gap-2 text-gold text-sm font-semibold tracking-wider uppercase hover:text-gold-light transition-colors border-b border-gold/30 pb-1 hover:border-gold"
-          >
-            View All Products
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
-        </div>
       </div>
     </section>
   );
