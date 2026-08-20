@@ -51,17 +51,17 @@ export default function Navbar() {
             </div>
 
             {/* Right: Actions */}
-            <div className="flex items-center justify-end gap-5">
+            <div className="flex items-center justify-end gap-4">
               <button className={`transition-colors duration-300 ${isScrolled ? 'text-green-950' : 'text-white'}`}>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                 </svg>
               </button>
-              <Link href="/cart" className={`relative transition-colors duration-300 ${isScrolled ? 'text-green-950' : 'text-white'}`}>
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              <Link href="/cart" className="relative w-9 h-9 rounded-full bg-gold flex items-center justify-center shadow-md hover:bg-gold-light transition-colors duration-300">
+                <svg className="w-4 h-4" fill="none" stroke="#1a2f14" strokeWidth={2.5} viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
                 </svg>
-                <span className="absolute -top-2 -right-2 w-4 h-4 bg-gold text-green-950 text-[10px] rounded-full flex items-center justify-center font-bold">
+                <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white text-[9px] rounded-full flex items-center justify-center font-bold">
                   0
                 </span>
               </Link>
