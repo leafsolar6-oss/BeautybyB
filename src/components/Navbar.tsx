@@ -183,22 +183,22 @@ export default function Navbar() {
                   <p className="text-white text-xl font-bold mb-4">Lash & Brow Booking</p>
                   <div className="space-y-3">
                     {[
-                      'Classic Lashes',
-                      'Hybrid Lashes',
-                      'Volume Lashes',
-                      'Lash Refill',
-                      'Brow Tint',
-                      'Brow Lamination',
-                      'Other Brow Services',
+                      { label: 'Classic Lashes', href: '/services/lash-brow?service=classic-lashes' },
+                      { label: 'Hybrid Lashes', href: '/services/lash-brow?service=hybrid-lashes' },
+                      { label: 'Volume Lashes', href: '/services/lash-brow?service=volume-lashes' },
+                      { label: 'Lash Refill', href: '/services/lash-brow?service=lash-refill' },
+                      { label: 'Brow Tint', href: '/services/lash-brow?service=brow-tint' },
+                      { label: 'Brow Lamination', href: '/services/lash-brow?service=brow-lamination' },
+                      { label: 'Other Brow Services', href: '/services/lash-brow?service=other-brow-services' },
                     ].map(item => (
                       <Link
-                        key={item}
-                        href={`/services/lash-brow?service=${item.toLowerCase().replace(/ & /g, '-').replace(' ', '-')}`}
+                        key={item.label}
+                        href={item.href}
                         onClick={() => setIsMobileMenuOpen(false)}
                         className="flex items-center gap-3 text-white text-lg hover:text-gold transition-colors"
                       >
                         <span className="w-2 h-2 rounded-full bg-gold flex-shrink-0" />
-                        {item}
+                        {item.label}
                       </Link>
                     ))}
                   </div>
